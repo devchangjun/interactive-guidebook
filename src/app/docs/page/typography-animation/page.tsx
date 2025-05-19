@@ -3,27 +3,10 @@ import { TypographyAnimation } from "@/components/common/framer-motion/Typograph
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
-import { MagneticText } from "@/components/common/framer-motion/MagneticText";
 import { MagneticLetters } from "@/components/common/framer-motion/MagneticLetters";
-
-const typographyAnimationCode = `import { TypographyAnimation } from "@/components/common/framer-motion/TypographyAnimation";
-
-<TypographyAnimation
-  texts={["Hello, World!", "프론트엔드 개발자", "타이포그래피 애니메이션"]}
-  typingSpeed={60}
-  pause={1200}
-/>
-`;
-
-const magneticTextCode = `import { MagneticText } from "@/components/common/framer-motion/MagneticText";
-
-<MagneticText strength={48} style={{ fontSize: 32, fontWeight: 700, color: "#007aff", margin: "0 8px" }}>
-  마그네틱 효과 텍스트
-</MagneticText>
-<MagneticText strength={32} style={{ fontSize: 28, fontWeight: 600, color: "#222", margin: "0 8px" }}>
-  Magnetic
-</MagneticText>
-`;
+import { ResultBox } from "@/components/common/ResultBox";
+import { typographyAnimationCode } from "./constants/code";
+import { magneticTextCode } from "./constants/code";
 
 export default function TypographyAnimationPage() {
   const [copied, setCopied] = useState(false);
@@ -38,22 +21,9 @@ export default function TypographyAnimationPage() {
   return (
     <div>
       <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Typography Animation</h1>
-      <div
-        style={{
-          border: "1px solid #eee",
-          borderRadius: 12,
-          overflow: "hidden",
-          marginBottom: 16,
-          padding: 32,
-          background: "#1a1a1a",
-        }}
-      >
-        <TypographyAnimation
-          texts={["Hello, World!", "프론트엔드 개발자", "타이포그래피 애니메이션"]}
-          typingSpeed={60}
-          pause={1200}
-        />
-      </div>
+      <ResultBox>
+        <TypographyAnimation text="Hello, World!" typingSpeed={60} />
+      </ResultBox>
       <p style={{ fontSize: 16, marginBottom: 8 }}>
         <b>설명:</b> 여러 줄의 텍스트가 한 글자씩 자연스럽게 타이핑되며, 각 글자가 페이드인 애니메이션으로 등장합니다.
         <br />
@@ -95,19 +65,9 @@ export default function TypographyAnimationPage() {
         </SyntaxHighlighter>
       </div>
       <h2 style={{ fontSize: 22, fontWeight: 700, margin: "40px 0 12px 0" }}>마그네틱 효과 (Magnetic Text)</h2>
-      <div
-        style={{
-          border: "1px solid #eee",
-          borderRadius: 12,
-          overflow: "hidden",
-          marginBottom: 16,
-          padding: 32,
-          background: "#1a1a1a",
-          textAlign: "center",
-        }}
-      >
+      <ResultBox>
         <MagneticLetters text="마그네틱 효과 텍스트" />
-      </div>
+      </ResultBox>
       <p style={{ fontSize: 16, marginBottom: 8 }}>
         <b>설명:</b> 마우스가 텍스트 근처에 오면 텍스트가 자연스럽게 끌려가는 마그네틱 인터랙션입니다.
         <br />

@@ -40,12 +40,12 @@ function AnimatedTextListWithCursor() {
   }, [x]);
 
   return (
-    <div style={{ position: "relative", width: "100%", minHeight: 320, margin: "64px 0" }}>
+    <div style={{ position: "relative" }}>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 16,
+          gap: 20,
           alignItems: "center",
           userSelect: "none",
         }}
@@ -70,14 +70,18 @@ function AnimatedTextListWithCursor() {
                 left: 0,
                 top: 0,
                 width: "100%",
-                fontSize: 28,
-                fontWeight: 700,
-                color: "#222",
+                fontSize: 40,
+                fontWeight: 900,
+                color: "#fff",
                 lineHeight: "48px",
                 pointerEvents: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
               }}
             >
-              {city.code} {city.name}
+              <span style={{ color: "#888", fontWeight: 700 }}>{city.code}</span>
+              <span style={{ color: "#fff", fontWeight: 900 }}>{city.name.toUpperCase()}</span>
             </motion.div>
             {/* 올라오는 텍스트 */}
             <motion.div
@@ -92,14 +96,18 @@ function AnimatedTextListWithCursor() {
                 left: 0,
                 top: 0,
                 width: "100%",
-                fontSize: 28,
-                fontWeight: 700,
-                color: "#007aff",
+                fontSize: 40,
+                fontWeight: 900,
+                color: "#fff",
                 lineHeight: "48px",
                 pointerEvents: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
               }}
             >
-              {city.code} {city.name}
+              <span style={{ color: "#888", fontWeight: 700 }}>{city.code}</span>
+              <span style={{ color: "#fff", fontWeight: 900 }}>{city.name.toUpperCase()}</span>
             </motion.div>
           </div>
         ))}

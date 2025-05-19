@@ -8,14 +8,14 @@ const animations = [
     description: "스크롤에 따라 움직이는 패럴럭스 이미지",
   },
   {
-    id: "typing",
+    id: "typography-animation",
     name: "Typing Effect",
     description: "자연스러운 타이핑 애니메이션",
   },
   {
     id: "animated-text-list",
-    name: "Animated Text List",
-    description: "텍스트 리스트 + 커서 이미지 인터랙션",
+    name: "Cursor Image hover",
+    description: "텍스트 리스트 + 커서 이미지 hover 인터랙션",
   },
   // 여기에 더 추가 가능
 ];
@@ -23,7 +23,7 @@ const animations = [
 export default function DocsSidebar() {
   return (
     <nav>
-      <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>애니메이션 목록</h2>
+      <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>인터랙션 가이드북</h2>
       <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
         {animations.map((ani) => (
           <li key={ani.id}>

@@ -3,6 +3,7 @@ import { AnimatedTextListWithCursor } from "@/components/common/framer-motion/An
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
+import { ResultBox } from "@/components/common/ResultBox";
 
 const animatedTextListCode = `import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -97,9 +98,9 @@ export default function AnimatedTextListPage() {
   return (
     <div>
       <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Animated Text List With Cursor</h1>
-      <div style={{ border: "1px solid #eee", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
+      <ResultBox>
         <AnimatedTextListWithCursor />
-      </div>
+      </ResultBox>
       <p style={{ fontSize: 16, marginBottom: 8 }}>
         <b>설명:</b> 텍스트 리스트에 마우스를 올리면 해당 텍스트가 컬러로 바뀌며 위로 올라오고, 동시에 커서에 이미지가
         따라다니는 인터랙션입니다.

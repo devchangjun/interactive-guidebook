@@ -4,45 +4,33 @@ import { motion } from "framer-motion";
 
 /**
  * TypographyAnimation
- * - 텍스트 배열을 받아 한 글자씩 타이핑 애니메이션 + 페이드인 효과
+ * - 단일 텍스트를 받아 한 글자씩 타이핑 애니메이션 + 페이드인 효과
  * - 반응형, framer-motion 기반
- * - 예시: ["Hello, World!", "프론트엔드 개발자", "타이포그래피 애니메이션"]
+ * - 예시: "Hello, World!"
  */
 interface TypographyAnimationProps {
-  texts: string[];
+  text: string;
   typingSpeed?: number; // ms per char
-  pause?: number; // ms pause between lines
   className?: string;
 }
 
-export function TypographyAnimation({
-  texts,
-  typingSpeed = 60,
-  pause = 1200,
-  className = "",
-}: TypographyAnimationProps) {
-  const [currentLine, setCurrentLine] = useState(0);
+export function TypographyAnimation({ text, typingSpeed = 60, className = "" }: TypographyAnimationProps) {
   const [displayed, setDisplayed] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (isTyping) {
-      if (displayed.length < texts[currentLine].length) {
+      if (displayed.length < text.length) {
         timeout = setTimeout(() => {
-          setDisplayed(texts[currentLine].slice(0, displayed.length + 1));
+          setDisplayed(text.slice(0, displayed.length + 1));
         }, typingSpeed);
       } else {
         setIsTyping(false);
-        timeout = setTimeout(() => {
-          setIsTyping(true);
-          setDisplayed("");
-          setCurrentLine((prev) => (prev + 1) % texts.length);
-        }, pause);
       }
     }
     return () => clearTimeout(timeout);
-  }, [displayed, isTyping, texts, currentLine, typingSpeed, pause]);
+  }, [displayed, isTyping, text, typingSpeed]);
 
   return (
     <div className={className} style={{ fontSize: 28, fontWeight: 700, minHeight: 40, letterSpacing: 1 }}>
