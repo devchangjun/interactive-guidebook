@@ -4,7 +4,7 @@ import { typographyAnimationCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import MorphingText from "@/components/common/framer-motion/typography/MorphingText";
-
+import TextClipEffect from "@/components/common/framer-motion/typography/TextClipEffect";
 export default function TypographyAnimationPage() {
   return (
     <div>
@@ -15,8 +15,18 @@ export default function TypographyAnimationPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
-        <ResultBox>
+        <ResultBox style={{ marginBottom: 16 }}>
           <MorphingText texts={["Hello world!", "hello 2", "javascript"]} />
+        </ResultBox>
+
+        <ResultBox style={{ marginBottom: 16 }}>
+          <TextClipEffect
+            items={[
+              { main: "Hello", sub: "Hello" },
+              { main: "javascript", sub: "javascript" },
+              { main: "typescript", sub: "typescript" },
+            ]}
+          />
         </ResultBox>
 
         <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>

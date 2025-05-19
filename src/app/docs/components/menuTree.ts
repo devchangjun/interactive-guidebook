@@ -52,6 +52,12 @@ const menuTree = [
         path: "/docs/typography/scroll-trigger-text",
       },
       {
+        id: "text-clip-effect",
+        name: "텍스트 클립 이펙트",
+        description: "텍스트 클립 이펙트",
+        path: "/docs/typography/text-clip-effect",
+      },
+      {
         id: "playground",
         name: "플레이그라운드",
         description: "플레이그라운드",
