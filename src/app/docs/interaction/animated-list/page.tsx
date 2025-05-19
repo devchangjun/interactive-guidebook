@@ -2,146 +2,89 @@
 import { AnimatedTextListWithCursor } from "@/components/common/framer-motion/AniatedTextListWidthCursor";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useState } from "react";
+import { CopyButton } from "../../components/CopyButton";
+import { animatedTextListCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 
-const animatedTextListCode = `import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const cityList = [
-  { code: "01", name: "Tokyo", img: "/1.avif" },
-  { code: "02", name: "Amsterdam", img: "/1.avif" },
-  { code: "03", name: "London", img: "/1.avif" },
-];
-
-function useMousePosition() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    const handle = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", handle);
-    return () => window.removeEventListener("mousemove", handle);
-  }, []);
-  return pos;
-}
-
-function AnimatedTextListWithCursor() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [skew, setSkew] = useState(0);
-  const lastX = useRef(0);
-  const { x, y } = useMousePosition();
-
-  useEffect(() => {
-    const diff = x - lastX.current;
-    setSkew(Math.max(-20, Math.min(20, diff * 0.6)));
-    lastX.current = x;
-    const id = setTimeout(() => setSkew(0), 120);
-    return () => clearTimeout(id);
-  }, [x]);
-
-  return (
-    <div style={{ position: "relative", width: "100%", minHeight: 320, margin: "64px 0" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center", userSelect: "none" }}>
-        {cityList.map((city, idx) => (
-          <div
-            key={city.code}
-            style={{ position: "relative", width: 320, height: 48, margin: 8 }}
-            onMouseEnter={() => setHoveredIdx(idx)}
-            onMouseLeave={() => setHoveredIdx(null)}
-          >
-            <motion.div
-              initial={false}
-              animate={{ y: hoveredIdx === idx ? -32 : 0, opacity: hoveredIdx === idx ? 0 : 1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              style={{ position: "absolute", left: 0, top: 0, width: "100%", fontSize: 28, fontWeight: 700, color: "#222", lineHeight: "48px", pointerEvents: "none" }}
-            >
-              {city.code} {city.name}
-            </motion.div>
-            <motion.div
-              initial={false}
-              animate={{ y: hoveredIdx === idx ? 0 : 32, opacity: hoveredIdx === idx ? 1 : 0 }}
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              style={{ position: "absolute", left: 0, top: 0, width: "100%", fontSize: 28, fontWeight: 700, color: "#007aff", lineHeight: "48px", pointerEvents: "none" }}
-            >
-              {city.code} {city.name}
-            </motion.div>
-          </div>
-        ))}
-      </div>
-      <AnimatePresence>
-        {hoveredIdx !== null && (
-          <motion.img
-            key={hoveredIdx}
-            src={cityList[hoveredIdx].img}
-            alt={cityList[hoveredIdx].name}
-            initial={{ opacity: 0, scale: 0.7, x: x - 60, y: y + 20, skewX: skew }}
-            animate={{ opacity: 1, scale: 1, x: x - 60, y: y + 20, skewX: skew }}
-            exit={{ opacity: 0, scale: 0.7 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            style={{ position: "fixed", top: 0, left: 0, width: 120, height: 120, borderRadius: 24, pointerEvents: "none", zIndex: 2000, boxShadow: "0 4px 32px rgba(0,0,0,0.18)", objectFit: "cover", background: "#fff" }}
-          />
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-`;
-
 export default function AnimatedTextListPage() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(animatedTextListCode);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
   return (
     <div>
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Animated Text List With Cursor</h1>
-      <ResultBox>
-        <AnimatedTextListWithCursor />
-      </ResultBox>
-      <p style={{ fontSize: 16, marginBottom: 8 }}>
-        <b>설명:</b> 텍스트 리스트에 마우스를 올리면 해당 텍스트가 컬러로 바뀌며 위로 올라오고, 동시에 커서에 이미지가
-        따라다니는 인터랙션입니다.
-        <br />
-        <b>framer-motion</b>을 활용하여 자연스러운 애니메이션과 skew 효과를 구현했습니다.
-        <br />
-        <b>반응형</b>으로 동작하며, 커스텀 커서 이미지는 각 리스트별로 다르게 지정할 수 있습니다.
-      </p>
-      <ul style={{ fontSize: 15, color: "#555", marginBottom: 16 }}>
-        <li>마우스 이동 속도에 따라 커서 이미지에 skew 효과가 적용됩니다.</li>
-        <li>리스트 hover 시 텍스트가 컬러로 바뀌며 자연스럽게 애니메이션됩니다.</li>
-        <li>코드는 복사해서 바로 사용할 수 있습니다.</li>
-      </ul>
-      <div style={{ position: "relative", marginBottom: 8 }}>
-        <button
-          onClick={handleCopy}
+      {/* 1. 🎯 인터랙션 제목 */}
+      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>
+        애니메이티드 리스트 (Animated Text List With Cursor)
+      </h1>
+      <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #fff" }} />
+
+      {/* 2. 💻 코드 예시 + 실제 데모 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
+        <ResultBox>
+          <AnimatedTextListWithCursor />
+        </ResultBox>
+        <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
+          <b>framer-motion</b>을 활용해 리스트 hover 시 컬러/애니메이션, 마우스 이동에 따라 skew 효과, 커스텀 커서
+          이미지를 구현합니다.
+        </div>
+      </section>
+
+      {/* 3. ✅ 사용하면 좋은 예시 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
+        <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
+          <li>포트폴리오/랜딩: 도시, 카테고리, 서비스 등 리스트 강조</li>
+          <li>메뉴/네비게이션: 마우스 hover 시 시각적 피드백</li>
+          <li>갤러리/카드형 리스트: 썸네일과 텍스트를 함께 보여줄 때</li>
+        </ul>
+      </section>
+
+      {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <ol style={{ fontSize: 16, color: "#fff", marginLeft: 16, marginBottom: 8 }}>
+          <li>리스트 진입: 기본 텍스트(흰색)로 노출</li>
+          <li>마우스 hover: 해당 텍스트가 컬러로 바뀌며 위로 올라옴</li>
+          <li>동시에 커서 근처에 이미지가 따라다님</li>
+          <li>마우스 이동 속도에 따라 이미지 skew 효과</li>
+          <li>hover 해제 시 원상복귀</li>
+        </ol>
+        <div style={{ fontSize: 15, color: "#888" }}>
+          💡 리스트 hover와 커서 인터랙션을 결합해 시각적 몰입감을 높일 수 있습니다.
+        </div>
+      </section>
+
+      {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
+        <pre
           style={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            zIndex: 2,
-            background: copied ? "#4ade80" : "#222",
-            color: "#fff",
-            border: "none",
-            borderRadius: 6,
-            padding: "4px 12px",
-            fontSize: 14,
-            cursor: "pointer",
-            transition: "background 0.2s",
+            background: "#18181b",
+            color: "#FFD600",
+            borderRadius: 8,
+            padding: 16,
+            fontSize: 15,
+            whiteSpace: "pre-line",
           }}
         >
-          {copied ? "복사됨!" : "코드 복사"}
-        </button>
-        <SyntaxHighlighter
-          language="tsx"
-          style={oneDark}
-          customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-        >
-          {animatedTextListCode}
-        </SyntaxHighlighter>
-      </div>
+          {`텍스트에 마우스를 올리면 텍스트가 밑에서 위로 올라가며, 동시에 커서 근처에 이미지가 따라다니는 효과를 만들고 싶어.
+framer-motion으로 자연스러운 애니메이션과 skew 효과도 추가해줘.
+리스트별로 커서 이미지가 다르게 나오면 더 좋아!`}
+        </pre>
+      </section>
+
+      {/* 6. ⚡코드 예시 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
+        <div style={{ position: "relative", marginBottom: 8 }}>
+          <CopyButton code={animatedTextListCode} />
+          <SyntaxHighlighter
+            language="tsx"
+            style={oneDark}
+            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
+          >
+            {animatedTextListCode}
+          </SyntaxHighlighter>
+        </div>
+      </section>
     </div>
   );
 }

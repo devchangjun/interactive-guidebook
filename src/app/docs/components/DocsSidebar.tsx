@@ -62,7 +62,7 @@ export default function DocsSidebar() {
                             ${
                               active
                                 ? "text-black font-medium bg-[#fafafa]"
-                                : "text-[#666] hover:text-black hover:bg-[#fafafa]"
+                                : "text-[#fff] hover:text-black hover:bg-[#fafafa]"
                             }
                           `}
                           aria-current={active ? "page" : undefined}
