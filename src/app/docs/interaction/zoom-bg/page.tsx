@@ -14,7 +14,6 @@ export default function ZoomScrollBgPage() {
         스크롤 Zoom In/Out 배경 (Zoom Scroll Background)
       </h1>
       <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #fff" }} />
-
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
@@ -25,7 +24,6 @@ export default function ZoomScrollBgPage() {
           <b>framer-motion</b>을 활용해 스크롤에 따라 배경 이미지가 부드럽게 확대/축소되는 인터랙션입니다.
         </div>
       </section>
-
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
@@ -35,7 +33,6 @@ export default function ZoomScrollBgPage() {
           <li>포트폴리오/소개 페이지: 시각적 집중 유도</li>
         </ul>
       </section>
-
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
@@ -49,8 +46,26 @@ export default function ZoomScrollBgPage() {
           💡 배경 이미지의 scale을 스크롤 위치에 따라 부드럽게 조절해 몰입감을 높일 수 있습니다.
         </div>
       </section>
-
-      {/* 5. ⚡코드 예시 */}
+      {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
+        <pre
+          style={{
+            background: "#18181b",
+            color: "#FFD600",
+            borderRadius: 8,
+            padding: 16,
+            fontSize: 15,
+            whiteSpace: "pre-line",
+          }}
+        >
+          {`스크롤을 내리면 배경 이미지가 부드럽게 확대(zoom in)되고, 올리면 다시 축소(zoom out)되는 컴포넌트를 만들어줘.
+framer-motion의 useScroll, useTransform, useSpring을 활용해서 자연스럽게 트랜지션이 적용되게 해줘.
+배경 이미지는 전체 화면을 덮도록 하고, 반응형 웹도 고려해줘.
+샘플 이미지는 /images/image.png로해줘.`}
+        </pre>
+      </section>
+      {/* 6. ⚡코드 예시 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
         <div style={{ position: "relative", marginBottom: 8 }}>
