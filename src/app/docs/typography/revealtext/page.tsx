@@ -15,13 +15,17 @@ export default function RevealTextDocsPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
-        <ResultBox>
+        <ResultBox style={{ marginBottom: 16 }}>
           <div style={{ fontSize: 28, fontWeight: 600, marginBottom: 16 }}>
             <RevealText text="Reveal 애니메이션 예시입니다." direction="up" />
           </div>
+        </ResultBox>
+        <ResultBox style={{ marginBottom: 16 }}>
           <div style={{ fontSize: 22, marginBottom: 12 }}>
             <RevealText text="단어 단위로 등장합니다!" byWord direction="left" delay={0.2} stagger={0.12} />
           </div>
+        </ResultBox>
+        <ResultBox style={{ marginBottom: 16 }}>
           <div style={{ fontSize: 20, color: "#1976d2" }}>
             <RevealText text="오른쪽에서 한 글자씩 등장!" direction="right" delay={0.4} duration={0.7} />
           </div>
@@ -34,7 +38,7 @@ export default function RevealTextDocsPage() {
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
-        <ul style={{ fontSize: 16, color: "#555", marginLeft: 16 }}>
+        <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
           <li>메인 헤드라인, 강조 문구</li>
           <li>CTA 버튼 위 설명</li>
           <li>제품/서비스 슬로건</li>
@@ -47,7 +51,7 @@ export default function RevealTextDocsPage() {
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol style={{ fontSize: 16, color: "#555", marginLeft: 16, marginBottom: 8 }}>
+        <ol style={{ fontSize: 16, color: "#fff", marginLeft: 16, marginBottom: 8 }}>
           <li>초기: 텍스트가 보이지 않거나 투명(또는 살짝 아래/옆에 위치)</li>
           <li>등장: 한 글자 또는 한 단어씩 순차적으로 애니메이션 등장</li>
           <li>완성: 전체 문장이 자연스럽게 완성되어 잠시 유지</li>
