@@ -36,13 +36,7 @@ export default function OverlayCursorProvider({
   };
 
   return (
-    <div
-      ref={areaRef}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      className={className}
-      style={{ position: "relative", width: "100%", height: "100%" }}
-    >
+    <div ref={areaRef} onMouseEnter={handleEnter} onMouseLeave={handleLeave} className={className}>
       {children}
     </div>
   );
