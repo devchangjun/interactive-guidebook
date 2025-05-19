@@ -1,20 +1,11 @@
-"use client";
-import { TypographyAnimation } from "@/components/common/framer-motion/TypographyAnimation";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useState } from "react";
-import { ResultBox } from "@/components/common/ResultBox";
 import { typographyAnimationCode } from "./constants/code";
+import { TypographyAnimationDemo } from "./TypographyAnimationDemo";
+import { ResultBox } from "@/components/common/ResultBox";
+import { CopyButton } from "../../components/CopyButton";
 
 export default function TypographyAnimationPage() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(typographyAnimationCode);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
@@ -25,7 +16,7 @@ export default function TypographyAnimationPage() {
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
         <ResultBox>
-          <TypographyAnimation text="Hello, World!" typingSpeed={80} />
+          <TypographyAnimationDemo />
         </ResultBox>
 
         <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
@@ -80,25 +71,7 @@ export default function TypographyAnimationPage() {
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
         <div style={{ position: "relative", marginBottom: 8 }}>
-          <button
-            onClick={handleCopy}
-            style={{
-              position: "absolute",
-              right: 8,
-              top: 8,
-              zIndex: 2,
-              background: copied ? "#4ade80" : "#222",
-              color: "#fff",
-              border: "none",
-              borderRadius: 6,
-              padding: "4px 12px",
-              fontSize: 14,
-              cursor: "pointer",
-              transition: "background 0.2s",
-            }}
-          >
-            {copied ? "복사됨!" : "코드 복사"}
-          </button>
+          <CopyButton code={typographyAnimationCode} />
           <SyntaxHighlighter
             language="tsx"
             style={oneDark}

@@ -10,7 +10,6 @@ export default function DocsPageLayout({ children }: { children: React.ReactNode
           background: "#18181b",
           color: "#fff",
           padding: "2rem 1rem",
-          borderRadius: 16,
           marginRight: 32,
           minHeight: "80vh",
           display: "flex",
