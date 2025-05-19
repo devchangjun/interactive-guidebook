@@ -33,6 +33,18 @@ const menuTree = [
         description: "글리치(Glitch) 스타일의 텍스트 애니메이션",
         path: "/docs/typography/glitch",
       },
+      {
+        id: "morphing",
+        name: "모프링 텍스트 효과",
+        description: "모프링(Morphing) 스타일의 텍스트 애니메이션",
+        path: "/docs/typography/morphing",
+      },
+      {
+        id: "playground",
+        name: "플레이그라운드",
+        description: "플레이그라운드",
+        path: "/docs/typography/playground",
+      },
     ],
   },
   {
