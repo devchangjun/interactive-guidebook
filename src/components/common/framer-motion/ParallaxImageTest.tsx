@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 /**
@@ -14,8 +14,17 @@ export default function ParallaxImageTest() {
     target: ref,
     offset: ["start start", "end start"], // 시작점과 끝점을 명확하게 지정
   });
-  // 스크롤 진행도에 따라 y값을 0에서 -300px로 변환하여 더 큰 패럴럭스 효과를 줍니다.
-  const y = useTransform(scrollYProgress, [0, 1], [0, 600]);
+
+  // 1. 스크롤에 따라 y값을 만듭니다.
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, 300]);
+
+  // 2. useSpring으로 감싸서, 변화가 있을 때 자연스럽게 트랜지션이 일어나도록 합니다.
+  const y = useSpring(rawY, {
+    stiffness: 60, // 낮을수록 더 천천히 멈춤
+    damping: 20, // 낮을수록 더 오래 흔들림
+    mass: 1,
+    restDelta: 0.5, // 멈추는 민감도
+  });
 
   return (
     <div
