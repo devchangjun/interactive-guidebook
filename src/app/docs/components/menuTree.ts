@@ -74,6 +74,12 @@ const menuTree = [
         description: "스크롤에 따라 움직이는 패럴럭스 이미지",
         path: "/docs/interaction/parallax",
       },
+      {
+        id: "zoom-bg",
+        name: "스크롤 줌 배경",
+        description: "스크롤에 따라 배경이 줌 인/아웃 되는 효과",
+        path: "/docs/interaction/zoom-bg",
+      },
     ],
   },
   // 필요시 카테고리 추가

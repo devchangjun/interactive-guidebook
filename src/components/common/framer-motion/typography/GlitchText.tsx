@@ -35,13 +35,13 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, className = "", color = "
       while (running) {
         await controls1.start({
           clipPath: getRandomClip(),
-          x: [2, -2, 0],
+          x: [2.5, -2.5, 0],
           color: glitchColors[0],
           transition: { duration: 0.12, ease: "linear" },
         });
         await controls2.start({
           clipPath: getRandomClip(),
-          x: [-2, 2, 0],
+          x: [-2.5, 2.5, 0],
           color: glitchColors[1],
           transition: { duration: 0.15, ease: "linear" },
         });
