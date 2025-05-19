@@ -27,6 +27,12 @@ const menuTree = [
         description: "한 글자씩 등장하는 텍스트",
         path: "/docs/typography/revealtext",
       },
+      {
+        id: "glitch",
+        name: "글리치 텍스트 효과",
+        description: "글리치(Glitch) 스타일의 텍스트 애니메이션",
+        path: "/docs/typography/glitch",
+      },
     ],
   },
   {
