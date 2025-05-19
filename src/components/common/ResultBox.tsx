@@ -26,7 +26,7 @@ export const ResultBox: React.FC<ResultBoxProps> = ({ children, onReset, style, 
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl border border-gray-200 dark:border-neutral-800 bg-[#1a1a1a] p-6 sm:p-8 flex items-center justify-center min-h-[120px] ${className}`}
+      className={`relative overflow-hidden rounded-xl border border-gray-200 dark:border-neutral-800 bg-[#1a1a1a] p-6 sm:p-8 flex justify-center min-h-[120px] ${className}`}
       style={{
         ...style,
         backgroundImage:
