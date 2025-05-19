@@ -92,6 +92,12 @@ const menuTree = [
         description: "스크롤에 따라 배경이 줌 인/아웃 되는 효과",
         path: "/docs/interaction/zoom-bg",
       },
+      {
+        id: "overlay-cursor-demo",
+        name: "오버레이 커서 데모",
+        description: "오버레이 커서 데모",
+        path: "/docs/interaction/overlay-cursor-demo",
+      },
     ],
   },
   // 필요시 카테고리 추가
