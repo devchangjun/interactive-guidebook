@@ -10,7 +10,7 @@ export default function TypographyAnimationPage() {
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
       <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>텍스트 타이핑 애니메이션 (Typewriter Effect)</h1>
-      <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #eee" }} />
+      <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #fff" }} />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
@@ -27,7 +27,7 @@ export default function TypographyAnimationPage() {
       {/* 2. ✅ 사용하면 좋은 예시 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
-        <ul style={{ fontSize: 16, color: "#555", marginLeft: 16 }}>
+        <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
           <li>메인 헤드라인: 사용자 진입 직후 강렬한 인상을 주고 싶을 때</li>
           <li>CTA 위 강조 문구: &quot;3초 안에 결과를 확인하세요&quot;</li>
           <li>제품 슬로건: &quot;AI로 만드는 스마트 포트폴리오&quot;</li>
@@ -37,7 +37,7 @@ export default function TypographyAnimationPage() {
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol style={{ fontSize: 16, color: "#555", marginLeft: 16, marginBottom: 8 }}>
+        <ol style={{ fontSize: 16, color: "#fff", marginLeft: 16, marginBottom: 8 }}>
           <li>시작: 화면에는 아무 텍스트도 없다. (혹은 깜빡이는 커서만 있음)</li>
           <li>타이핑: 한 글자씩 타이핑되며 문장이 완성된다. (0.1초 간격)</li>
           <li>유지: 문장이 완성된 후 1~2초간 전체 문장이 유지된다.</li>
