@@ -3,13 +3,11 @@ import { TypographyAnimation } from "@/components/common/framer-motion/Typograph
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
-import { MagneticLetters } from "@/components/common/framer-motion/MagneticLetters";
 import { ResultBox } from "@/components/common/ResultBox";
-import { typographyAnimationCode, magneticTextCode } from "./constants/code";
+import { typographyAnimationCode } from "./constants/code";
 
 export default function TypographyAnimationPage() {
   const [copied, setCopied] = useState(false);
-  const [copiedMagnetic, setCopiedMagnetic] = useState(false);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(typographyAnimationCode);
@@ -19,98 +17,97 @@ export default function TypographyAnimationPage() {
 
   return (
     <div>
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Typography Animation</h1>
-      <ResultBox>
-        <TypographyAnimation text="Hello, World!" typingSpeed={60} />
-      </ResultBox>
-      <p style={{ fontSize: 16, marginBottom: 8 }}>
-        <b>설명:</b> 여러 줄의 텍스트가 한 글자씩 자연스럽게 타이핑되며, 각 글자가 페이드인 애니메이션으로 등장합니다.
-        <br />
-        <b>framer-motion</b>을 활용하여 부드러운 인터랙션을 구현했습니다.
-        <br />
-        <b>반응형</b>으로 동작하며, 텍스트 배열만 바꿔서 다양한 문구에 적용할 수 있습니다.
-      </p>
-      <ul style={{ fontSize: 15, color: "#555", marginBottom: 16 }}>
-        <li>한 글자씩 타이핑되며, 각 글자가 자연스럽게 페이드인됩니다.</li>
-        <li>텍스트 배열을 바꿔서 다양한 문구에 쉽게 적용할 수 있습니다.</li>
-        <li>코드는 복사해서 바로 사용할 수 있습니다.</li>
-      </ul>
-      <div style={{ position: "relative", marginBottom: 8 }}>
-        <button
-          onClick={handleCopy}
+      {/* 1. 🎯 인터랙션 제목 */}
+      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>텍스트 타이핑 애니메이션 (Typewriter Effect)</h1>
+      <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #eee" }} />
+
+      {/* 4. 💻 코드 예시 + 실제 데모 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
+        <ResultBox>
+          <TypographyAnimation text="Hello, World!" typingSpeed={80} />
+        </ResultBox>
+
+        <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
+          프레임워크 없이 구현하려면 <code>setTimeout</code>과 <code>useEffect</code>로 직접 구현해도 됩니다.
+        </div>
+      </section>
+
+      {/* 2. ✅ 사용하면 좋은 예시 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
+        <ul style={{ fontSize: 16, color: "#555", marginLeft: 16 }}>
+          <li>메인 헤드라인: 사용자 진입 직후 강렬한 인상을 주고 싶을 때</li>
+          <li>CTA 위 강조 문구: &quot;3초 안에 결과를 확인하세요&quot;</li>
+          <li>제품 슬로건: &quot;AI로 만드는 스마트 포트폴리오&quot;</li>
+        </ul>
+      </section>
+
+      {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <ol style={{ fontSize: 16, color: "#555", marginLeft: 16, marginBottom: 8 }}>
+          <li>시작: 화면에는 아무 텍스트도 없다. (혹은 깜빡이는 커서만 있음)</li>
+          <li>타이핑: 한 글자씩 타이핑되며 문장이 완성된다. (0.1초 간격)</li>
+          <li>유지: 문장이 완성된 후 1~2초간 전체 문장이 유지된다.</li>
+          <li>지우기(선택): 글자들이 거꾸로 하나씩 사라진다. (백스페이스 느낌)</li>
+          <li>반복: 다음 문장이 새롭게 타이핑되며 사이클 반복</li>
+        </ol>
+        <div style={{ fontSize: 15, color: "#888" }}>
+          💡 타이핑은 <b>등장 - 유지 - 제거 - 반복</b> 구조로 나눌 수 있고, 각 단계에서 감정(기대→만족→전환)을 줄 수
+          있습니다.
+        </div>
+      </section>
+
+      {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
+        <pre
           style={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            zIndex: 2,
-            background: copied ? "#4ade80" : "#222",
-            color: "#fff",
-            border: "none",
-            borderRadius: 6,
-            padding: "4px 12px",
-            fontSize: 14,
-            cursor: "pointer",
-            transition: "background 0.2s",
+            background: "#18181b",
+            color: "#FFD600",
+            borderRadius: 8,
+            padding: 16,
+            fontSize: 15,
+            whiteSpace: "pre-line",
           }}
         >
-          {copied ? "복사됨!" : "코드 복사"}
-        </button>
-        <SyntaxHighlighter
-          language="tsx"
-          style={oneDark}
-          customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-        >
-          {typographyAnimationCode}
-        </SyntaxHighlighter>
-      </div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, margin: "40px 0 12px 0" }}>마그네틱 효과 (Magnetic Text)</h2>
-      <ResultBox>
-        <MagneticLetters text="마그네틱 효과 텍스트" />
-      </ResultBox>
-      <p style={{ fontSize: 16, marginBottom: 8 }}>
-        <b>설명:</b> 마우스가 텍스트 근처에 오면 텍스트가 자연스럽게 끌려가는 마그네틱 인터랙션입니다.
-        <br />
-        <b>framer-motion</b>을 활용하여 부드럽고 직관적인 효과를 구현했습니다.
-        <br />
-        <b>strength</b> 값을 조절해 끌림의 강도를 변경할 수 있습니다.
-      </p>
-      <ul style={{ fontSize: 15, color: "#555", marginBottom: 16 }}>
-        <li>마우스가 가까워지면 텍스트가 자연스럽게 따라옵니다.</li>
-        <li>여러 텍스트에 각각 다른 강도로 적용할 수 있습니다.</li>
-        <li>코드는 복사해서 바로 사용할 수 있습니다.</li>
-      </ul>
-      <div style={{ position: "relative", marginBottom: 8 }}>
-        <button
-          onClick={async () => {
-            await navigator.clipboard.writeText(magneticTextCode);
-            setCopiedMagnetic(true);
-            setTimeout(() => setCopiedMagnetic(false), 1500);
-          }}
-          style={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            zIndex: 2,
-            background: copiedMagnetic ? "#4ade80" : "#222",
-            color: "#fff",
-            border: "none",
-            borderRadius: 6,
-            padding: "4px 12px",
-            fontSize: 14,
-            cursor: "pointer",
-            transition: "background 0.2s",
-          }}
-        >
-          {copiedMagnetic ? "복사됨!" : "코드 복사"}
-        </button>
-        <SyntaxHighlighter
-          language="tsx"
-          style={oneDark}
-          customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-        >
-          {magneticTextCode}
-        </SyntaxHighlighter>
-      </div>
+          {`텍스트가 타이핑되듯 하나씩 등장하고, 일정 시간 후 사라졌다가 다른 문장이 반복되는 효과를 구현하고 싶어.
+문장은 '디자인 없이도', '차별화된 웹을', '누구나 쉽게' 이런 식으로 바뀌게 해줘.
+커서가 깜빡이도록 하고, 프레이머 모션이나 타이핑 라이브러리를 써도 괜찮아.`}
+        </pre>
+      </section>
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
+        <div style={{ position: "relative", marginBottom: 8 }}>
+          <button
+            onClick={handleCopy}
+            style={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              zIndex: 2,
+              background: copied ? "#4ade80" : "#222",
+              color: "#fff",
+              border: "none",
+              borderRadius: 6,
+              padding: "4px 12px",
+              fontSize: 14,
+              cursor: "pointer",
+              transition: "background 0.2s",
+            }}
+          >
+            {copied ? "복사됨!" : "코드 복사"}
+          </button>
+          <SyntaxHighlighter
+            language="tsx"
+            style={oneDark}
+            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
+          >
+            {typographyAnimationCode}
+          </SyntaxHighlighter>
+        </div>
+      </section>
     </div>
   );
 }

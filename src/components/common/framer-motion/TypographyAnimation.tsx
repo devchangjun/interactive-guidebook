@@ -12,9 +12,17 @@ interface TypographyAnimationProps {
   text: string;
   typingSpeed?: number; // ms per char
   className?: string;
+  color?: string; // 텍스트 색상
+  cursorColor?: string; // 커서 색상
 }
 
-export function TypographyAnimation({ text, typingSpeed = 60, className = "" }: TypographyAnimationProps) {
+export function TypographyAnimation({
+  text,
+  typingSpeed = 60,
+  className = "",
+  color = "#000",
+  cursorColor = "#0066ff",
+}: TypographyAnimationProps) {
   const [displayed, setDisplayed] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 
@@ -33,7 +41,7 @@ export function TypographyAnimation({ text, typingSpeed = 60, className = "" }: 
   }, [displayed, isTyping, text, typingSpeed]);
 
   return (
-    <div className={className} style={{ fontSize: 28, fontWeight: 700, minHeight: 40, letterSpacing: 1 }}>
+    <div className={className} style={{ fontSize: 28, fontWeight: 700, minHeight: 40, letterSpacing: 1, color }}>
       {displayed.split("").map((char, i) => (
         <motion.span
           key={i}
@@ -50,7 +58,7 @@ export function TypographyAnimation({ text, typingSpeed = 60, className = "" }: 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ repeat: Infinity, duration: 0.8, repeatType: "reverse" }}
-        style={{ display: "inline-block", color: "#007aff" }}
+        style={{ display: "inline-block", color: cursorColor }}
       >
         |
       </motion.span>
