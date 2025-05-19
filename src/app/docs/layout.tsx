@@ -1,4 +1,4 @@
-import DocsSidebar from "../components/DocsSidebar";
+import DocsSidebar from "./components/DocsSidebar";
 
 export default function DocsPageLayout({ children }: { children: React.ReactNode }) {
   return (

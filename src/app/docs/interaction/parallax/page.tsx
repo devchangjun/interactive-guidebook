@@ -1,5 +1,5 @@
 "use client";
-import ParallaxImageTest from "../../components/animations/ParallaxImageTest";
+import ParallaxImageTest from "@/app/docs/components/animations/ParallaxImageTest";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
