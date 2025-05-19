@@ -11,6 +11,10 @@ interface ScrollMarqueeTextProps {
   backgroundColor?: string;
   className?: string;
   style?: React.CSSProperties;
+  /**
+   * direction: false(기본값) = 왼쪽, true = 오른쪽
+   */
+  direction?: boolean;
 }
 
 export default function ScrollMarqueeText({
@@ -21,6 +25,7 @@ export default function ScrollMarqueeText({
   backgroundColor = "transparent",
   className,
   style,
+  direction = false, // 기본값: 왼쪽
 }: ScrollMarqueeTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [duplicatedTexts, setDuplicatedTexts] = useState<string[]>([]);
@@ -61,27 +66,39 @@ export default function ScrollMarqueeText({
     };
   }, [baseSpeed]);
 
-  // 무한 스크롤 애니메이션
+  // 무한 스크롤 애니메이션 (방향에 따라 x값 증감)
   useEffect(() => {
     let animationFrame: number;
 
     const animate = () => {
       if (!containerRef.current) return;
 
-      countRef.current += scrollSpeed * 0.1;
+      const halfWidth = containerRef.current.scrollWidth / 2;
 
-      // 절반 지점에서 리셋
-      if (countRef.current >= containerRef.current.scrollWidth / 2) {
-        countRef.current = 0;
+      // 오른쪽 방향일 때는 -halfWidth에서 0까지 이동, 왼쪽은 0에서 -halfWidth까지 이동
+      if (direction) {
+        // 초기값 세팅 (최초 0이면 -halfWidth로)
+        if (countRef.current === 0) {
+          countRef.current = -halfWidth;
+        }
+        countRef.current += scrollSpeed * 0.1;
+        if (countRef.current >= 0) {
+          countRef.current = -halfWidth;
+        }
+      } else {
+        countRef.current -= scrollSpeed * 0.1;
+        if (countRef.current <= -halfWidth) {
+          countRef.current = 0;
+        }
       }
 
-      controls.set({ x: -countRef.current });
+      controls.set({ x: countRef.current });
       animationFrame = requestAnimationFrame(animate);
     };
 
     animationFrame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrame);
-  }, [scrollSpeed, controls]);
+  }, [scrollSpeed, controls, direction]);
 
   return (
     <div

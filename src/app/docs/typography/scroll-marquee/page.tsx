@@ -11,7 +11,7 @@ const scrollMarqueeCode = `import ScrollMarqueeText from '@/components/common/fr
     "Let's Dive Into This Tutorial",
     "Take It Easy!",
     "Don't Worry Let's Code",
-    "Yummy Coding"
+    "HappyCoding"
   ]}
   baseSpeed={50}
   fontSize="5vw"
@@ -39,7 +39,7 @@ export default function ScrollMarqueePage() {
           }}
         >
           <ScrollMarqueeText
-            texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Yummy Coding"]}
+            texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
             baseSpeed={50}
             fontSize="5vw"
             color="#fff"
@@ -93,22 +93,41 @@ export default function ScrollMarqueePage() {
             border: "none",
           }}
         >
-          <div style={{ position: "relative", backgroundColor: "red", transform: "rotate(5deg)" }}>
-            <ScrollMarqueeText
-              texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Yummy Coding"]}
-              baseSpeed={50}
-              fontSize="5vw"
-              color="#fff"
-              style={{
-                fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
-                fontWeight: 700,
-                letterSpacing: "-0.01em",
-                textShadow: "0 2px 16px rgba(0,0,0,0.18)",
-                backgroundColor: "red",
-                padding: "16px",
-                borderRadius: "8px",
-              }}
-            />
+          <div>
+            <div style={{ position: "relative", backgroundColor: "red", transform: "rotate(5deg)" }}>
+              <ScrollMarqueeText
+                texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
+                baseSpeed={50}
+                fontSize="5vw"
+                color="#fff"
+                style={{
+                  fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
+                  fontWeight: 700,
+                  letterSpacing: "-0.01em",
+                  textShadow: "0 2px 16px rgba(0,0,0,0.18)",
+                  backgroundColor: "red",
+                  padding: "16px",
+                  borderRadius: "8px",
+                }}
+              />
+            </div>
+            <div style={{ position: "relative", backgroundColor: "orange", transform: "rotate(-5deg)" }}>
+              <ScrollMarqueeText
+                texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
+                baseSpeed={50}
+                fontSize="5vw"
+                color="#fff"
+                direction={true}
+                style={{
+                  fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
+                  fontWeight: 700,
+                  letterSpacing: "-0.01em",
+                  textShadow: "0 2px 16px rgba(0,0,0,0.18)",
+                  padding: "16px",
+                  borderRadius: "8px",
+                }}
+              />
+            </div>
           </div>
         </ResultBox>
       </section>
