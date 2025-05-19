@@ -1,5 +1,10 @@
 import Image from "next/image";
 import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImageTest";
+import CardListDetailTest from "@/components/common/framer-motion/CardListDetailTest";
+import CardModalTest from "@/components/common/framer-motion/CardModalTest";
+import { AnimatedTextListWithCursor } from "@/components/common/framer-motion/AniatedTextListWidthCursor";
+import TiltCard from "@/components/common/framer-motion/TiltCard";
+
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -69,7 +74,33 @@ export default function Home() {
       <div className="w-full min-h-screen bg-blue-500">
         <ParallaxImageTest />
       </div>
+      <div className="w-full min-h-screen bg-blue-500">
+        <ParallaxImageTest />
+      </div>
+      <div className="w-full min-h-screen bg-blue-500">
+        <ParallaxImageTest />
+      </div>
       <div className="w-full min-h-screen bg-blue-500">red</div>
+      <div className="w-full min-h-screen bg-[#FF69B4]">
+        <CardListDetailTest />
+      </div>
+
+      <div className="w-full min-h-screen bg-[#FF69B4]">
+        <CardModalTest />
+      </div>
+      <div className="w-full min-h-screen bg-[#FF69B4]">
+        <AnimatedTextListWithCursor />
+      </div>
+      <div className="w-full min-h-screen bg-[#FF69B4]">
+        <TiltCard style={{ width: 320, margin: "60px auto" }}>
+          <div style={{ padding: 24 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Tilt Card Test</h2>
+            <p style={{ fontSize: 16, color: "#666" }}>
+              마우스를 움직여보세요. 카드가 3D로 기울어지며 내부 요소에 패럴랙스 효과가 적용됩니다.
+            </p>
+          </div>
+        </TiltCard>
+      </div>
     </div>
   );
 }

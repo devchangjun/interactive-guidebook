@@ -16,7 +16,8 @@ export default function ParallaxImageTest() {
   });
 
   // 1. 스크롤에 따라 y값을 만듭니다.
-  const rawY = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  // y값을 0에서 -300으로 설정하여 이미지가 박스 안에서만 위로 자연스럽게 이동하게 만듭니다.
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
   // 2. useSpring으로 감싸서, 변화가 있을 때 자연스럽게 트랜지션이 일어나도록 합니다.
   const y = useSpring(rawY, {
