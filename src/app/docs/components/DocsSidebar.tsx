@@ -20,7 +20,7 @@ export default function DocsSidebar() {
   return (
     <nav aria-label="인터랙션 가이드북" className="w-full max-w-[300px] px-4">
       <div className="sticky top-16">
-        <h2 className="text-sm font-semibold mb-4 text-[#666]">인터랙션 가이드북</h2>
+        <h2 className="text-sm font-semibold mb-4 text-[#fff]">인터랙션 가이드북</h2>
         <ul className="flex flex-col space-y-1">
           {menuTree.map((category, idx) => {
             // 모바일: 아코디언, 데스크탑: 항상 펼침
@@ -34,13 +34,13 @@ export default function DocsSidebar() {
                   onClick={() => isMobile && handleAccordion(idx)}
                   className={`
                     w-full text-left text-sm font-medium mb-1 py-1
-                    text-[#444] hover:text-black transition-colors
+                    text-[#fff] transition-colors
                     flex items-center justify-between
                     ${isMobile ? "cursor-pointer" : "cursor-default"}
                   `}
                 >
                   {category.category}
-                  {isMobile && <span className="text-xs text-[#666]">{expanded ? "▲" : "▼"}</span>}
+                  {isMobile && <span className="text-xs text-[#fff]">{expanded ? "▲" : "▼"}</span>}
                 </button>
                 <ul
                   id={`category-panel-${idx}`}
