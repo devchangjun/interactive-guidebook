@@ -5,8 +5,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
 import { MagneticLetters } from "@/components/common/framer-motion/MagneticLetters";
 import { ResultBox } from "@/components/common/ResultBox";
-import { typographyAnimationCode } from "./constants/code";
-import { magneticTextCode } from "./constants/code";
+import { typographyAnimationCode, magneticTextCode } from "./constants/code";
 
 export default function TypographyAnimationPage() {
   const [copied, setCopied] = useState(false);
