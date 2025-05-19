@@ -10,6 +10,7 @@ interface ScrollMarqueeTextProps {
   color?: string;
   backgroundColor?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default function ScrollMarqueeText({
@@ -19,6 +20,7 @@ export default function ScrollMarqueeText({
   color = "#000",
   backgroundColor = "transparent",
   className,
+  style,
 }: ScrollMarqueeTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [duplicatedTexts, setDuplicatedTexts] = useState<string[]>([]);
@@ -93,6 +95,7 @@ export default function ScrollMarqueeText({
         style={{
           fontSize,
           color,
+          ...style,
         }}
       >
         {duplicatedTexts.map((text, index) => (

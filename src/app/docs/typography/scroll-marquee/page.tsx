@@ -28,23 +28,39 @@ export default function ScrollMarqueePage() {
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
-        <ResultBox>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>데모</h2>
+        <ResultBox
+          style={{
+            height: "800px",
+            position: "relative",
+            background: `linear-gradient(rgba(20,30,60,0.7), rgba(20,30,60,0.7)), url('/1.avif') center/cover no-repeat`,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+            border: "none",
+          }}
+        >
           <ScrollMarqueeText
             texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Yummy Coding"]}
             baseSpeed={50}
             fontSize="5vw"
-            color="#003b9a"
+            color="#fff"
+            style={{
+              fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
+              fontWeight: 700,
+              letterSpacing: "-0.01em",
+              textShadow: "0 2px 16px rgba(0,0,0,0.18)",
+            }}
           />
         </ResultBox>
         <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
+          <b>배경 이미지와 예쁜 폰트(Montserrat, Noto Sans KR) 적용 예시입니다.</b>
+          <br />
           스크롤 시 속도가 빨라지는 무한 반복 텍스트 애니메이션입니다.
         </div>
       </section>
 
       {/* 2. ✅ 사용하면 좋은 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>사용하면 좋은 예시</h2>
         <ul style={{ fontSize: 16, color: "#555", marginLeft: 16 }}>
           <li>브랜드 메시지 강조: 주요 키워드를 반복적으로 노출</li>
           <li>섹션 구분자: 콘텐츠 영역 사이에 동적인 구분선으로 활용</li>
@@ -54,7 +70,7 @@ export default function ScrollMarqueePage() {
 
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol style={{ fontSize: 16, color: "#555", marginLeft: 16, marginBottom: 8 }}>
           <li>기본: 일정한 속도로 텍스트가 좌에서 우로 이동</li>
           <li>스크롤: 사용자가 스크롤할 때 텍스트 이동 속도 증가</li>
@@ -66,9 +82,40 @@ export default function ScrollMarqueePage() {
         </div>
       </section>
 
+      <section style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>응용 예제</h2>
+        <ResultBox
+          style={{
+            height: "800px",
+            position: "relative",
+            background: `linear-gradient(rgba(20,30,60,0.7), rgba(20,30,60,0.7)), url('/1.avif') center/cover no-repeat`,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+            border: "none",
+          }}
+        >
+          <div style={{ position: "relative", backgroundColor: "red", transform: "rotate(5deg)" }}>
+            <ScrollMarqueeText
+              texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Yummy Coding"]}
+              baseSpeed={50}
+              fontSize="5vw"
+              color="#fff"
+              style={{
+                fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
+                fontWeight: 700,
+                letterSpacing: "-0.01em",
+                textShadow: "0 2px 16px rgba(0,0,0,0.18)",
+                backgroundColor: "red",
+                padding: "16px",
+                borderRadius: "8px",
+              }}
+            />
+          </div>
+        </ResultBox>
+      </section>
+
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>바이브 코딩용 프롬프트 예시</h2>
         <pre
           style={{
             background: "#18181b",
@@ -86,7 +133,7 @@ export default function ScrollMarqueePage() {
       </section>
 
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>코드 예시</h2>
         <div style={{ position: "relative", marginBottom: 8 }}>
           <CopyButton code={scrollMarqueeCode} />
           <SyntaxHighlighter
