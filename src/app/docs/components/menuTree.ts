@@ -46,6 +46,12 @@ const menuTree = [
         path: "/docs/typography/scroll-marquee",
       },
       {
+        id: "scroll-color-text",
+        name: "스크롤 트리거 텍스트",
+        description: "스크롤 트리거 텍스트",
+        path: "/docs/typography/scroll-trigger-text",
+      },
+      {
         id: "playground",
         name: "플레이그라운드",
         description: "플레이그라운드",
