@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { MagneticLetters } from "@/components/common/framer-motion/MagneticLetters";
+import { MagneticLetters } from "@/components/common/framer-motion/typography/MagneticLetters";
 
 const magneticTextCode = `import { MagneticLetters } from "@/components/common/framer-motion/MagneticLetters";
 

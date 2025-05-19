@@ -21,6 +21,12 @@ const menuTree = [
         description: "마우스에 반응하는 마그네틱 텍스트",
         path: "/docs/typography/magnetic",
       },
+      {
+        id: "revealtext",
+        name: "Reveal 텍스트",
+        description: "한 글자씩 등장하는 텍스트",
+        path: "/docs/typography/revealtext",
+      },
     ],
   },
   {
@@ -28,8 +34,8 @@ const menuTree = [
     items: [
       {
         id: "animated-list",
-        name: "애니메이티드 텍스트 리스트",
-        description: "텍스트 리스트 + 커서 이미지 hover 인터랙션",
+        name: "커스텀 이미지 커서",
+        description: "텍스트에 호버 시 이미지가 나타나는 효과",
         path: "/docs/interaction/animated-list",
       },
       {

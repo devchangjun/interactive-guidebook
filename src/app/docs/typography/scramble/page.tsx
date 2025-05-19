@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
-import ScrambleText from "@/components/common/framer-motion/ScrambleText";
+import ScrambleText from "@/components/common/framer-motion/typography/ScrambleText";
 
 // 코드 예시 상수 (실제 구현 코드)
 const scrambleTextCode = `import { useEffect, useRef, useState } from "react";

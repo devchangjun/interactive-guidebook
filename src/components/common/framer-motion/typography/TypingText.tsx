@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
  * - 반응형, framer-motion 기반
  * - 예시: "Hello, World!"
  */
-interface TypographyAnimationProps {
+interface TypingTextProps {
   text: string;
   typingSpeed?: number; // ms per char
   className?: string;
@@ -16,13 +16,13 @@ interface TypographyAnimationProps {
   cursorColor?: string; // 커서 색상
 }
 
-export function TypographyAnimation({
+function TypingText({
   text,
   typingSpeed = 60,
   className = "",
   color = "#000",
   cursorColor = "#0066ff",
-}: TypographyAnimationProps) {
+}: TypingTextProps) {
   const [displayed, setDisplayed] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 
@@ -65,3 +65,5 @@ export function TypographyAnimation({
     </div>
   );
 }
+
+export default TypingText;

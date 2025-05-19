@@ -1,9 +1,9 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { typographyAnimationCode } from "./constants/code";
-import { TypographyAnimationDemo } from "./TypographyAnimationDemo";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
+import TypingAnimation from "@/components/common/framer-motion/typography/TypingText";
 
 export default function TypographyAnimationPage() {
   return (
@@ -16,7 +16,7 @@ export default function TypographyAnimationPage() {
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
         <ResultBox>
-          <TypographyAnimationDemo />
+          <TypingAnimation text="Hello world!" color="#fff" />
         </ResultBox>
 
         <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
