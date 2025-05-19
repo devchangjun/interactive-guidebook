@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import TiltCard from "@/components/common/framer-motion/TiltCard";
+import TiltCard from "@/components/common/framer-motion/card/TiltCard";
 
 const tiltCardCode = `import TiltCard from "@/components/common/framer-motion/TiltCard";
 

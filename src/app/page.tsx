@@ -1,9 +1,9 @@
 import Image from "next/image";
 import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImageTest";
-import CardListDetailTest from "@/components/common/framer-motion/CardListDetailTest";
-import CardModalTest from "@/components/common/framer-motion/CardModalTest";
+import CardListDetailTest from "@/components/common/framer-motion/card/CardListDetailTest";
+import CardModalTest from "@/components/common/framer-motion/card/CardModalTest";
 import { AnimatedTextListWithCursor } from "@/components/common/framer-motion/AniatedTextListWidthCursor";
-import TiltCard from "@/components/common/framer-motion/TiltCard";
+import TiltCard from "@/components/common/framer-motion/card/TiltCard";
 
 export default function Home() {
   return (
