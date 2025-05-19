@@ -17,13 +17,13 @@ const menuTree = [
       },
       {
         id: "magnetic",
-        name: "마그네틱 텍스트",
+        name: "텍스트 마그네틱 효과",
         description: "마우스에 반응하는 마그네틱 텍스트",
         path: "/docs/typography/magnetic",
       },
       {
         id: "revealtext",
-        name: "Reveal 텍스트",
+        name: "텍스트 등장 효과",
         description: "한 글자씩 등장하는 텍스트",
         path: "/docs/typography/revealtext",
       },
