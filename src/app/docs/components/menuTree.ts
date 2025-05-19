@@ -40,6 +40,12 @@ const menuTree = [
         path: "/docs/typography/morphing",
       },
       {
+        id: "scroll-marquee",
+        name: "스크롤 마크리",
+        description: "스크롤 마크리(Scroll Marquee) 스타일의 텍스트 애니메이션",
+        path: "/docs/typography/scroll-marquee",
+      },
+      {
         id: "playground",
         name: "플레이그라운드",
         description: "플레이그라운드",
