@@ -18,95 +18,76 @@ export default function DocsSidebar() {
   };
 
   return (
-    <nav aria-label="인터랙션 가이드북">
-      <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>인터랙션 가이드북</h2>
-      <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
-        {menuTree.map((category, idx) => {
-          // 모바일: 아코디언, 데스크탑: 항상 펼침
-          const expanded = isMobile ? openIdx === idx : true;
-          return (
-            <li
-              key={category.category}
-              style={{ paddingBottom: 8, borderBottom: idx !== menuTree.length - 1 ? "1px solid #333" : "none" }}
-            >
-              <button
-                type="button"
-                aria-expanded={expanded}
-                aria-controls={`category-panel-${idx}`}
-                onClick={() => isMobile && handleAccordion(idx)}
-                style={{
-                  width: "100%",
-                  background: "none",
-                  border: "none",
-                  textAlign: "left",
-                  fontSize: 16,
-                  fontWeight: 700,
-                  marginBottom: 8,
-                  color: "#FFD600",
-                  letterSpacing: 0.5,
-                  cursor: isMobile ? "pointer" : "default",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                }}
-              >
-                {category.category}
-                {isMobile && <span style={{ fontSize: 14, color: "#aaa" }}>{expanded ? "▲" : "▼"}</span>}
-              </button>
-              <ul
-                id={`category-panel-${idx}`}
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                  display: expanded ? "flex" : "none",
-                  flexDirection: "column",
-                  gap: 4,
-                  transition: "all 0.2s",
-                }}
-              >
-                {category.items.map((item) => {
-                  // 현재 경로와 메뉴 경로가 일치하면 active
-                  const active = pathname === item.path;
-                  return (
-                    <li key={item.id}>
-                      <Link
-                        href={item.path}
-                        style={{
-                          display: "block",
-                          padding: "10px 16px",
-                          borderRadius: 8,
-                          background: active ? "#FFD600" : "#232326",
-                          color: active ? "#232326" : "#fff",
-                          textDecoration: "none",
-                          fontWeight: 500,
-                          transition: "background 0.2s, color 0.2s",
-                        }}
-                        onMouseOver={(e) => {
-                          if (!active) {
-                            e.currentTarget.style.background = "#333";
-                            e.currentTarget.style.color = "#FFD600";
-                          }
-                        }}
-                        onMouseOut={(e) => {
-                          if (!active) {
-                            e.currentTarget.style.background = "#232326";
-                            e.currentTarget.style.color = "#fff";
-                          }
-                        }}
-                        aria-current={active ? "page" : undefined}
-                      >
-                        <div style={{ fontSize: 16 }}>{item.name}</div>
-                        <div style={{ fontSize: 13, color: active ? "#23232699" : "#aaa" }}>{item.description}</div>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </li>
-          );
-        })}
-      </ul>
+    <nav aria-label="인터랙션 가이드북" className="w-full max-w-[300px] px-4">
+      <div className="sticky top-16">
+        <h2 className="text-sm font-semibold mb-4 text-[#666]">인터랙션 가이드북</h2>
+        <ul className="flex flex-col space-y-1">
+          {menuTree.map((category, idx) => {
+            // 모바일: 아코디언, 데스크탑: 항상 펼침
+            const expanded = isMobile ? openIdx === idx : true;
+            return (
+              <li key={category.category} className="mb-4">
+                <button
+                  type="button"
+                  aria-expanded={expanded}
+                  aria-controls={`category-panel-${idx}`}
+                  onClick={() => isMobile && handleAccordion(idx)}
+                  className={`
+                    w-full text-left text-sm font-medium mb-1 py-1
+                    text-[#444] hover:text-black transition-colors
+                    flex items-center justify-between
+                    ${isMobile ? "cursor-pointer" : "cursor-default"}
+                  `}
+                >
+                  {category.category}
+                  {isMobile && <span className="text-xs text-[#666]">{expanded ? "▲" : "▼"}</span>}
+                </button>
+                <ul
+                  id={`category-panel-${idx}`}
+                  className={`
+                    space-y-0.5 pl-3 border-l border-[#eaeaea]
+                    ${expanded ? "block" : "hidden"}
+                  `}
+                >
+                  {category.items.map((item) => {
+                    // 현재 경로와 메뉴 경로가 일치하면 active
+                    const active = pathname === item.path;
+                    return (
+                      <li key={item.id}>
+                        <Link
+                          href={item.path}
+                          className={`
+                            block py-1 px-2 rounded-md text-sm
+                            transition-colors
+                            ${
+                              active
+                                ? "text-black font-medium bg-[#fafafa]"
+                                : "text-[#666] hover:text-black hover:bg-[#fafafa]"
+                            }
+                          `}
+                          aria-current={active ? "page" : undefined}
+                        >
+                          <div>{item.name}</div>
+                          {item.description && (
+                            <div
+                              className={`
+                              text-xs mt-0.5
+                              ${active ? "text-[#666]" : "text-[#888]"}
+                            `}
+                            >
+                              {item.description}
+                            </div>
+                          )}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }
