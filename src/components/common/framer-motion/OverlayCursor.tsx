@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect, ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useRef, ReactNode } from "react";
+import { useCursor } from "./CursorContext";
 
 interface OverlayCursorProviderProps {
   children: ReactNode;
@@ -24,23 +24,16 @@ export default function OverlayCursorProvider({
   cursorColor = "#ff69b4",
   className,
 }: OverlayCursorProviderProps) {
-  const [showCursor, setShowCursor] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const { setCursor, resetCursor } = useCursor();
   const areaRef = useRef<HTMLDivElement>(null);
 
-  // 마우스 위치 추적
-  useEffect(() => {
-    if (!showCursor) return;
-    const handleMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [showCursor]);
-
   // 커서 진입/이탈 핸들러
-  const handleEnter = () => setShowCursor(true);
-  const handleLeave = () => setShowCursor(false);
+  const handleEnter = () => {
+    setCursor({ cursorText, cursorSize, cursorColor });
+  };
+  const handleLeave = () => {
+    resetCursor();
+  };
 
   return (
     <div
@@ -48,54 +41,9 @@ export default function OverlayCursorProvider({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       className={className}
-      style={{ position: "relative", width: "100%", height: "100%", cursor: showCursor ? "none" : "auto" }}
+      style={{ position: "relative", width: "100%", height: "100%" }}
     >
       {children}
-      {/* 커스텀 커서 */}
-      <AnimatePresence>
-        {showCursor && (
-          <motion.div
-            key="overlay-cursor"
-            initial={{
-              opacity: 0,
-              scale: 0.7,
-              x: pos.x - cursorSize / 2,
-              y: pos.y - cursorSize / 2,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              x: pos.x - cursorSize / 2,
-              y: pos.y - cursorSize / 2,
-              transition: { type: "spring", stiffness: 300, damping: 30 },
-            }}
-            exit={{ opacity: 0, scale: 0.7 }}
-            style={{
-              position: "fixed",
-              left: 0,
-              top: 0,
-              width: cursorSize,
-              height: cursorSize,
-              borderRadius: "50%",
-              background: cursorColor,
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 700,
-              fontSize: cursorSize * 0.22,
-              pointerEvents: "none",
-              zIndex: 9999,
-              boxShadow: "0 4px 24px rgba(255,105,180,0.18)",
-              userSelect: "none",
-              mixBlendMode: "multiply",
-            }}
-            aria-hidden
-          >
-            {cursorText}
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
