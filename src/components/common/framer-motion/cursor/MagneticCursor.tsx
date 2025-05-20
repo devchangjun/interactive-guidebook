@@ -18,9 +18,9 @@ export default function MagneticCursor() {
   const controls = useAnimation();
   const cursorRef = useRef<HTMLDivElement>(null);
 
-  // 마우스 위치를 motionValue로 관리
-  const mouseX = useMotionValue(window.innerWidth / 2);
-  const mouseY = useMotionValue(window.innerHeight / 2);
+  // 초기값 0으로 설정 (SSR 안전)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   // spring 효과로 부드럽게 이동
   const springX = useSpring(mouseX, { stiffness: 350, damping: 30 });
   const springY = useSpring(mouseY, { stiffness: 350, damping: 30 });
@@ -29,6 +29,14 @@ export default function MagneticCursor() {
   const [cursorBox, setCursorBox] = useState<{ width: number; height: number } | null>(null);
   const [cursorRotate, setCursorRotate] = useState(0);
   const [isMagnetic, setIsMagnetic] = useState(false);
+
+  // 마운트 시 브라우저에서만 중앙으로 세팅
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      mouseX.set(window.innerWidth / 2);
+      mouseY.set(window.innerHeight / 2);
+    }
+  }, [mouseX, mouseY]);
 
   // 무한 회전 애니메이션 (기본 상태)
   useEffect(() => {

@@ -13,7 +13,6 @@ export default function Page() {
         </div>
         <MagneticTargetBox>Photos</MagneticTargetBox>
       </div>
-      {/* <MorphingText texts={["Hello", "Cursor", "World!"]} color="orange" /> */}
     </div>
   );
 }
