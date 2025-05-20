@@ -46,8 +46,8 @@ export default function TiltCardPage() {
                   unoptimized
                 />
                 <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>AI 기술 카드</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>미래를 바꾸는 인터랙티브 UI</p>
+                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 1</h3>
+                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 1</p>
                 </div>
               </div>
             </TiltCard>
@@ -73,8 +73,8 @@ export default function TiltCardPage() {
                   unoptimized
                 />
                 <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>AI 기술 카드</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>미래를 바꾸는 인터랙티브 UI</p>
+                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 2</h3>
+                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 2</p>
                 </div>
               </div>
             </TiltCard>
@@ -100,8 +100,8 @@ export default function TiltCardPage() {
                   unoptimized
                 />
                 <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>AI 기술 카드</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>미래를 바꾸는 인터랙티브 UI</p>
+                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 3</h3>
+                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 3</p>
                 </div>
               </div>
             </TiltCard>
