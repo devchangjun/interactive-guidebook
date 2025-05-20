@@ -103,6 +103,12 @@ const menuTree = [
         description: "오버레이 커서 ",
         path: "/docs/cursor/overlay-cursor-demo",
       },
+      {
+        id: "magnetic",
+        name: "마그네틱 커서",
+        description: "마그네틱 커서",
+        path: "/docs/cursor/magnetic",
+      },
     ],
   },
   // 필요시 카테고리 추가
