@@ -20,7 +20,7 @@ export default function DocsSidebar() {
   return (
     <nav aria-label="인터랙션 가이드북" className="w-full max-w-[300px] px-4">
       <div className="sticky top-16">
-        <h2 className="text-sm font-semibold mb-4 text-[#fff]">인터랙션 가이드북</h2>
+        <h2 className="text-sm font-semibold mb-4 text-[#fff]">프롬프트 인터랙션 가이드북</h2>
         <ul className="flex flex-col space-y-1">
           {menuTree.map((category, idx) => {
             // 모바일: 아코디언, 데스크탑: 항상 펼침
