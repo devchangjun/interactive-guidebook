@@ -6,6 +6,9 @@ import TypingText from "@/components/common/framer-motion/typography/TypingText"
 import MorphingText from "@/components/common/framer-motion/typography/MorphingText";
 import ScrollMarqueeText from "@/components/common/framer-motion/typography/ScrollMarqueeText";
 import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
+import TiltCard from "@/components/common/framer-motion/card/TiltCard";
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="relative">
@@ -79,6 +82,91 @@ export default function Home() {
               }}
             />
           </div>
+        </div>
+      </ResultBox>
+      <ResultBox>
+        <div style={{ display: "flex", gap: 24 }}>
+          <TiltCard>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: 16,
+                overflow: "hidden",
+                background: "#111",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Image
+                src="/1.avif"
+                alt="tech image"
+                width={400}
+                height={200}
+                style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                priority
+                unoptimized
+              />
+              <div style={{ padding: 16 }}>
+                <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 1</h3>
+                <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 1</p>
+              </div>
+            </div>
+          </TiltCard>
+          <TiltCard>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: 16,
+                overflow: "hidden",
+                background: "#111",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Image
+                src="/1.avif"
+                alt="tech image"
+                width={400}
+                height={200}
+                style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                priority
+                unoptimized
+              />
+              <div style={{ padding: 16 }}>
+                <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 2</h3>
+                <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 2</p>
+              </div>
+            </div>
+          </TiltCard>
+          <TiltCard>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: 16,
+                overflow: "hidden",
+                background: "#111",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Image
+                src="/1.avif"
+                alt="tech image"
+                width={400}
+                height={200}
+                style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                priority
+                unoptimized
+              />
+              <div style={{ padding: 16 }}>
+                <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 3</h3>
+                <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 3</p>
+              </div>
+            </div>
+          </TiltCard>
         </div>
       </ResultBox>
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import ScrollTriggerText from "@/components/common/framer-motion/ScrollTriggerText";
+import ScrollTriggerText from "@/components/common/framer-motion/typography/ScrollTriggerText";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";

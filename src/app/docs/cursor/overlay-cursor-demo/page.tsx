@@ -3,7 +3,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { overlayCursorDemoCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
-import OverlayCursorProvider from "@/components/common/framer-motion/OverlayCursor";
+import OverlayCursorProvider from "@/components/common/framer-motion/cursor/OverlayCursor";
 
 export default function OverlayCursorDemoPage() {
   return (
