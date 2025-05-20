@@ -4,7 +4,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";
 import { ResultBox } from "@/components/common/ResultBox";
 import { textClipEffectCode } from "./constants/code";
-import TextClipEffect from "@/components/common/framer-motion/typography/TextClipEffect";
+import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
 
 export default function TextClipEffectPage() {
   return (
@@ -16,14 +16,16 @@ export default function TextClipEffectPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
-        <ResultBox>
-          <TextClipEffect
-            items={[
+        <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            {[
               { main: "Hello", sub: "Hello" },
               { main: "javascript", sub: "javascript" },
               { main: "typescript", sub: "typescript" },
-            ]}
-          />
+            ].map((item) => (
+              <TextClipEffectItem key={item.main} {...item} fontSize="6vw" />
+            ))}
+          </div>
         </ResultBox>
         <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
           <b>gsap</b>과 <b>ScrollTrigger</b>를 활용해 스크롤 위치에 따라 텍스트 배경이 채워지는 인터랙션입니다.

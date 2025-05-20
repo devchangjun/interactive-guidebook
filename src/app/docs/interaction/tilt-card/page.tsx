@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import TiltCard from "@/components/common/framer-motion/card/TiltCard";
@@ -33,10 +34,31 @@ export default function TiltCardPage() {
           maxWidth: 400,
         }}
       >
-        <TiltCard style={{ width: 320, margin: "0 auto" }}>
-          <div style={{ padding: 24 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>틸트 카드 예시</h2>
-            <p style={{ fontSize: 16, color: "#666" }}>마우스를 움직여보세요! 카드가 3D로 기울어집니다.</p>
+        <TiltCard>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              borderRadius: 16,
+              overflow: "hidden",
+              background: "#111",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Image
+              src="/1.avif"
+              alt="tech image"
+              width={400}
+              height={200}
+              style={{ width: "100%", height: "60%", objectFit: "cover" }}
+              priority
+              unoptimized
+            />
+            <div style={{ padding: 16 }}>
+              <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>타이틀</h3>
+              <p style={{ color: "#aaa", fontSize: 14 }}>설명 텍스트 설명 텍스트</p>
+            </div>
           </div>
         </TiltCard>
       </div>
