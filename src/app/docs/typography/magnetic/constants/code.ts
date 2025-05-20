@@ -1,17 +1,16 @@
+export const magneticLettersCode = `
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { magneticLettersCode } from "./constants/code"; // 사용자가 정의한 코드 문자열
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
-import { MagneticLetters } from "@/components/common/framer-motion/typography/MagneticLetters";
+import { MagneticLetters } from "@/components/common/framer-motion/text/MagneticLetters";
 
 export default function MagneticLettersPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>
-        마우스를 따라 끌려오는 텍스트 (Magnetic Letters)
-      </h1>
+      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>마우스를 따라 끌려오는 텍스트 (Magnetic Letters)</h1>
       <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #fff" }} />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}
@@ -63,9 +62,9 @@ export default function MagneticLettersPage() {
             whiteSpace: "pre-line",
           }}
         >
-          {`글자의 각 문자에 마우스 커서가 가까워지면 자석처럼 끌리는 효과를 주고 싶어.
+{\`글자의 각 문자에 마우스 커서가 가까워지면 자석처럼 끌리는 효과를 주고 싶어.
 framer-motion을 활용해서 자연스럽고 반응형으로 만들어줘.
-커서가 멀어지면 원래 위치로 돌아가도록 하고, 글자마다 독립적으로 움직이게 해줘.`}
+커서가 멀어지면 원래 위치로 돌아가도록 하고, 글자마다 독립적으로 움직이게 해줘.\`}
         </pre>
       </section>
 
@@ -86,3 +85,4 @@ framer-motion을 활용해서 자연스럽고 반응형으로 만들어줘.
     </div>
   );
 }
+`;

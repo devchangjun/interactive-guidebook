@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
  * - hover 시 커서에 이미지가 따라다니며 skew 효과 적용 (framer-motion)
  */
 const cityList = [
-  { code: "01", name: "Tokyo", img: "/1.avif" },
-  { code: "02", name: "Amsterdam", img: "/1.avif" },
-  { code: "03", name: "London", img: "/1.avif" },
+  { code: "01", name: "Tokyo", img: "/3.avif" },
+  { code: "02", name: "Lasvegas", img: "/2.avif" },
+  { code: "03", name: "London", img: "/3.webp" },
 ];
 
 function useMousePosition() {
@@ -70,7 +70,7 @@ function AnimatedTextListWithCursor() {
                 left: 0,
                 top: 0,
                 width: "100%",
-                fontSize: 40,
+                fontSize: 68,
                 fontWeight: 900,
                 color: "#fff",
                 lineHeight: "48px",
@@ -96,7 +96,7 @@ function AnimatedTextListWithCursor() {
                 left: 0,
                 top: 0,
                 width: "100%",
-                fontSize: 40,
+                fontSize: 68,
                 fontWeight: 900,
                 color: "#fff",
                 lineHeight: "48px",
@@ -133,8 +133,8 @@ function AnimatedTextListWithCursor() {
               position: "fixed",
               top: 0,
               left: 0,
-              width: 120,
-              height: 120,
+              width: 240,
+              height: 240,
               borderRadius: 24,
               pointerEvents: "none",
               zIndex: 2000,

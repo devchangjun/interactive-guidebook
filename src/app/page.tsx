@@ -19,13 +19,15 @@ export default function Home() {
         <ParallaxImageTest />
       </ResultBox>
       <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
-        {[
-          { main: "Hello", sub: "Hello" },
-          { main: "javascript", sub: "javascript" },
-          { main: "typescript", sub: "typescript" },
-        ].map((item) => (
-          <TextClipEffectItem key={item.main} {...item} fontSize="10vw" />
-        ))}
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+          {[
+            { main: "Hello", sub: "Hello" },
+            { main: "javascript", sub: "javascript" },
+            { main: "typescript", sub: "typescript" },
+          ].map((item) => (
+            <TextClipEffectItem key={item.main} {...item} fontSize="10vw" />
+          ))}
+        </div>
       </ResultBox>
       <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
         <ZoomScrollBg />
