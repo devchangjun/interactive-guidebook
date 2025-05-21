@@ -35,11 +35,19 @@ export default function Home() {
       <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
         <ZoomScrollBg />
       </ResultBox>
-      <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
+      <ResultBox
+        style={{
+          marginBottom: 16,
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
         <MorphingText
           texts={["Hello", "Vibe", "Coding", "Let's go!"]}
           color="#0066ff"
-          className="mb-2 md:mb-4 text-4xl md:text-6xl h-2 w-full text-center"
+          className="mb-2 md:mb-4 text-8xl md:text-9xl h-2 w-full text-center, w-full"
         />
       </ResultBox>
       <ResultBox
