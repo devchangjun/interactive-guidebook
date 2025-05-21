@@ -1,13 +1,12 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface MorphingTextProps {
   texts: string[];
   morphTime?: number; // morph 애니메이션 시간(초)
   cooldownTime?: number; // 쿨다운 시간(초)
-  fontSize?: string | number;
   color?: string;
-  style?: React.CSSProperties;
+  className?: string;
 }
 
 /**
@@ -20,9 +19,8 @@ const MorphingText: React.FC<MorphingTextProps> = ({
   texts,
   morphTime = 1,
   cooldownTime = 0.25,
-  fontSize = "8vw",
   color = "#222",
-  style = {},
+  className,
 }) => {
   const text1Ref = useRef<HTMLSpanElement>(null);
   const text2Ref = useRef<HTMLSpanElement>(null);
@@ -96,11 +94,9 @@ const MorphingText: React.FC<MorphingTextProps> = ({
     <div
       style={{
         position: "relative",
-        width: "100vw",
-        height: fontSize,
         filter: "url(#threshold) blur(0.6px)",
-        ...style,
       }}
+      className={className}
     >
       {/* SVG 필터 정의 */}
       <svg style={{ display: "none" }}>
@@ -114,11 +110,8 @@ const MorphingText: React.FC<MorphingTextProps> = ({
         ref={text1Ref}
         style={{
           position: "absolute",
-          width: "100%",
-          textAlign: "center",
           fontFamily: "'Raleway', sans-serif",
           fontWeight: 900,
-          fontSize,
           color,
           userSelect: "none",
           left: 0,
@@ -129,11 +122,8 @@ const MorphingText: React.FC<MorphingTextProps> = ({
         ref={text2Ref}
         style={{
           position: "absolute",
-          width: "100%",
-          textAlign: "center",
           fontFamily: "'Raleway', sans-serif",
           fontWeight: 900,
-          fontSize,
           color,
           userSelect: "none",
           left: 0,
