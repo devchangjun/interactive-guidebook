@@ -15,7 +15,7 @@ export default function TextClipEffect({ items }: TextClipEffectListProps) {
   return (
     <div className={styles.container}>
       {items.map((item, idx) => (
-        <TextClipEffectItem key={idx} {...item} />
+        <TextClipEffectItem key={idx} {...item} clipColor="#FFD600" />
       ))}
     </div>
   );

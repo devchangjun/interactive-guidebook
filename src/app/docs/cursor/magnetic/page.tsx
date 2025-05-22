@@ -59,7 +59,7 @@ export default function MagneticCursorPage() {
 
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>바이브 코딩용 프롬프트 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🖥️ 바이브 코딩용 프롬프트 예시</h2>
         <pre
           style={{
             background: "#18181b",
@@ -79,7 +79,7 @@ framer-motion을 사용해도 좋아.`}
 
       {/* 6. 💡 구현 시 주의사항 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>구현 시 주의사항</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>❗구현 시 주의사항</h2>
         <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
           <li>모바일 환경에서는 커서 효과를 비활성화 (터치 기반이므로)</li>
           <li>성능 최적화를 위해 framer-motion의 useMotionValue, useSpring 활용</li>

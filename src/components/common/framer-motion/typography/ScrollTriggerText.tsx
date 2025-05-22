@@ -8,11 +8,11 @@ interface ScrollTriggerTextProps {
   duration?: number;
   text?: string;
   fontSize?: string;
-  minHeight?: string;
   initialX?: number;
   finalX?: number;
   initialScale?: number;
   finalScale?: number;
+  className?: string;
 }
 
 export default function ScrollTriggerText({
@@ -21,7 +21,7 @@ export default function ScrollTriggerText({
   duration = 0.8,
   text = "Scroll Trigger Text Scroll Trigger Text Scroll Trigger Text Scroll Trigger Text Scroll Trigger Text Scroll Trigger Text",
   fontSize = "5vw",
-  minHeight = "150vh",
+  className,
   initialScale = 0.8,
 }: ScrollTriggerTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -70,22 +70,13 @@ export default function ScrollTriggerText({
   }
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        minHeight,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-      }}
-    >
+    <div ref={containerRef}>
       <motion.h1
         style={{
           fontSize,
-          display: "inline-block",
           transition: `color ${duration}s ease`,
         }}
+        className={className}
       >
         {chars.map((char, i) => (
           <span key={i} style={getCharStyle(i)}>

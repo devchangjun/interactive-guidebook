@@ -14,7 +14,7 @@ export default function RevealTextDocsPage() {
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>데모</h2>
         <ResultBox style={{ marginBottom: 16 }}>
           <div style={{ fontSize: 28, fontWeight: 600, marginBottom: 16 }}>
             <RevealText text="Reveal 애니메이션 예시입니다." direction="up" />
@@ -37,26 +37,26 @@ export default function RevealTextDocsPage() {
 
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>사용하면 좋은 예시</h2>
         <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
-          <li>메인 헤드라인, 강조 문구</li>
-          <li>CTA 버튼 위 설명</li>
-          <li>제품/서비스 슬로건</li>
-          <li>페이지 섹션 타이틀/소개 문구</li>
-          <li>온보딩/튜토리얼 안내 메시지</li>
-          <li>로딩/전환 시 임팩트 주는 텍스트</li>
+          <li>- 메인 헤드라인, 강조 문구</li>
+          <li>- CTA 버튼 위 설명</li>
+          <li>- 제품/서비스 슬로건</li>
+          <li>- 페이지 섹션 타이틀/소개 문구</li>
+          <li>- 온보딩/튜토리얼 안내 메시지</li>
+          <li>- 로딩/전환 시 임팩트 주는 텍스트</li>
         </ul>
       </section>
 
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol style={{ fontSize: 16, color: "#fff", marginLeft: 16, marginBottom: 8 }}>
-          <li>초기: 텍스트가 보이지 않거나 투명(또는 살짝 아래/옆에 위치)</li>
-          <li>등장: 한 글자 또는 한 단어씩 순차적으로 애니메이션 등장</li>
-          <li>완성: 전체 문장이 자연스럽게 완성되어 잠시 유지</li>
-          <li>반복/전환(선택): 다른 문장으로 교체하거나, 한 번만 등장</li>
-          <li>커스텀: direction, delay, byWord 등 옵션에 따라 다양한 연출 가능</li>
+          <li>- 초기: 텍스트가 보이지 않거나 투명(또는 살짝 아래/옆에 위치)</li>
+          <li>- 등장: 한 글자 또는 한 단어씩 순차적으로 애니메이션 등장</li>
+          <li>- 완성: 전체 문장이 자연스럽게 완성되어 잠시 유지</li>
+          <li>- 반복/전환(선택): 다른 문장으로 교체하거나, 한 번만 등장</li>
+          <li>- 커스텀: direction, delay, byWord 등 옵션에 따라 다양한 연출 가능</li>
         </ol>
         <div style={{ fontSize: 15, color: "#888" }}>
           💡 <b>direction, delay, byWord, stagger</b> 등 다양한 옵션으로 여러 연출이 가능합니다.
@@ -65,7 +65,7 @@ export default function RevealTextDocsPage() {
 
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>바이브 코딩용 프롬프트 예시</h2>
         <pre
           style={{
             background: "#18181b",
@@ -82,7 +82,7 @@ framer-motion을 활용해서 구현해줘.`}
         </pre>
       </section>
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>코드 예시</h2>
         <div style={{ position: "relative", marginBottom: 8 }}>
           <CopyButton code={revealTextCode} />
           <SyntaxHighlighter

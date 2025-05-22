@@ -13,11 +13,11 @@ export default function AnimatedTextListPage() {
       <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>
         애니메이티드 리스트 (Animated Text List With Cursor)
       </h1>
-      <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #fff" }} />
+      <hr className="my-4 border-0 border-t border-white" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
+        <h2 className="text-white text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
           <AnimatedTextListWithCursor />
         </ResultBox>

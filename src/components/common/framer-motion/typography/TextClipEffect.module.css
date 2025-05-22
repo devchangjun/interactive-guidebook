@@ -42,7 +42,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #4246ce;
+  background-color: var(--clip-bg, #4246ce);
   color: #0d0d0d;
   clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
   transform-origin: center;

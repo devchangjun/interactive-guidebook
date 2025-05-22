@@ -10,14 +10,14 @@ export default function TextClipEffectPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>텍스트 클립 이펙트 (Text Clip Effect)</h1>
-      <hr style={{ margin: "16px 0 24px 0", border: 0, borderTop: "1px solid #fff" }} />
+      <h1 className="text-white text-2xl font-medium mb-4">텍스트 클립 이펙트 (Text Clip Effect)</h1>
+      <hr className="my-4 border-0 border-t border-white" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
-        <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <section className="mb-8">
+        <h2 className="text-white text-2xl font-medium mb-4">데모</h2>
+        <ResultBox className="mb-4 h-screen">
+          <div className="flex flex-col gap-8">
             {[
               { main: "Hello", sub: "Hello" },
               { main: "javascript", sub: "javascript" },
@@ -27,47 +27,38 @@ export default function TextClipEffectPage() {
             ))}
           </div>
         </ResultBox>
-        <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
+        <div className="text-white text-base font-normal ml-4 mb-4">
           <b>gsap</b>과 <b>ScrollTrigger</b>를 활용해 스크롤 위치에 따라 텍스트 배경이 채워지는 인터랙션입니다.
         </div>
       </section>
 
       {/* 3. ✅ 사용하면 좋은 예시 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
-        <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
-          <li>메인 타이틀: 스크롤에 따라 강조 효과</li>
-          <li>섹션 헤드라인: 시각적 임팩트 부여</li>
-          <li>포트폴리오/랜딩: 브랜드 컬러 강조</li>
+      <section className="mb-8">
+        <h2 className="text-white text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
+        <ul className="text-white text-base font-normal ml-4">
+          <li>- 메인 타이틀: 스크롤에 따라 강조 효과</li>
+          <li>- 섹션 헤드라인: 시각적 임팩트 부여</li>
+          <li>- 포트폴리오/랜딩: 브랜드 컬러 강조</li>
         </ul>
       </section>
 
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol style={{ fontSize: 16, color: "#fff", marginLeft: 16, marginBottom: 8 }}>
+      <section className="mb-8">
+        <h2 className="text-white text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <ol className="text-white text-base font-normal ml-4 mb-4">
           <li>초기: 텍스트 배경이 비어 있음 (background-size: 0%)</li>
           <li>스크롤: 텍스트 배경이 점점 채워짐 (background-size: 100%)</li>
           <li>완료: 텍스트가 완전히 채워진 상태</li>
         </ol>
-        <div style={{ fontSize: 15, color: "#888" }}>
+        <div className="text-white text-base font-normal ml-4">
           💡 gsap의 <b>ScrollTrigger</b>로 스크롤 위치에 따라 배경 그라데이션이 자연스럽게 채워집니다.
         </div>
       </section>
 
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
-        <pre
-          style={{
-            background: "#18181b",
-            color: "#FFD600",
-            borderRadius: 8,
-            padding: 16,
-            fontSize: 15,
-            whiteSpace: "pre-line",
-          }}
-        >
+      <section className="mb-8">
+        <h2 className="text-white text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
+        <pre className="text-white text-base font-normal ml-4 mb-4 bg-gray-900 p-4 rounded-lg whitespace-pre-line text-yellow-500">
           {`- gsap의 ScrollTrigger를 사용해줘.
 - 텍스트는 h1 태그로, 메인 텍스트와 서브 텍스트(작은 설명)가 함께 들어가야 해.
 - 배경 그라데이션은 Tailwind CSS의 arbitrary value 문법([background-clip:text], [background-size:0%])을 활용해서 텍스트에만 적용해줘.
@@ -84,9 +75,9 @@ export default function TextClipEffectPage() {
       </section>
 
       {/* 6. ⚡코드 예시 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
-        <div style={{ position: "relative", marginBottom: 8 }}>
+      <section className="mb-8">
+        <h2 className="text-white text-2xl font-medium mb-4">코드 예시</h2>
+        <div className="relative mb-4">
           <CopyButton code={textClipEffectCode} />
           <SyntaxHighlighter
             language="tsx"

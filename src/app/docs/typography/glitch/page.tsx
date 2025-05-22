@@ -17,7 +17,7 @@ export default function GlitchTextPage() {
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>💻 코드 예시 & 데모</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>데모</h2>
         <ResultBox>
           <GlitchText text="GLITCH EFFECT" fontSize={56} color="#fff" />
         </ResultBox>
@@ -28,30 +28,30 @@ export default function GlitchTextPage() {
 
       {/* 2. ✅ 사용하면 좋은 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>✅ 사용하면 좋은 예시</h2>
-        <ul style={{ fontSize: 16, color: "#555", marginLeft: 16 }}>
-          <li>메인 헤드라인: 강렬한 인상을 주고 싶을 때</li>
-          <li>404/에러 페이지: 디지털 오류 느낌을 주고 싶을 때</li>
-          <li>테크/게임/해킹 컨셉: 미래지향적 분위기를 연출하고 싶을 때</li>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>사용하면 좋은 예시</h2>
+        <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
+          <li>- 메인 헤드라인: 강렬한 인상을 주고 싶을 때</li>
+          <li>- 404/에러 페이지: 디지털 오류 느낌을 주고 싶을 때</li>
+          <li>- 테크/게임/해킹 컨셉: 미래지향적 분위기를 연출하고 싶을 때</li>
         </ul>
       </section>
 
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧠 아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol style={{ fontSize: 16, color: "#555", marginLeft: 16, marginBottom: 8 }}>
-          <li>초기: 텍스트가 정상적으로 보임</li>
-          <li>글리치: 텍스트 일부가 랜덤하게 흔들리거나 색이 번짐</li>
-          <li>반복: 효과가 주기적으로 반복되어 디지털 오류 느낌을 연출</li>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <ol style={{ fontSize: 16, color: "#fff", marginLeft: 16, marginBottom: 8 }}>
+          <li>- 초기: 텍스트가 정상적으로 보임</li>
+          <li>- 글리치: 텍스트 일부가 랜덤하게 흔들리거나 색이 번짐</li>
+          <li>-반복: 효과가 주기적으로 반복되어 디지털 오류 느낌을 연출</li>
         </ol>
-        <div style={{ fontSize: 15, color: "#888" }}>
+        <div style={{ fontSize: 15, color: "#fff" }}>
           💡 <b>clip-path, 색상, 위치</b>를 랜덤하게 바꿔주면 다양한 글리치 효과를 만들 수 있습니다.
         </div>
       </section>
 
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑‍💻 바이브 코딩용 프롬프트 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>🧑바이브 코딩용 프롬프트 예시</h2>
         <pre
           style={{
             background: "#18181b",
@@ -68,7 +68,7 @@ framer-motion이나 CSS로 구현해줘.`}
         </pre>
       </section>
       <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>⚡코드 예시</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>코드 예시</h2>
         <div style={{ position: "relative", marginBottom: 8 }}>
           <CopyButton code={glitchTextCode} />
           <SyntaxHighlighter

@@ -10,9 +10,10 @@ export type TextClipEffectItemProps = {
   main: string;
   sub: React.ReactNode;
   fontSize?: string;
+  clipColor?: string;
 };
 
-export default function TextClipEffectItem({ main, sub, fontSize }: TextClipEffectItemProps) {
+export default function TextClipEffectItem({ main, sub, fontSize, clipColor }: TextClipEffectItemProps) {
   const textRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -33,7 +34,9 @@ export default function TextClipEffectItem({ main, sub, fontSize }: TextClipEffe
   return (
     <h1 ref={textRef} className={styles.text} style={{ fontSize: fontSize }}>
       {main}
-      <span className={styles.span}>{sub}</span>
+      <span className={styles.span} style={{ backgroundColor: clipColor ? clipColor : "#fff" }}>
+        {sub}
+      </span>
     </h1>
   );
 }
