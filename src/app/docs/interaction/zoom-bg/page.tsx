@@ -33,7 +33,7 @@ export default function ZoomScrollBgPage() {
         </ul>
       </section>
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section style={{ marginBottom: 24 }}>
+      <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol className="text-base text-[#fff] list-decimal list-inside mb-4">
           <li>페이지 진입: 배경 이미지가 기본 크기로 노출</li>
