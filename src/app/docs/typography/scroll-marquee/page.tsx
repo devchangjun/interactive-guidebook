@@ -38,7 +38,7 @@ export default function ScrollMarqueePage() {
             className="font-family: 'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif"
           />
         </ResultBox>
-        <div className="text-white text-base font-normal ml-4 mb-4">
+        <div className="text-gray-400 text-base font-normal ml-4 mb-4">
           <b>배경 이미지와 예쁜 폰트(Montserrat, Noto Sans KR) 적용 예시입니다.</b>
           <br />
           스크롤 시 속도가 빨라지는 무한 반복 텍스트 애니메이션입니다.
@@ -48,21 +48,21 @@ export default function ScrollMarqueePage() {
       {/* 2. ✅ 사용하면 좋은 예시 */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-white text-base font-normal ml-4 mb-4">
-          <li>- 브랜드 메시지 강조: 주요 키워드를 반복적으로 노출</li>
-          <li>- 섹션 구분자: 콘텐츠 영역 사이에 동적인 구분선으로 활용</li>
-          <li>- 인터랙티브 배너: 사용자 스크롤과 연동되는 동적 배너</li>
+        <ul className="text-base text-[#fff] list-disc list-inside">
+          <li>브랜드 메시지 강조: 주요 키워드를 반복적으로 노출</li>
+          <li>섹션 구분자: 콘텐츠 영역 사이에 동적인 구분선으로 활용</li>
+          <li>인터랙티브 배너: 사용자 스크롤과 연동되는 동적 배너</li>
         </ul>
       </section>
 
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section style={{ marginBottom: 24 }}>
         <h2 className="text-white text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol className="text-white text-base font-normal ml-4 mb-4">
-          <li>- 기본: 일정한 속도로 텍스트가 좌에서 우로 이동</li>
-          <li>- 스크롤: 사용자가 스크롤할 때 텍스트 이동 속도 증가</li>
-          <li>- 복귀: 스크롤이 멈추면 천천히 기본 속도로 복귀</li>
-          <li>- 반복: 끊김 없이 자연스럽게 무한 반복</li>
+        <ol className="text-white text-base font-normal ml-4 mb-4 list-decimal list-inside">
+          <li>기본: 일정한 속도로 텍스트가 좌에서 우로 이동</li>
+          <li>스크롤: 사용자가 스크롤할 때 텍스트 이동 속도 증가</li>
+          <li>복귀: 스크롤이 멈추면 천천히 기본 속도로 복귀</li>
+          <li>반복: 끊김 없이 자연스럽게 무한 반복</li>
         </ol>
         <div className="text-white text-base font-normal ml-4 mb-4">
           💡 스크롤 인터랙션으로 사용자 참여도를 높이고 동적인 경험을 제공합니다.
