@@ -18,7 +18,7 @@ export default function ScrollTriggerTextPage() {
         <ResultBox>
           <ScrollTriggerText fromColor="#888" toColor="#FFD600" duration={0.8} />
         </ResultBox>
-        <div className="text-white text-base font-normal ml-4 mb-4">
+        <div className="text-gray-500 text-base font-normal ml-4 mb-4">
           <b>framer-motion</b>을 활용해 스크롤 위치에 따라 텍스트가 나타나고 사라지는 인터랙션입니다.
         </div>
       </section>
@@ -26,20 +26,20 @@ export default function ScrollTriggerTextPage() {
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-white text-base font-normal ml-4">
-          <li>- 섹션 타이틀: 스크롤에 따른 강조 효과</li>
-          <li>- 스토리텔링: 순차적인 메시지 전달</li>
-          <li>- 포트폴리오: 작품 소개 시 주목도 향상</li>
+        <ul className="text-white text-base font-normal ml-4 list-disc list-inside">
+          <li>섹션 타이틀: 스크롤에 따른 강조 효과</li>
+          <li>스토리텔링: 순차적인 메시지 전달</li>
+          <li>포트폴리오: 작품 소개 시 주목도 향상</li>
         </ul>
       </section>
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol className="text-white text-base font-normal ml-4 mb-4">
-          <li>- 초기: 텍스트가 투명하고 작은 상태</li>
-          <li>- 스크롤 중간: 텍스트가 완전히 보이고 크기가 최대</li>
-          <li>- 스크롤 끝: 다시 투명해지고 작아짐</li>
-          <li>- 좌우 이동으로 다이나믹한 효과 추가</li>
+        <ol className="text-white text-base font-normal ml-4 mb-4 list-decimal list-inside">
+          <li>초기: 텍스트가 투명하고 작은 상태</li>
+          <li>스크롤 중간: 텍스트가 완전히 보이고 크기가 최대</li>
+          <li>스크롤 끝: 다시 투명해지고 작아짐</li>
+          <li>좌우 이동으로 다이나믹한 효과 추가</li>
         </ol>
         <div className="text-white text-base font-normal ml-4 mb-4">
           💡 useScroll과 useTransform을 활용해 스크롤 위치에 따른 다양한 애니메이션을 적용할 수 있습니다.

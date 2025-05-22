@@ -10,112 +10,76 @@ export default function TiltCardPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>3D Tilt + Parallax 카드 인터랙션</h1>
-      <hr
-        style={{
-          margin: "16px 0 24px 0",
-          border: 0,
-          borderTop: "1px solid #fff",
-        }}
-      />
+      <h1 className="text-2xl font-bold mb-2">3D Tilt + Parallax 카드 인터랙션</h1>
+      <hr className="my-4 border-t border-gray-200" />
 
-      {/* 4. 💻 코드 예시 + 실제 데모 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>데모</h2>
+      {/* 2. 💻 코드 예시 + 실제 데모 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-medium mb-2">데모</h2>
         <ResultBox>
-          <div style={{ display: "flex", gap: 24 }}>
+          <div className="flex gap-6">
             <TiltCard>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#111",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
                 <Image
                   src="/1.avif"
                   alt="tech image"
                   width={400}
                   height={200}
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  className="w-full h-60 object-cover"
                   priority
                   unoptimized
                 />
-                <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 1</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 1</p>
+                <div className="p-4">
+                  <h3 className="text-white text-lg mb-2">프로필 1</h3>
+                  <p className="text-gray-400 text-sm">상세 설명 텍스트 1</p>
                 </div>
               </div>
             </TiltCard>
             <TiltCard>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#111",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
                 <Image
                   src="/1.avif"
                   alt="tech image"
                   width={400}
                   height={200}
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  className="w-full h-60 object-cover"
                   priority
                   unoptimized
                 />
-                <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 2</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 2</p>
+                <div className="p-4">
+                  <h3 className="text-white text-lg mb-2">프로필 2</h3>
+                  <p className="text-gray-400 text-sm">상세 설명 텍스트 2</p>
                 </div>
               </div>
             </TiltCard>
             <TiltCard>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#111",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
                 <Image
                   src="/1.avif"
                   alt="tech image"
                   width={400}
                   height={200}
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  className="w-full h-60 object-cover"
                   priority
                   unoptimized
                 />
-                <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 3</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 3</p>
+                <div className="p-4">
+                  <h3 className="text-white text-lg mb-2">프로필 3</h3>
+                  <p className="text-gray-400 text-sm">상세 설명 텍스트 3</p>
                 </div>
               </div>
             </TiltCard>
           </div>
         </ResultBox>
-        <div style={{ fontSize: 15, color: "#888", marginTop: 8 }}>
+        <div className="text-sm text-gray-500 mt-2">
           내부 요소는 <code>useParallax(depth)</code>로 개별적으로 깊이 효과를 줄 수 있습니다.
         </div>
       </section>
 
       {/* 2. ✅ 사용하면 좋은 예시 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>사용하면 좋은 예시</h2>
-        <ul style={{ fontSize: 16, color: "#fff", marginLeft: 16 }}>
+      <section className="mb-8">
+        <h2 className="text-xl font-medium mb-2">사용하면 좋은 예시</h2>
+        <ul className="text-base text-[#fff] list-disc list-inside">
           <li>포트폴리오 썸네일: 입체감과 시각적 매력 강조</li>
           <li>CTA 카드: 마우스 호버로 시선 집중 유도</li>
           <li>제품 소개 카드: 정보에 깊이와 레이어를 부여</li>
@@ -123,16 +87,9 @@ export default function TiltCardPage() {
       </section>
 
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol
-          style={{
-            fontSize: 16,
-            color: "#fff",
-            marginLeft: 16,
-            marginBottom: 8,
-          }}
-        >
+      <section className="mb-8">
+        <h2 className="text-xl font-medium mb-2">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <ol className="text-base text-[#fff] list-decimal list-inside mb-4">
           <li>초기: 정적인 카드가 배치됨</li>
           <li>마우스 이동 시: 커서 위치에 따라 카드가 기울어짐</li>
           <li>
@@ -141,24 +98,15 @@ export default function TiltCardPage() {
           <li>마우스 이탈 시: 카드 기울기 원위치</li>
           <li>모바일: 효과 비활성화됨 (768px 이하)</li>
         </ol>
-        <div style={{ fontSize: 15, color: "#888" }}>
+        <div className="text-sm text-gray-500 mt-2">
           💡 내부 요소도 <b>깊이감</b>을 줄 수 있어 입체적인 경험을 줄 수 있습니다.
         </div>
       </section>
 
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>바이브 코딩용 프롬프트 예시</h2>
-        <pre
-          style={{
-            background: "#18181b",
-            color: "#FFD600",
-            borderRadius: 8,
-            padding: 16,
-            fontSize: 15,
-            whiteSpace: "pre-line",
-          }}
-        >
+      <section className="mb-8">
+        <h2 className="text-xl font-medium mb-2">바이브 코딩용 프롬프트 예시</h2>
+        <pre className="bg-gray-900 text-yellow-500 rounded-lg p-4 text-sm whitespace-pre-line">
           {`마우스를 올렸을 때 카드가 3D로 기울어지고, 내부 텍스트나 이미지가 깊이에 따라 다르게 움직이는 효과를 구현하고 싶어.
 모바일에서는 이 효과를 꺼주고, 내부 요소는 useParallax 같은 훅으로 제어 가능하면 좋겠어.
 Framer Motion으로 부드럽게 애니메이션 처리하고 싶어.`}
@@ -166,9 +114,9 @@ Framer Motion으로 부드럽게 애니메이션 처리하고 싶어.`}
       </section>
 
       {/* 6. 🧑‍💻 코드 예시 */}
-      <section style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>코드 예시</h2>
-        <div style={{ position: "relative", marginBottom: 8 }}>
+      <section className="mb-8">
+        <h2 className="text-xl font-medium mb-2">코드 예시</h2>
+        <div className="relative mb-2">
           <CopyButton code={tiltCardCode} />
           <SyntaxHighlighter
             language="tsx"

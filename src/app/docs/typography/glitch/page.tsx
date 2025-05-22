@@ -30,19 +30,19 @@ export default function GlitchTextPage() {
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">사용하면 좋은 예시</h2>
         <ul className="text-base text-white list-disc list-inside">
-          <li>- 메인 헤드라인: 강렬한 인상을 주고 싶을 때</li>
-          <li>- 404/에러 페이지: 디지털 오류 느낌을 주고 싶을 때</li>
-          <li>- 테크/게임/해킹 컨셉: 미래지향적 분위기를 연출하고 싶을 때</li>
+          <li>메인 헤드라인: 강렬한 인상을 주고 싶을 때</li>
+          <li>404/에러 페이지: 디지털 오류 느낌을 주고 싶을 때</li>
+          <li>테크/게임/해킹 컨셉: 미래지향적 분위기를 연출하고 싶을 때</li>
         </ul>
       </section>
 
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section style={{ marginBottom: 24 }}>
+      <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol className="text-base text-white list-decimal list-inside">
-          <li>- 초기: 텍스트가 정상적으로 보임</li>
-          <li>- 글리치: 텍스트 일부가 랜덤하게 흔들리거나 색이 번짐</li>
-          <li>-반복: 효과가 주기적으로 반복되어 디지털 오류 느낌을 연출</li>
+          <li>초기: 텍스트가 정상적으로 보임</li>
+          <li>글리치: 텍스트 일부가 랜덤하게 흔들리거나 색이 번짐</li>
+          <li>반복: 효과가 주기적으로 반복되어 디지털 오류 느낌을 연출</li>
         </ol>
         <div className="text-sm text-gray-400 mt-2">
           💡 <b>clip-path, 색상, 위치</b>를 랜덤하게 바꿔주면 다양한 글리치 효과를 만들 수 있습니다.

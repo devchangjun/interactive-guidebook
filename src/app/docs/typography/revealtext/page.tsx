@@ -38,7 +38,7 @@ export default function RevealTextDocsPage() {
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-base text-[#fff] list-decimal list-inside">
+        <ul className="text-base text-[#fff] list-disc list-inside">
           <li>메인 헤드라인, 강조 문구</li>
           <li>CTA 버튼 위 설명</li>
           <li>제품/서비스 슬로건</li>
