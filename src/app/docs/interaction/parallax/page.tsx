@@ -5,12 +5,13 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";
 import { parallaxImageTestCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
+import Title from "../../components/Title";
 
 export default function ParallaxPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">패럴랙스 배경 (Parallax Background)</h1>
+      <Title>스크롤 패럴랙스 이미지</Title>
       <hr className="my-4 border-t border-gray-200" />
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">

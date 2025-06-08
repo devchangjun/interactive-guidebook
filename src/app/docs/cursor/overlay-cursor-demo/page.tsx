@@ -4,12 +4,13 @@ import { overlayCursorDemoCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import OverlayCursorProvider from "@/components/common/framer-motion/cursor/OverlayCursor";
+import Title from "../../components/Title";
 
 export default function OverlayCursorDemoPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">오버레이 커서 인터랙션 (Overlay Cursor)</h1>
+      <Title>오버레이 커서 인터랙션 (Overlay Cursor)</Title>
       <hr className="my-4 border-0 border-t border-gray-200" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}

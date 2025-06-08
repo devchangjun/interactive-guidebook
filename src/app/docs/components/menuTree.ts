@@ -69,12 +69,6 @@ const menuTree = [
     category: "Interaction",
     items: [
       {
-        id: "animated-list",
-        name: "커스텀 이미지 커서",
-        description: "텍스트에 호버 시 이미지가 나타나는 효과",
-        path: "/docs/interaction/animated-list",
-      },
-      {
         id: "tilt-card",
         name: "틸트 카드",
         description: "마우스 움직임에 반응하는 3D 카드",
@@ -97,6 +91,12 @@ const menuTree = [
   {
     category: "Cursor",
     items: [
+      {
+        id: "animated-list",
+        name: "커스텀 이미지 커서",
+        description: "텍스트에 호버 시 이미지가 나타나는 효과",
+        path: "/docs/cursor/animated-list",
+      },
       {
         id: "overlay-cursor-demo",
         name: "오버레이 커서",

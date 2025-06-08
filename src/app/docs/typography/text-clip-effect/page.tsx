@@ -5,12 +5,13 @@ import { CopyButton } from "../../components/CopyButton";
 import { ResultBox } from "@/components/common/ResultBox";
 import { textClipEffectCode } from "./constants/code";
 import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
+import Title from "../../components/Title";
 
 export default function TextClipEffectPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-white text-2xl font-medium mb-4">텍스트 클립 이펙트 (Text Clip Effect)</h1>
+      <Title>텍스트 클립 이펙트</Title>
       <hr className="my-4 border-0 border-t border-white" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}

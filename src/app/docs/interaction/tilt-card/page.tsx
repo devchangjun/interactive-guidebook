@@ -5,12 +5,13 @@ import { CopyButton } from "../../components/CopyButton";
 import TiltCard from "@/components/common/framer-motion/card/TiltCard";
 import { tiltCardCode } from "./constants/code";
 import Image from "next/image";
+import Title from "../../components/Title";
 
 export default function TiltCardPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">3D Tilt + Parallax 카드 인터랙션</h1>
+      <Title>3D Tilt + Parallax 카드 인터랙션</Title>
       <hr className="my-4 border-t border-gray-200" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}

@@ -5,12 +5,13 @@ import { CopyButton } from "../../components/CopyButton";
 import MagneticTargetBox from "@/components/common/framer-motion/cursor/MagneticTargetBox";
 import MagneticCursor from "@/components/common/framer-motion/cursor/MagneticCursor";
 import { magneticCursorCode, magneticTargetBoxCode } from "./constants/code";
+import Title from "../../components/Title";
 
 export default function MagneticCursorPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">마그네틱 커서 인터랙션 (Magnetic Cursor)</h1>
+      <Title>마그네틱 커서 인터랙션 (Magnetic Cursor)</Title>
       <hr className="my-4 border-t border-gray-200" />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}

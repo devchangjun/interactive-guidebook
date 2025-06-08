@@ -4,12 +4,12 @@ import { revealTextCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import RevealText from "@/components/common/framer-motion/typography/RevealText";
+import Title from "../../components/Title";
 
 export default function RevealTextDocsPage() {
   return (
     <div>
-      {/* 1. ✨ 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-4">텍스트 Reveal 애니메이션 (RevealText)</h1>
+      <Title>텍스트 Reveal 애니메이션</Title>
       <hr className="my-4 border-0 border-t border-[#eee]" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}

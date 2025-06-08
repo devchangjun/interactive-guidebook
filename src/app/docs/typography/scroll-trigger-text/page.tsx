@@ -5,12 +5,13 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";
 import { scrollTriggerTextCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
+import Title from "../../components/Title";
 
 export default function ScrollTriggerTextPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-white text-2xl font-medium mb-4">스크롤 트리거 텍스트 (Scroll Trigger Text)</h1>
+      <Title>스크롤 트리거 텍스트</Title>
       <hr className="my-4 border-0 border-t border-white" />
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">

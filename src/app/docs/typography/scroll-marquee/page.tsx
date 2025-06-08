@@ -3,6 +3,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import ScrollMarqueeText from "@/components/common/framer-motion/typography/ScrollMarqueeText";
+import Title from "../../components/Title";
 
 const scrollMarqueeCode = `import ScrollMarqueeText from '@/components/common/framer-motion/typography/ScrollMarqueeText';
 
@@ -23,7 +24,7 @@ export default function ScrollMarqueePage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-white text-2xl font-medium mb-4">스크롤 마키 텍스트 (Scroll Marquee Text)</h1>
+      <Title>마퀴 텍스트</Title>
       <hr className="my-4 border-0 border-t border-white" />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}

@@ -3,6 +3,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
+import Title from "../../components/Title";
 
 const glitchTextCode = `import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
 
@@ -12,7 +13,7 @@ export default function GlitchTextPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">글리치 텍스트 애니메이션 (Glitch Effect)</h1>
+      <Title>글리치 텍스트 애니메이션 (Glitch Effect)</Title>
       <hr className="my-4 border-t border-gray-200" />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}

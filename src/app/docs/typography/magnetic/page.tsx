@@ -4,12 +4,13 @@ import { magneticLettersCode } from "./constants/code"; // 사용자가 정의�
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import { MagneticLetters } from "@/components/common/framer-motion/typography/MagneticLetters";
+import Title from "../../components/Title";
 
 export default function MagneticLettersPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-4">마우스를 따라 끌려오는 텍스트 (Magnetic Letters)</h1>
+      <Title>마그네틱 텍스트 애니메이션</Title>
       <hr className="my-4 border-0 border-t border-[#fff]" />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}

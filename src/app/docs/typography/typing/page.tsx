@@ -4,12 +4,13 @@ import { typographyAnimationCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import TypingText from "@/components/common/framer-motion/typography/TypingText";
+import Title from "../../components/Title";
 
 export default function TypographyAnimationPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-4xl font-bold mb-2">텍스트 타이핑 애니메이션 (Typewriter Effect)</h1>
+      <Title>텍스트 타이핑 애니메이션</Title>
       <hr className="my-4 border-0 border-t border-gray-200" />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}

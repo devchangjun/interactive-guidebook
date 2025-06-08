@@ -5,12 +5,13 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";
 import { animatedTextListCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
+import Title from "../../components/Title";
 
 export default function AnimatedTextListPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">애니메이티드 리스트 (Animated Text List With Cursor)</h1>
+      <Title>애니메이티드 리스트 (Animated Text List With Cursor)</Title>
       <hr className="my-4 border-0 border-t border-white" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}

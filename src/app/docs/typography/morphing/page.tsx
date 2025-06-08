@@ -3,6 +3,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import MorphingText from "@/components/common/framer-motion/typography/MorphingText";
+import Title from "../../components/Title";
 
 const morphingTextCode = `import MorphingText from '@/components/common/framer-motion/typography/MorphingText';
 
@@ -19,7 +20,7 @@ export default function MorphingTextPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">텍스트 Morphing 애니메이션 (MorphingText Effect)</h1>
+      <Title>텍스트 Morphing 애니메이션 (MorphingText Effect)</Title>
       <hr className="my-4 border-0 border-t border-[#eee]" />
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}

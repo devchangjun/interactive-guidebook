@@ -4,6 +4,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
 import ScrambleText from "@/components/common/framer-motion/typography/TextScramble";
+import Title from "../../components/Title";
 
 // 코드 예시 상수 (실제 구현 코드)
 const scrambleTextCode = `"use client";
@@ -172,7 +173,7 @@ export default function ScrambleTextPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-4xl font-bold mb-2">스크램블 텍스트 애니메이션 (Scramble Text Effect)</h1>
+      <Title>스크램블 텍스트 애니메이션</Title>
       <hr className="my-4 border-t border-[#eee]" />
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}

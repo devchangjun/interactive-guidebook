@@ -5,12 +5,13 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";
 import { zoomScrollBgCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
+import Title from "../../components/Title";
 
 export default function ZoomScrollBgPage() {
   return (
     <div>
       {/* 1. 🎯 인터랙션 제목 */}
-      <h1 className="text-2xl font-bold mb-2">스크롤 Zoom In/Out 배경 (Zoom Scroll Background)</h1>
+      <Title>스크롤 Zoom In/Out 배경 (Zoom Scroll Background)</Title>
       <hr className="my-4 border-0 border-t border-[#fff]" />
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
