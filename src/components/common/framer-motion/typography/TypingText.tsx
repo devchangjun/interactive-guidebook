@@ -1,91 +1,106 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
-/**
- * TypographyAnimation
- * - 단일 텍스트를 받아 한 글자씩 타이핑 애니메이션 + 페이드인 효과
- * - 반응형, framer-motion 기반
- * - 예시: "Hello, World!"
- */
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 interface TypingTextProps {
   text: string;
-  typingSpeed?: number; // ms per char
+  speed?: number; // 타이핑 속도 (밀리초)
+  delay?: number; // 시작 지연 시간 (밀리초)
   className?: string;
-  color?: string; // 텍스트 색상
-  cursorColor?: string; // 커서 색상
-  fontSize?: number | string; // 폰트사이즈 추가
+  onComplete?: () => void; // 타이핑 완료 시 콜백
+  showCursor?: boolean; // 커서 표시 여부
+  cursorChar?: string; // 커서 문자
+  loop?: boolean; // 반복 여부
+  pauseTime?: number; // 반복 시 일시정지 시간
 }
 
-function TypingText({
+const TypingText = ({
   text,
-  typingSpeed = 60,
+  speed = 100,
+  delay = 0,
   className = "",
-  color = "#000",
-  cursorColor = "#0066ff",
-  fontSize = 28, // 기본값 28px
-}: TypingTextProps) {
-  const [displayed, setDisplayed] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  onComplete,
+  showCursor = true,
+  cursorChar = "|",
+  loop = false,
+  pauseTime = 1000,
+}: TypingTextProps) => {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    if (isTyping) {
-      if (displayed.length < text.length) {
-        timeout = setTimeout(() => {
-          setDisplayed(text.slice(0, displayed.length + 1));
-        }, typingSpeed);
-      } else {
-        setIsTyping(false);
-      }
+    const startTyping = () => {
+      setIsTyping(true);
+      setCurrentIndex(0);
+      setDisplayText("");
+    };
+
+    if (delay > 0) {
+      const delayTimer = setTimeout(startTyping, delay);
+      return () => clearTimeout(delayTimer);
+    } else {
+      startTyping();
     }
-    return () => clearTimeout(timeout);
-  }, [displayed, isTyping, text, typingSpeed]);
+  }, [delay, text]);
+
+  useEffect(() => {
+    if (!isTyping || currentIndex >= text.length) {
+      if (currentIndex >= text.length) {
+        setIsTyping(false);
+        onComplete?.();
+
+        if (loop) {
+          const loopTimer = setTimeout(() => {
+            setCurrentIndex(0);
+            setDisplayText("");
+            setIsTyping(true);
+          }, pauseTime);
+          return () => clearTimeout(loopTimer);
+        }
+      }
+      return;
+    }
+
+    const typingTimer = setTimeout(() => {
+      setDisplayText(text.slice(0, currentIndex + 1));
+      setCurrentIndex((prev) => prev + 1);
+    }, speed);
+
+    return () => clearTimeout(typingTimer);
+  }, [currentIndex, isTyping, text, speed, onComplete, loop, pauseTime]);
 
   return (
-    <div
-      className={className}
-      style={{
-        fontSize: typeof fontSize === "number" ? fontSize : fontSize,
-        fontWeight: 700,
-        minHeight: 40,
-        letterSpacing: 1,
-        color,
-        position: "relative",
-      }}
+    <motion.div
+      className={`inline-block ${className}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
     >
-      <style>{`
-        @media (max-width: 600px) {
-          .typing-text-responsive {
-            font-size: ${typeof fontSize === "number" ? Math.round(Number(fontSize) * 0.7) : "18px"} !important;
-            min-height: 28px !important;
-          }
-        }
-      `}</style>
-      <span className="typing-text-responsive">
-        {displayed.split("").map((char, i) => (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.04, type: "spring", stiffness: 400, damping: 30 }}
-            style={{ display: "inline-block" }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-        <motion.span
-          key={displayed.length}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ repeat: Infinity, duration: 0.8, repeatType: "reverse" }}
-          style={{ display: "inline-block", color: cursorColor }}
-        >
-          |
-        </motion.span>
+      <span className="font-mono">
+        {displayText}
+        <AnimatePresence>
+          {showCursor && (
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 1 }}
+              animate={{
+                opacity: [1, 0, 1],
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {cursorChar}
+            </motion.span>
+          )}
+        </AnimatePresence>
       </span>
-    </div>
+    </motion.div>
   );
-}
+};
 
 export default TypingText;

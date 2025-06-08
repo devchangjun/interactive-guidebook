@@ -8,12 +8,15 @@ import ScrollMarqueeText from "@/components/common/framer-motion/typography/Scro
 import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
 import TiltCard from "@/components/common/framer-motion/card/TiltCard";
 import Image from "next/image";
+import MagneticTargetBox from "@/components/common/framer-motion/cursor/MagneticTargetBox";
+import MagneticCursor from "@/components/common/framer-motion/cursor/MagneticCursor";
 
 export default function Home() {
   return (
     <div className="relative">
+      <MagneticCursor />
       <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
-        <TypingText text="Hi Vibe Coding!" color="#fff" fontSize={120} typingSpeed={120} />
+        <TypingText text="Hi Vibe Coding!" speed={120} className="text-4xl" cursorChar="|" />
       </ResultBox>
       <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
         <AnimatedTextListWithCursor />
@@ -96,89 +99,97 @@ export default function Home() {
           </div>
         </div>
       </ResultBox>
-      <ResultBox>
-        <div style={{ display: "flex", gap: 24 }}>
-          <TiltCard>
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: 16,
-                overflow: "hidden",
-                background: "#111",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Image
-                src="/1.avif"
-                alt="tech image"
-                width={400}
-                height={200}
-                style={{ width: "100%", height: "60%", objectFit: "cover" }}
-                priority
-                unoptimized
-              />
-              <div style={{ padding: 16 }}>
-                <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 1</h3>
-                <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 1</p>
+      <ResultBox style={{ height: "100vh" }}>
+        <div style={{ display: "flex", gap: 24, width: "100%" }}>
+          <MagneticTargetBox>
+            <TiltCard>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  background: "#111",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Image
+                  src="/1.avif"
+                  alt="tech image"
+                  width={400}
+                  height={200}
+                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  priority
+                  unoptimized
+                />
+                <div style={{ padding: 16 }}>
+                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 1</h3>
+                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 1</p>
+                </div>
               </div>
-            </div>
-          </TiltCard>
-          <TiltCard>
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: 16,
-                overflow: "hidden",
-                background: "#111",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Image
-                src="/1.avif"
-                alt="tech image"
-                width={400}
-                height={200}
-                style={{ width: "100%", height: "60%", objectFit: "cover" }}
-                priority
-                unoptimized
-              />
-              <div style={{ padding: 16 }}>
-                <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 2</h3>
-                <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 2</p>
+            </TiltCard>
+          </MagneticTargetBox>
+
+          <MagneticTargetBox>
+            <TiltCard>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  background: "#111",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Image
+                  src="/1.avif"
+                  alt="tech image"
+                  width={400}
+                  height={200}
+                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  priority
+                  unoptimized
+                />
+                <div style={{ padding: 16 }}>
+                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 2</h3>
+                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 2</p>
+                </div>
               </div>
-            </div>
-          </TiltCard>
-          <TiltCard>
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: 16,
-                overflow: "hidden",
-                background: "#111",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Image
-                src="/1.avif"
-                alt="tech image"
-                width={400}
-                height={200}
-                style={{ width: "100%", height: "60%", objectFit: "cover" }}
-                priority
-                unoptimized
-              />
-              <div style={{ padding: 16 }}>
-                <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 3</h3>
-                <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 3</p>
+            </TiltCard>
+          </MagneticTargetBox>
+
+          <MagneticTargetBox>
+            <TiltCard>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  background: "#111",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Image
+                  src="/1.avif"
+                  alt="tech image"
+                  width={400}
+                  height={200}
+                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  priority
+                  unoptimized
+                />
+                <div style={{ padding: 16 }}>
+                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 3</h3>
+                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 3</p>
+                </div>
               </div>
-            </div>
-          </TiltCard>
+            </TiltCard>
+          </MagneticTargetBox>
         </div>
       </ResultBox>
     </div>

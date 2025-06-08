@@ -46,7 +46,6 @@ export default function MagneticTargetBox({ children, className }: MagneticTarge
       className={className}
       style={{
         border: "1.5px dashed #fff",
-        padding: "32px 24px",
         minWidth: 120,
         minHeight: 48,
         display: "flex",
@@ -56,7 +55,6 @@ export default function MagneticTargetBox({ children, className }: MagneticTarge
         fontSize: 28,
         color: "#fff",
         background: "transparent",
-        margin: 8,
         position: "relative",
         cursor: "pointer",
         userSelect: "none",

@@ -3,62 +3,169 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
-import ScrambleText from "@/components/common/framer-motion/typography/ScrambleText";
+import ScrambleText from "@/components/common/framer-motion/typography/TextScramble";
 
 // 코드 예시 상수 (실제 구현 코드)
-const scrambleTextCode = `import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+const scrambleTextCode = `"use client";
 
-const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{};:,.<>?".split("");
+import { useState, useEffect, useRef } from "react";
 
-function ScrambleText({ text, scrambleCount = 3, typingSpeed = 80, scrambleSpeed = 40 }) {
-  const [display, setDisplay] = useState("");
-  const [done, setDone] = useState(false);
-  const textArr = Array.from(text);
-  const timeoutRef = useRef(null);
+export interface TextScrambleProps {
+  text: string;
+  speed?: number; // 스크램블 속도 (밀리초)
+  delay?: number; // 시작 지연 시간 (밀리초)
+  className?: string;
+  onComplete?: () => void; // 스크램블 완료 시 콜백
+  loop?: boolean; // 반복 여부
+  pauseTime?: number; // 반복 시 일시정지 시간
+  characters?: string; // 스크램블에 사용할 문자셋
+  revealSpeed?: number; // 각 문자가 복원되는 속도
+  trigger?: "auto" | "hover" | "manual"; // 트리거 방식
+  onHover?: () => void; // 호버 시 콜백
+}
+
+const TextScramble = ({
+  text,
+  speed = 50,
+  delay = 0,
+  className = "",
+  onComplete,
+  loop = false,
+  pauseTime = 1000,
+  characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?",
+  revealSpeed = 100,
+  trigger = "auto",
+  onHover,
+}: TextScrambleProps) => {
+  const [displayText, setDisplayText] = useState("");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const frameRef = useRef(0);
+
+  const getRandomChar = () => {
+    return characters[Math.floor(Math.random() * characters.length)];
+  };
+
+  const scrambleText = () => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
+    frameRef.current = 0;
+
+    const animate = () => {
+      const frame = frameRef.current;
+      const revealIndex = Math.floor(frame / (revealSpeed / speed));
+
+      let scrambledText = "";
+
+      for (let i = 0; i < text.length; i++) {
+        if (i < revealIndex) {
+          // 이미 복원된 문자
+          scrambledText += text[i];
+        } else {
+          // 아직 스크램블 중인 문자
+          if (text[i] === " ") {
+            scrambledText += " ";
+          } else {
+            scrambledText += getRandomChar();
+          }
+        }
+      }
+
+      setDisplayText(scrambledText);
+
+      if (revealIndex >= text.length) {
+        // 애니메이션 완료
+        setDisplayText(text);
+        setIsAnimating(false);
+        onComplete?.();
+
+        if (loop) {
+          timeoutRef.current = setTimeout(() => {
+            setDisplayText("");
+            frameRef.current = 0;
+            scrambleText();
+          }, pauseTime);
+        }
+      } else {
+        frameRef.current++;
+        intervalRef.current = setTimeout(animate, speed);
+      }
+    };
+
+    animate();
+  };
+
+  const handleMouseEnter = () => {
+    if (trigger === "hover" && !isAnimating) {
+      onHover?.();
+      scrambleText();
+    }
+  };
 
   useEffect(() => {
-    let current = 0;
-    let scrambleStep = 0;
-    function typeNext() {
-      if (current < textArr.length - scrambleCount) {
-        setDisplay(textArr.slice(0, current + 1).join(""));
-        current++;
-        timeoutRef.current = gsap.delayedCall(typingSpeed / 1000, typeNext);
-      } else {
-        scrambleStep = 0;
-        scramble();
-      }
+    // auto 모드에서만 자동 시작
+    if (trigger === "auto") {
+      const startTimeout = setTimeout(() => {
+        scrambleText();
+      }, delay);
+
+      return () => {
+        clearTimeout(startTimeout);
+        if (intervalRef.current) {
+          clearTimeout(intervalRef.current);
+        }
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+      };
     }
-    function scramble() {
-      if (scrambleStep < scrambleCount * 4) {
-        const fixed = textArr.slice(0, textArr.length - scrambleCount).join("");
-        const scrambled = Array(scrambleCount)
-          .fill(0)
-          .map(() => SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)])
-          .join("");
-        setDisplay(fixed + scrambled);
-        scrambleStep++;
-        timeoutRef.current = gsap.delayedCall(scrambleSpeed / 1000, scramble);
-      } else {
-        setDisplay(text);
-        setDone(true);
-      }
+  }, [text, speed, delay, loop, pauseTime, characters, revealSpeed, trigger]);
+
+  // text가 변경되면 애니메이션 재시작
+  useEffect(() => {
+    if (intervalRef.current) {
+      clearTimeout(intervalRef.current);
     }
-    setDisplay("");
-    setDone(false);
-    timeoutRef.current = gsap.delayedCall(typingSpeed / 1000, typeNext);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setDisplayText("");
+    setIsAnimating(false);
+    frameRef.current = 0;
+
+    const startTimeout = setTimeout(() => {
+      scrambleText();
+    }, delay);
+
     return () => {
-      if (timeoutRef.current) timeoutRef.current.kill();
+      clearTimeout(startTimeout);
     };
-  }, [text, scrambleCount, typingSpeed, scrambleSpeed]);
+  }, [text]);
+
+  // hover 모드일 때 초기 텍스트를 표시
+  const shouldShowInitialText = trigger === "hover" && !displayText && !isAnimating;
 
   return (
-    <span style={{ fontFamily: "monospace", fontSize: 24, letterSpacing: 1.5, color: done ? "#4ade80" : "#fff" }}>
-      {display}
+    <span
+      className={\`\${className} \${trigger === "hover" ? "cursor-pointer select-none" : ""}\`}
+      onMouseEnter={trigger === "hover" ? handleMouseEnter : undefined}
+    >
+      {shouldShowInitialText
+        ? text
+        : displayText ||
+          text.split("").map((char, i) => (
+            <span key={i} className="opacity-0">
+              {char}
+            </span>
+          ))}
     </span>
   );
-}
+};
+
+export default TextScramble;
+
 `;
 
 export default function ScrambleTextPage() {
@@ -72,7 +179,7 @@ export default function ScrambleTextPage() {
       <section className="mb-8">
         <h2 className="text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <ScrambleText text="스크램블 효과 예시입니다!" />
+          <ScrambleText className="text-4xl" text="스크램블 효과 예시입니다!" speed={100} delay={100} loop={true} />
         </ResultBox>
         <div className="text-sm text-[#888] mt-2">
           gsap 없이 <code>setTimeout</code>만으로도 구현 가능하지만, gsap의 delayedCall을 쓰면 타이밍 제어가 더 쉽고

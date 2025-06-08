@@ -3,7 +3,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { typographyAnimationCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import { CopyButton } from "../../components/CopyButton";
-import TypingAnimation from "@/components/common/framer-motion/typography/TypingText";
+import TypingText from "@/components/common/framer-motion/typography/TypingText";
 
 export default function TypographyAnimationPage() {
   return (
@@ -16,7 +16,7 @@ export default function TypographyAnimationPage() {
       <section className="mb-8">
         <h2 className="text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <TypingAnimation text="Hello world!" color="#fff" />
+          <TypingText text="Hi Vibe Coding!" speed={50} className="text-4xl" cursorChar="|" />
         </ResultBox>
 
         <div className="text-sm text-gray-500 mt-2">

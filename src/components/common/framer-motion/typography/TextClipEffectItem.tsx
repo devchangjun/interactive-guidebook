@@ -26,6 +26,7 @@ export default function TextClipEffectItem({ main, sub, fontSize, clipColor }: T
           start: "center 80%",
           end: "center 20%",
           scrub: true,
+          markers: true,
         },
       });
     }
