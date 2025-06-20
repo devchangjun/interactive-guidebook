@@ -33,7 +33,7 @@ export default function DocsSidebar() {
                   aria-controls={`category-panel-${idx}`}
                   onClick={() => isMobile && handleAccordion(idx)}
                   className={`
-                    w-full text-left text-sm font-medium mb-1 py-1
+                    w-full text-left text-lg font-bold mb-1 py-1
                     text-[#fff] transition-colors
                     flex items-center justify-between
                     ${isMobile ? "cursor-pointer" : "cursor-default"}
@@ -57,7 +57,7 @@ export default function DocsSidebar() {
                         <Link
                           href={item.path}
                           className={`
-                            block py-1 px-2 rounded-md text-sm
+                            block py-1 px-2 text-md font-medium
                             transition-colors
                             ${
                               active
@@ -68,16 +68,6 @@ export default function DocsSidebar() {
                           aria-current={active ? "page" : undefined}
                         >
                           <div>{item.name}</div>
-                          {item.description && (
-                            <div
-                              className={`
-                              text-xs mt-0.5
-                              ${active ? "text-[#666]" : "text-[#888]"}
-                            `}
-                            >
-                              {item.description}
-                            </div>
-                          )}
                         </Link>
                       </li>
                     );
