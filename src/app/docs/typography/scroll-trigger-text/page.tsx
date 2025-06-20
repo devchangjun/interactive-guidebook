@@ -1,9 +1,5 @@
 "use client";
 import ScrollTriggerText from "@/components/common/framer-motion/typography/ScrollTriggerText";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { CopyButton } from "../../components/CopyButton";
-import { scrollTriggerTextCode } from "./constants/code";
 import { ResultBox } from "@/components/common/ResultBox";
 import Title from "../../components/Title";
 
@@ -15,18 +11,25 @@ export default function ScrollTriggerTextPage() {
       <hr className="my-4 border-0 border-t border-white" />
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">데모</h2>
+        <h2 className="text-white text-xl md:text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <ScrollTriggerText fromColor="#888" toColor="#FFD600" duration={0.8} />
+          <ScrollTriggerText
+            text="스크롤에 따라 텍스트 색상이 변합니다."
+            fromColor="#888"
+            toColor="#FFD600"
+            duration={0.8}
+            className="font-bold"
+            fontSize="clamp(2.5rem, 8vw, 8rem)"
+          />
         </ResultBox>
-        <div className="text-gray-500 text-base font-normal ml-4 mb-4">
+        <div className="text-gray-500 text-base font-normal mt-2">
           <b>framer-motion</b>을 활용해 스크롤 위치에 따라 텍스트가 나타나고 사라지는 인터랙션입니다.
         </div>
       </section>
 
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
+        <h2 className="text-white text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
         <ul className="text-white text-base font-normal ml-4 list-disc list-inside">
           <li>섹션 타이틀: 스크롤에 따른 강조 효과</li>
           <li>스토리텔링: 순차적인 메시지 전달</li>
@@ -35,7 +38,7 @@ export default function ScrollTriggerTextPage() {
       </section>
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <h2 className="text-white text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol className="text-white text-base font-normal ml-4 mb-4 list-decimal list-inside">
           <li>초기: 텍스트가 투명하고 작은 상태</li>
           <li>스크롤 중간: 텍스트가 완전히 보이고 크기가 최대</li>
@@ -44,34 +47,6 @@ export default function ScrollTriggerTextPage() {
         </ol>
         <div className="text-white text-base font-normal ml-4 mb-4">
           💡 useScroll과 useTransform을 활용해 스크롤 위치에 따른 다양한 애니메이션을 적용할 수 있습니다.
-        </div>
-      </section>
-      {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
-      <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
-          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
-            {`스크롤 위치에 따라 텍스트가 나타났다 사라지는 인터랙션을 만들어줘.
-framer-motion의 useScroll과 useTransform을 사용해서 opacity, scale을 조절해줘.
-스크롤 중간 지점에서 텍스트가 가장 선명하고 크게 보이도록 해줘.
-반응형으로 동작하게 해줘.`}
-          </pre>
-        </div>
-      </section>
-      {/* 6. ⚡코드 예시 */}
-      <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4 overflow-hidden rounded-lg">
-          <CopyButton code={scrollTriggerTextCode} />
-          <div className="overflow-x-auto">
-            <SyntaxHighlighter
-              language="tsx"
-              style={oneDark}
-              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
-            >
-              {scrollTriggerTextCode}
-            </SyntaxHighlighter>
-          </div>
         </div>
       </section>
     </div>

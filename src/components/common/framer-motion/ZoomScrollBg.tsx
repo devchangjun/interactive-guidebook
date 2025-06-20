@@ -35,7 +35,7 @@ export default function ZoomScrollBg() {
         }}
       />
       <div className="relative z-10 flex h-full items-center justify-center">
-        <h2 className="mix-blend-difference text-4xl font-bold text-white">Zoom Demo</h2>
+        <h2 className="mix-blend-difference text-4xl md:text-6xl font-bold text-white">Zoom Demo</h2>
       </div>
     </div>
   );

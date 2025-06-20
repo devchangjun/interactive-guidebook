@@ -9,13 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 export type TextClipEffectListProps = {
   items: TextClipEffectItemProps[];
+  className?: string;
 };
 
-export default function TextClipEffect({ items }: TextClipEffectListProps) {
+export default function TextClipEffect({ items, className }: TextClipEffectListProps) {
   return (
     <div className={styles.container}>
       {items.map((item, idx) => (
-        <TextClipEffectItem key={idx} {...item} clipColor="#FFD600" />
+        <TextClipEffectItem key={idx} {...item} className={className} clipColor="#FFD600" />
       ))}
     </div>
   );

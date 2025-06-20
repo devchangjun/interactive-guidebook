@@ -1,13 +1,6 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ResultBox } from "@/components/common/ResultBox";
-import { CopyButton } from "../../components/CopyButton";
 import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
 import Title from "../../components/Title";
-
-const glitchTextCode = `import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
-
-<GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-5xl" />`;
 
 export default function GlitchTextPage() {
   return (
@@ -18,9 +11,9 @@ export default function GlitchTextPage() {
 
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
-        <h2 className="text-xl font-medium mb-4">데모</h2>
+        <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-5xl" />
+          <GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-6xl" />
         </ResultBox>
         <div className="text-sm text-gray-400 mt-2">
           <code>framer-motion</code>을 활용해 랜덤 clip-path와 색상으로 글리치 효과를 구현합니다.
@@ -29,7 +22,7 @@ export default function GlitchTextPage() {
 
       {/* 2. ✅ 사용하면 좋은 예시 */}
       <section className="mb-8">
-        <h2 className="text-xl font-medium mb-4">사용하면 좋은 예시</h2>
+        <h2 className="text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
         <ul className="text-base text-white list-disc list-inside">
           <li>메인 헤드라인: 강렬한 인상을 주고 싶을 때</li>
           <li>404/에러 페이지: 디지털 오류 느낌을 주고 싶을 때</li>
@@ -39,7 +32,7 @@ export default function GlitchTextPage() {
 
       {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section className="mb-8">
-        <h2 className="text-xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <h2 className="text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol className="text-base text-white list-decimal list-inside">
           <li>초기: 텍스트가 정상적으로 보임</li>
           <li>글리치: 텍스트 일부가 랜덤하게 흔들리거나 색이 번짐</li>
@@ -52,28 +45,12 @@ export default function GlitchTextPage() {
 
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
-        <h2 className="text-xl font-medium mb-4">🧑바이브 코딩용 프롬프트 예시</h2>
+        <h2 className="text-xl md:text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
         <div className="overflow-x-auto rounded-lg bg-[#18181b]">
           <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
-            {`텍스트에 디지털 오류(Glitch) 느낌의 애니메이션을 주고 싶어.
-색상, 위치, clip-path 등을 랜덤하게 바꿔서 미래지향적이고 임팩트 있게 만들어줘.
-framer-motion이나 CSS로 구현해줘.`}
+            텍스트에 디지털 오류(Glitch) 느낌의 애니메이션을 주고 싶어. 색상, 위치, clip-path 등을 랜덤하게 바꿔서
+            미래지향적이고 임팩트 있게 만들어줘. framer-motion이나 CSS로 구현해줘.
           </pre>
-        </div>
-      </section>
-      <section className="mb-8">
-        <h2 className="text-xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4 overflow-hidden rounded-lg">
-          <CopyButton code={glitchTextCode} />
-          <div className="overflow-x-auto">
-            <SyntaxHighlighter
-              language="tsx"
-              style={oneDark}
-              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
-            >
-              {glitchTextCode}
-            </SyntaxHighlighter>
-          </div>
         </div>
       </section>
     </div>

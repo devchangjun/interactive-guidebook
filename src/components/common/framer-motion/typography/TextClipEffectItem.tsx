@@ -9,11 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 export type TextClipEffectItemProps = {
   main: string;
   sub: React.ReactNode;
-  fontSize?: string;
+  className?: string;
   clipColor?: string;
 };
 
-export default function TextClipEffectItem({ main, sub, fontSize, clipColor }: TextClipEffectItemProps) {
+export default function TextClipEffectItem({ main, sub, className, clipColor }: TextClipEffectItemProps) {
   const textRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function TextClipEffectItem({ main, sub, fontSize, clipColor }: T
   }, []);
 
   return (
-    <h1 ref={textRef} className={styles.text} style={{ fontSize: fontSize }}>
+    <h1 ref={textRef} className={`${styles.text} ${className}`}>
       {main}
       <span className={styles.span} style={{ backgroundColor: clipColor ? clipColor : "#fff" }}>
         {sub}

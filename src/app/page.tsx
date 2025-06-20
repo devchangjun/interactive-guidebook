@@ -1,5 +1,5 @@
 import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImage";
-import { AnimatedTextListWithCursor } from "@/components/common/framer-motion/AniatedTextListWidthCursor";
+import AnimatedTextListWithCursor from "@/components/common/framer-motion/AnimatedTextListWithCursor";
 import { ResultBox } from "@/components/common/ResultBox";
 import ZoomScrollBg from "@/components/common/framer-motion/ZoomScrollBg";
 import TypingText from "@/components/common/framer-motion/typography/TypingText";
@@ -31,7 +31,7 @@ export default function Home() {
             { main: "javascript", sub: "javascript" },
             { main: "typescript", sub: "typescript" },
           ].map((item) => (
-            <TextClipEffectItem key={item.main} {...item} fontSize="10vw" />
+            <TextClipEffectItem key={item.main} {...item} className="text-10vw" />
           ))}
         </div>
       </ResultBox>

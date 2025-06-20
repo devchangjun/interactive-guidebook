@@ -23,7 +23,7 @@ function useMousePosition() {
   return pos;
 }
 
-function AnimatedTextListWithCursor() {
+export default function AnimatedTextListWithCursor() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [skew, setSkew] = useState(0);
   const lastX = useRef(0);
@@ -57,7 +57,7 @@ function AnimatedTextListWithCursor() {
                 opacity: hoveredIdx === idx ? 0 : 1,
               }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="pointer-events-none absolute left-0 top-0 flex w-full items-center gap-8 text-[68px] font-black leading-[48px] text-white" // tailwind
+              className="pointer-events-none absolute left-0 top-0 flex w-full items-center gap-8 text-5xl md:text-[68px] font-black leading-[48px] text-white" // tailwind
             >
               <span className="font-bold text-gray-800">{city.code}</span>
               <span className="font-black text-white">{city.name.toUpperCase()}</span>
@@ -70,7 +70,7 @@ function AnimatedTextListWithCursor() {
                 opacity: hoveredIdx === idx ? 1 : 0,
               }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="pointer-events-none absolute left-0 top-0 flex w-full items-center gap-8 text-[68px] font-black leading-[48px] text-white" // tailwind
+              className="pointer-events-none absolute left-0 top-0 flex w-full items-center gap-8 text-5xl md:text-[68px] font-black leading-[48px] text-white" // tailwind
             >
               <span className="font-bold text-gray-800">{city.code}</span>
               <span className="font-black text-white">{city.name.toUpperCase()}</span>
@@ -102,6 +102,3 @@ function AnimatedTextListWithCursor() {
     </div>
   );
 }
-
-// 파일 하단에 예제 컴포넌트 export (테스트용)
-export { AnimatedTextListWithCursor };

@@ -26,7 +26,7 @@ export const ResultBox: React.FC<ResultBoxProps> = ({ children, onReset, style, 
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl border border-gray-200 dark:border-neutral-800 bg-[#1a1a1a] p-6 sm:p-8 flex justify-center min-h-[120px] ${className}`}
+      className={`w-full relative overflow-hidden rounded-xl border border-gray-200 dark:border-neutral-800 bg-[#1a1a1a] p-6 sm:p-8 flex justify-center min-h-[120px] ${className}`}
       style={{
         ...style,
         backgroundImage:
@@ -35,7 +35,6 @@ export const ResultBox: React.FC<ResultBoxProps> = ({ children, onReset, style, 
         backgroundPosition: "0 0, 10px 10px",
       }}
     >
-      {/* 리셋 버튼 */}
       <button
         onClick={handleReset}
         className="absolute right-3 top-3 z-10 bg-neutral-900/80 hover:bg-green-400 text-white text-xs px-3 py-1 rounded-md transition-colors duration-150 shadow"
@@ -44,7 +43,6 @@ export const ResultBox: React.FC<ResultBoxProps> = ({ children, onReset, style, 
       >
         리셋
       </button>
-      {/* children을 key로 감싸서 리셋 시 리렌더 */}
       <div key={resetKey} className="w-full flex items-center justify-center">
         {children}
       </div>

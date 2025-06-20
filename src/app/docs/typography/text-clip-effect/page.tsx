@@ -1,9 +1,5 @@
 "use client";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { CopyButton } from "../../components/CopyButton";
 import { ResultBox } from "@/components/common/ResultBox";
-import { textClipEffectCode } from "./constants/code";
 import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
 import Title from "../../components/Title";
 
@@ -16,26 +12,26 @@ export default function TextClipEffectPage() {
 
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">데모</h2>
-        <ResultBox className="mb-4 h-screen">
-          <div className="flex flex-col gap-8">
+        <h2 className="text-white text-xl md:text-2xl font-medium mb-4">데모</h2>
+        <ResultBox className="mb-4 p-8 md:p-16">
+          <div className="flex flex-col gap-8 font-bold">
             {[
               { main: "Hello", sub: "Hello" },
               { main: "javascript", sub: "javascript" },
               { main: "typescript", sub: "typescript" },
             ].map((item) => (
-              <TextClipEffectItem key={item.main} {...item} fontSize="6vw" />
+              <TextClipEffectItem key={item.main} {...item} className="text-5xl md:text-8xl" />
             ))}
           </div>
         </ResultBox>
-        <div className="text-white text-base font-normal ml-4 mb-4">
+        <div className="text-gray-400 text-base font-normal mt-2">
           <b>gsap</b>과 <b>ScrollTrigger</b>를 활용해 스크롤 위치에 따라 텍스트 배경이 채워지는 인터랙션입니다.
         </div>
       </section>
 
       {/* 3. ✅ 사용하면 좋은 예시 */}
       <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
+        <h2 className="text-white text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
         <ul className="text-white text-base font-normal ml-4 list-disc list-inside">
           <li>메인 타이틀: 스크롤에 따라 강조 효과</li>
           <li>섹션 헤드라인: 시각적 임팩트 부여</li>
@@ -45,7 +41,7 @@ export default function TextClipEffectPage() {
 
       {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
       <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
+        <h2 className="text-white text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
         <ol className="text-white text-base font-normal ml-4 mb-4 list-decimal list-inside">
           <li>초기: 텍스트 배경이 비어 있음 (background-size: 0%)</li>
           <li>스크롤: 텍스트 배경이 점점 채워짐 (background-size: 100%)</li>
@@ -53,44 +49,6 @@ export default function TextClipEffectPage() {
         </ol>
         <div className="text-white text-base font-normal ml-4">
           💡 gsap의 <b>ScrollTrigger</b>로 스크롤 위치에 따라 배경 그라데이션이 자연스럽게 채워집니다.
-        </div>
-      </section>
-
-      {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
-      <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <div className="overflow-x-auto rounded-lg bg-gray-900">
-          <pre className="text-white text-base font-normal ml-4 mb-4 p-4 whitespace-pre-line text-yellow-500">
-            {`- gsap의 ScrollTrigger를 사용해줘.
-- 텍스트는 h1 태그로, 메인 텍스트와 서브 텍스트(작은 설명)가 함께 들어가야 해.
-- 배경 그라데이션은 Tailwind CSS의 arbitrary value 문법([background-clip:text], [background-size:0%])을 활용해서 텍스트에만 적용해줘.
-- 스크롤이 시작되면 배경이 0%에서 100%까지 채워지도록 gsap 애니메이션을 적용해줘.
-- 컴포넌트는 useRef, useEffect를 사용해서 'use client' 환경에서 동작하게 해줘.
-- 반응형 웹을 고려해서 폰트 크기는 vw 단위로, 레이아웃은 flex로 정렬해줘.
-- 서브 텍스트는 span으로 감싸고, 메인 텍스트 위에 겹쳐서 배치해줘.
-- 텍스트에 마우스를 hover하면, 서브 텍스트(span)의 clip-path가 변경되어 전체가 자연스럽게 드러나도록 해줘.
-- hover 효과도 gsap 또는 Tailwind arbitrary value로 구현해줘.
-- gsap의 ScrollTrigger 옵션(start, end, scrub 등)은 실제로 자연스러운 구간으로 설정해줘.
-- 예시 텍스트: main=\"Clip Effect!\", sub=\"스크롤로 배경이 채워집니다\"
-- 전체 코드를 컴포넌트 형태로 작성해줘.`}
-          </pre>
-        </div>
-      </section>
-
-      {/* 6. ⚡코드 예시 */}
-      <section className="mb-8">
-        <h2 className="text-white text-2xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4 overflow-hidden rounded-lg">
-          <CopyButton code={textClipEffectCode} />
-          <div className="overflow-x-auto">
-            <SyntaxHighlighter
-              language="tsx"
-              style={oneDark}
-              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
-            >
-              {textClipEffectCode}
-            </SyntaxHighlighter>
-          </div>
         </div>
       </section>
     </div>
