@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import menuTree from "./menuTree";
+import Image from "next/image";
 
 export default function DocsSidebar() {
   const pathname = usePathname();
@@ -37,6 +38,9 @@ export default function DocsSidebar() {
   return (
     <nav aria-label="인터랙션 가이드북" className="w-full h-full pt-16 md:pt-0">
       <div className="sticky top-16">
+        <div className="relative mb-4 h-32 w-full">
+          <Image src="/main.png" alt="main" fill className="w-full" priority />
+        </div>
         <h2 className="text-sm font-semibold mb-4 text-[#fff]">프롬프트 인터랙션 가이드북</h2>
         <ul className="flex flex-col space-y-1">
           {menuTree.map((category, idx) => {

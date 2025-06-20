@@ -52,7 +52,7 @@ export default function DocsPageLayout({ children }: { children: React.ReactNode
       )}
 
       {/* 우측 상세 컨텐츠 */}
-      <main className="mx-auto flex-1 max-w-[900px] px-4 py-8">{children}</main>
+      <main className="mx-auto flex-1 max-w-[900px] px-4 py-24">{children}</main>
     </div>
   );
 }
