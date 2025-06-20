@@ -24,25 +24,16 @@ const animations = [
 export default function AnimationList() {
   return (
     <nav>
-      <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>애니메이션 목록</h2>
-      <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
+      <h2 className="mb-4 text-lg font-bold">애니메이션 목록</h2>
+      <ul className="m-0 flex list-none flex-col gap-2 p-0">
         {animations.map((ani) => (
           <li key={ani.id}>
             <Link
               href={`/docs/page/${ani.id}`}
-              style={{
-                display: "block",
-                padding: "10px 16px",
-                borderRadius: 8,
-                background: "#232326",
-                color: "#fff",
-                textDecoration: "none",
-                fontWeight: 500,
-                transition: "background 0.2s",
-              }}
+              className="block rounded-lg bg-[#232326] px-4 py-2.5 font-medium text-white no-underline transition-colors hover:bg-gray-700"
             >
-              <div style={{ fontSize: 16 }}>{ani.name}</div>
-              <div style={{ fontSize: 13, color: "#aaa" }}>{ani.description}</div>
+              <div className="text-base">{ani.name}</div>
+              <div className="text-sm text-[#aaa]">{ani.description}</div>
             </Link>
           </li>
         ))}

@@ -49,25 +49,19 @@ export default function ScrollTriggerText({
   return (
     <div
       ref={containerRef}
+      className="relative flex items-center justify-center"
       style={{
         minHeight,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
       }}
     >
       <motion.h1
+        className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
           fontSize,
           opacity,
           scale,
           x,
           color,
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
           transition: \`color \${duration}s ease\`,
         }}
       >

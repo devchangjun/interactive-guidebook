@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 반응형 웹을 고려할 때 모바일 - 태블릿 - PC 순으로 고려합니다.
+# tailwind css를 사용합니다.
+# tailwind css v4를 사용합니다.
+# 당신은 gsap와 framer-motion, svg를 적극적으로 활용합니다.
+# useState, useEffect와 같은 훅을 쓰면 'use client'로 클라이언트 컴포넌트로 명시합니다.
+# window속성을 사용하기 전 항상 타입체크를 해주세요 if(typeof window !== undefined) {// ..실행 로직 }

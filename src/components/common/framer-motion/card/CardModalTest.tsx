@@ -30,38 +30,17 @@ export default function CardModalTest() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        padding: "48px 24px",
-      }}
-    >
+    <div className="min-h-screen px-6 py-12">
       {/* 카드 리스트 */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "24px",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
+      <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
         {products.map((product) => (
           <motion.div
             key={product.id}
             layoutId={`card-${product.id}`}
-            className="card"
+            className={`card cursor-pointer overflow-hidden rounded-2xl bg-white p-0 text-center shadow-md ${
+              selectedId === product.id ? "opacity-0" : "opacity-100"
+            }`}
             onClick={() => setSelectedId(product.id)}
-            style={{
-              borderRadius: 16,
-              background: "#fff",
-              boxShadow: "0 2px 16px rgba(0,0,0,0.08)",
-              cursor: "pointer",
-              padding: 0,
-              textAlign: "center",
-              overflow: "hidden",
-              opacity: selectedId === product.id ? 0 : 1,
-            }}
             whileHover={{ scale: 1.04 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
@@ -69,14 +48,10 @@ export default function CardModalTest() {
               layoutId={`image-${product.id}`}
               src="/1.avif"
               alt={product.title}
-              style={{
-                width: "100%",
-                height: 180,
-                objectFit: "cover",
-              }}
+              className="h-[180px] w-full object-cover"
             />
-            <div style={{ padding: 24 }}>
-              <h3 style={{ fontSize: 22, fontWeight: 700, margin: 0 }}>{product.title}</h3>
+            <div className="p-6">
+              <h3 className="m-0 text-xl font-bold">{product.title}</h3>
             </div>
           </motion.div>
         ))}
@@ -87,70 +62,29 @@ export default function CardModalTest() {
         {selectedId && (
           <motion.div
             layoutId={`card-${selectedId}`}
-            className="modal"
+            className="fixed left-0 top-0 z-[1000] flex h-screen w-screen items-center justify-center bg-black/30 p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              background: "rgba(0,0,0,0.3)",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              zIndex: 1000,
-              padding: "24px",
-            }}
             onClick={() => setSelectedId(null)}
           >
             <motion.div
-              style={{
-                width: "100%",
-                maxWidth: "480px",
-                borderRadius: 24,
-                background: "#fff",
-                boxShadow: "0 4px 32px rgba(0,0,0,0.16)",
-                padding: 0,
-                position: "relative",
-                textAlign: "center",
-                overflow: "hidden",
-              }}
+              className="relative w-full max-w-md overflow-hidden rounded-3xl bg-white p-0 text-center shadow-lg"
               onClick={(e) => e.stopPropagation()}
             >
               <motion.img
                 layoutId={`image-${selectedId}`}
                 src="/1.avif"
                 alt={products.find((p) => p.id === selectedId)?.title}
-                style={{
-                  width: "100%",
-                  height: 280,
-                  objectFit: "cover",
-                }}
+                className="h-[280px] w-full object-cover"
               />
-              <div style={{ padding: 32 }}>
-                <h3 style={{ fontSize: 28, fontWeight: 800, margin: 0 }}>
-                  {products.find((p) => p.id === selectedId)?.title}
-                </h3>
-                <p style={{ margin: "24px 0 32px 0", color: "#555" }}>
-                  {products.find((p) => p.id === selectedId)?.description}
-                </p>
+              <div className="p-8">
+                <h3 className="m-0 text-2xl font-extrabold">{products.find((p) => p.id === selectedId)?.title}</h3>
+                <p className="my-6 text-gray-600">{products.find((p) => p.id === selectedId)?.description}</p>
               </div>
               <button
                 onClick={() => setSelectedId(null)}
-                style={{
-                  position: "absolute",
-                  top: 16,
-                  right: 16,
-                  background: "#eee",
-                  border: "none",
-                  borderRadius: 8,
-                  padding: "8px 12px",
-                  cursor: "pointer",
-                  fontWeight: 600,
-                }}
+                className="absolute right-4 top-4 cursor-pointer rounded-lg border-none bg-gray-200 px-3 py-2 font-semibold"
               >
                 닫기
               </button>

@@ -50,26 +50,20 @@ function MagneticLetter({ char, strength }: { char: string; strength: number }) 
   return (
     <motion.span
       ref={ref}
+      className="inline-block cursor-pointer select-none text-3xl font-bold text-blue-500 transition-colors duration-200"
       style={{
-        display: "inline-block",
         x: springX,
         y: springY,
-        fontWeight: 700,
-        fontSize: 32,
-        color: "#007aff",
-        cursor: "pointer",
-        userSelect: "none",
-        transition: "color 0.2s",
       }}
     >
-      {char === " " ? "\u00A0" : char}
+      {char === " " ? "\\u00A0" : char}
     </motion.span>
   );
 }
 
 export function MagneticLetters({ text, strength = 40, className = "", style = {} }: MagneticLettersProps) {
   return (
-    <span className={className} style={{ display: "inline-flex", gap: 2, ...style }}>
+    <span className={\`\${className} inline-flex gap-0.5\`} style={style}>
       {text.split("").map((char, i) => (
         <MagneticLetter key={i} char={char} strength={strength} />
       ))}

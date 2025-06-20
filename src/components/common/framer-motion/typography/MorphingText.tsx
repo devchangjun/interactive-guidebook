@@ -93,13 +93,12 @@ const MorphingText: React.FC<MorphingTextProps> = ({
   return (
     <div
       style={{
-        position: "relative",
         filter: "url(#threshold) blur(0.6px)",
       }}
-      className={className}
+      className={`${className} relative`}
     >
       {/* SVG 필터 정의 */}
-      <svg style={{ display: "none" }}>
+      <svg className="hidden">
         <defs>
           <filter id="threshold">
             <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140" />
@@ -108,26 +107,16 @@ const MorphingText: React.FC<MorphingTextProps> = ({
       </svg>
       <span
         ref={text1Ref}
+        className="absolute inset-0 font-sans font-black select-none"
         style={{
-          position: "absolute",
-          fontFamily: "'Raleway', sans-serif",
-          fontWeight: 900,
           color,
-          userSelect: "none",
-          left: 0,
-          top: 0,
         }}
       />
       <span
         ref={text2Ref}
+        className="absolute inset-0 font-sans font-black select-none"
         style={{
-          position: "absolute",
-          fontFamily: "'Raleway', sans-serif",
-          fontWeight: 900,
           color,
-          userSelect: "none",
-          left: 0,
-          top: 0,
         }}
       />
     </div>

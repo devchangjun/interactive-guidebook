@@ -55,33 +55,22 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, className = "", color = "
 
   return (
     <span
-      className={className}
+      className={`${className} relative inline-block font-bold`}
       style={{
-        position: "relative",
-        display: "inline-block",
         color,
         fontSize,
-        fontWeight: 700,
         ...style,
       }}
       aria-label={text}
     >
       {/* 메인 텍스트 (가독성 유지) */}
-      <span style={{ position: "relative", zIndex: 2 }}>{text}</span>
+      <span className="relative z-10">{text}</span>
       {/* 글리치 레이어 1 (빨간색) */}
       <motion.span
         aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-hidden whitespace-pre"
         style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%",
           color: glitchColors[0],
-          pointerEvents: "none",
-          zIndex: 1,
-          overflow: "hidden",
-          whiteSpace: "pre",
         }}
         animate={controls1}
       >
@@ -90,17 +79,9 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, className = "", color = "
       {/* 글리치 레이어 2 (파란색) */}
       <motion.span
         aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-hidden whitespace-pre"
         style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%",
           color: glitchColors[1],
-          pointerEvents: "none",
-          zIndex: 1,
-          overflow: "hidden",
-          whiteSpace: "pre",
         }}
         animate={controls2}
       >

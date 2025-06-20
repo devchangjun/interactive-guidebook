@@ -3,9 +3,9 @@ import MagneticTargetBox from "@/components/common/framer-motion/cursor/Magnetic
 
 export default function Page() {
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="flex h-screen items-center justify-center">
       <MagneticCursor />
-      <div style={{ display: "flex", gap: 24 }}>
+      <div className="flex gap-6">
         <div>
           <MagneticTargetBox>About</MagneticTargetBox>
           <MagneticTargetBox>Blog</MagneticTargetBox>

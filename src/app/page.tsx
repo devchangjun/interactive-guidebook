@@ -1,4 +1,4 @@
-import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImageTest";
+import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImage";
 import { AnimatedTextListWithCursor } from "@/components/common/framer-motion/AniatedTextListWidthCursor";
 import { ResultBox } from "@/components/common/ResultBox";
 import ZoomScrollBg from "@/components/common/framer-motion/ZoomScrollBg";
@@ -15,17 +15,17 @@ export default function Home() {
   return (
     <div className="relative">
       <MagneticCursor />
-      <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
+      <ResultBox className="mb-4 h-screen">
         <TypingText text="Hi Vibe Coding!" speed={120} className="text-4xl" cursorChar="|" />
       </ResultBox>
-      <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
+      <ResultBox className="mb-4 h-screen">
         <AnimatedTextListWithCursor />
       </ResultBox>
-      <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
+      <ResultBox className="mb-4 h-screen">
         <ParallaxImageTest />
       </ResultBox>
-      <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <ResultBox className="mb-4 h-screen">
+        <div className="flex flex-col gap-8">
           {[
             { main: "Hello", sub: "Hello" },
             { main: "javascript", sub: "javascript" },
@@ -35,97 +35,62 @@ export default function Home() {
           ))}
         </div>
       </ResultBox>
-      <ResultBox style={{ marginBottom: 16, height: "100vh" }}>
+      <ResultBox className="mb-4 h-screen">
         <ZoomScrollBg />
       </ResultBox>
-      <ResultBox
-        style={{
-          marginBottom: 16,
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
+      <ResultBox className="mb-4 flex h-screen w-full justify-center">
         <MorphingText
           texts={["Hello", "Vibe", "Coding", "Let's go!"]}
           color="#0066ff"
-          className="mb-2 md:mb-4 text-8xl md:text-9xl h-2 w-full text-center, w-full"
+          className="h-2 w-full text-center, w-full mb-2 text-8xl md:mb-4 md:text-9xl"
         />
       </ResultBox>
       <ResultBox
+        className="h-[800px] border-none"
         style={{
-          height: "800px",
-          position: "relative",
           background: `linear-gradient(rgba(20,30,60,0.7), rgba(20,30,60,0.7)), url('/1.avif') center/cover no-repeat`,
           boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-          border: "none",
         }}
       >
-        <div className="h-screen flex flex-col justify-center items-center">
-          <div style={{ position: "relative", backgroundColor: "red", transform: "rotate(5deg)" }}>
+        <div className="flex h-screen flex-col items-center justify-center">
+          <div className="relative rotate-5 transform bg-red-500">
             <ScrollMarqueeText
               texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
               baseSpeed={50}
               fontSize="5vw"
               color="#fff"
-              style={{
-                fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
-                fontWeight: 700,
-                letterSpacing: "-0.01em",
-                textShadow: "0 2px 16px rgba(0,0,0,0.18)",
-                backgroundColor: "red",
-                padding: "16px",
-                borderRadius: "8px",
-              }}
+              className="rounded-lg bg-red-500 p-4 font-bold tracking-tighter"
             />
           </div>
-          <div style={{ position: "relative", backgroundColor: "orange", transform: "rotate(-5deg)" }}>
+          <div className="relative -rotate-5 transform bg-orange-500">
             <ScrollMarqueeText
               texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
               baseSpeed={50}
               fontSize="5vw"
               color="#fff"
               direction={true}
-              style={{
-                fontFamily: `'Montserrat', 'Noto Sans KR', 'Pretendard', Arial, sans-serif`,
-                fontWeight: 700,
-                letterSpacing: "-0.01em",
-                textShadow: "0 2px 16px rgba(0,0,0,0.18)",
-                padding: "16px",
-                borderRadius: "8px",
-              }}
+              className="rounded-lg p-4 font-bold tracking-tighter"
             />
           </div>
         </div>
       </ResultBox>
-      <ResultBox style={{ height: "100vh" }}>
-        <div style={{ display: "flex", gap: 24, width: "100%" }}>
+      <ResultBox className="h-screen">
+        <div className="flex w-full gap-6">
           <MagneticTargetBox>
             <TiltCard>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#111",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl bg-gray-900">
                 <Image
                   src="/1.avif"
                   alt="tech image"
                   width={400}
                   height={200}
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  className="h-[60%] w-full object-cover"
                   priority
                   unoptimized
                 />
-                <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 1</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 1</p>
+                <div className="p-4">
+                  <h3 className="mb-1 text-lg text-white">프로필 1</h3>
+                  <p className="text-sm text-gray-400">상세 설명 텍스트 1</p>
                 </div>
               </div>
             </TiltCard>
@@ -133,29 +98,19 @@ export default function Home() {
 
           <MagneticTargetBox>
             <TiltCard>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#111",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl bg-gray-900">
                 <Image
                   src="/1.avif"
                   alt="tech image"
                   width={400}
                   height={200}
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  className="h-[60%] w-full object-cover"
                   priority
                   unoptimized
                 />
-                <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 2</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 2</p>
+                <div className="p-4">
+                  <h3 className="mb-1 text-lg text-white">프로필 2</h3>
+                  <p className="text-sm text-gray-400">상세 설명 텍스트 2</p>
                 </div>
               </div>
             </TiltCard>
@@ -163,29 +118,19 @@ export default function Home() {
 
           <MagneticTargetBox>
             <TiltCard>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#111",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl bg-gray-900">
                 <Image
                   src="/1.avif"
                   alt="tech image"
                   width={400}
                   height={200}
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
+                  className="h-[60%] w-full object-cover"
                   priority
                   unoptimized
                 />
-                <div style={{ padding: 16 }}>
-                  <h3 style={{ color: "#fff", fontSize: 18, marginBottom: 4 }}>프로필 3</h3>
-                  <p style={{ color: "#aaa", fontSize: 14 }}>상세 설명 텍스트 3</p>
+                <div className="p-4">
+                  <h3 className="mb-1 text-lg text-white">프로필 3</h3>
+                  <p className="text-sm text-gray-400">상세 설명 텍스트 3</p>
                 </div>
               </div>
             </TiltCard>

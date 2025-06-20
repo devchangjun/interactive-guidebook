@@ -38,25 +38,12 @@ export default function GlobalCursor() {
             transition: { type: "spring", stiffness: 300, damping: 30 },
           }}
           exit={{ opacity: 0, scale: 0.7 }}
+          className="pointer-events-none fixed left-0 top-0 z-[9999] flex select-none items-center justify-center rounded-full font-bold text-white mix-blend-multiply shadow-[0_4px_24px_rgba(255,105,180,0.18)]"
           style={{
-            position: "fixed",
-            left: 0,
-            top: 0,
             width: cursorSize || 48,
             height: cursorSize || 48,
-            borderRadius: "50%",
             background: cursorColor || "#ff69b4",
-            color: "#fff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: 700,
             fontSize: (cursorSize || 48) * 0.22,
-            pointerEvents: "none",
-            zIndex: 9999,
-            boxShadow: "0 4px 24px rgba(255,105,180,0.18)",
-            userSelect: "none",
-            mixBlendMode: "multiply",
           }}
           aria-hidden
         >

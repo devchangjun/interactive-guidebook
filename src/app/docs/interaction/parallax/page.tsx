@@ -1,5 +1,5 @@
 "use client";
-import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImageTest";
+import ParallaxImageTest from "@/components/common/framer-motion/ParallaxImage";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "../../components/CopyButton";

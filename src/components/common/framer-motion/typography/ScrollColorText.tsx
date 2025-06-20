@@ -58,11 +58,9 @@ const ScrollColorText: React.FC<ScrollColorTextProps> = ({
   return (
     <span
       ref={textRef}
-      className={className}
+      className={`${className} inline-block`}
       style={{
         color: fromColor,
-        display: "inline-block",
-        transition: `color ${duration}s cubic-bezier(0.4,0,0.2,1)`,
         ...style,
       }}
     >

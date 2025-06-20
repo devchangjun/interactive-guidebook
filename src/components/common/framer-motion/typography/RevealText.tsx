@@ -65,12 +65,7 @@ const RevealText: React.FC<RevealTextProps> = ({
   const units = byWord ? text.split(" ") : Array.from(text);
 
   return (
-    <span
-      className={className}
-      style={{ display: "inline-block", overflow: "hidden", ...style }}
-      aria-label={text}
-      role="text"
-    >
+    <span className={`${className} inline-block overflow-hidden`} style={style} aria-label={text} role="text">
       {units.map((unit, i) => (
         <motion.span
           key={i}
@@ -81,10 +76,7 @@ const RevealText: React.FC<RevealTextProps> = ({
             duration,
             ease: "easeOut",
           }}
-          style={{
-            display: "inline-block",
-            whiteSpace: byWord ? "pre" : undefined, // 단어 단위 시 공백 유지
-          }}
+          className={`inline-block ${byWord ? "whitespace-pre" : ""}`}
         >
           {unit === " " && byWord ? "\u00A0" : unit}
         </motion.span>

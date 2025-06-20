@@ -33,16 +33,16 @@ export function TypographyAnimation({ text, typingSpeed = 60, className = "" }: 
   }, [displayed, isTyping, text, typingSpeed]);
 
   return (
-    <div className={className} style={{ fontSize: 28, fontWeight: 700, minHeight: 40, letterSpacing: 1 }}>
+    <div className={\`\${className} min-h-[40px] text-2xl font-bold tracking-wider\`}>
       {displayed.split("").map((char, i) => (
         <motion.span
           key={i}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.04, type: "spring", stiffness: 400, damping: 30 }}
-          style={{ display: "inline-block" }}
+          className="inline-block"
         >
-          {char === " " ? "\u00A0" : char}
+          {char === " " ? "\\u00A0" : char}
         </motion.span>
       ))}
       <motion.span
@@ -50,7 +50,7 @@ export function TypographyAnimation({ text, typingSpeed = 60, className = "" }: 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ repeat: Infinity, duration: 0.8, repeatType: "reverse" }}
-        style={{ display: "inline-block", color: "#007aff" }}
+        className="inline-block text-blue-500"
       >
         |
       </motion.span>
@@ -116,9 +116,8 @@ export function MagneticText({ children, strength = 40, className = "", style = 
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={\`\${className} inline-block\`}
       style={{
-        display: "inline-block",
         willChange: "transform",
         x: springX,
         y: springY,

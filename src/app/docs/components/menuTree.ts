@@ -86,6 +86,12 @@ const menuTree = [
         description: "스크롤에 따라 배경이 줌 인/아웃 되는 효과",
         path: "/docs/interaction/zoom-bg",
       },
+      {
+        id: "sticky-shrink",
+        name: "스티키 축소 효과",
+        description: "스크롤에 따라 섹션이 축소되는 효과",
+        path: "/docs/interaction/sticky-shrink",
+      },
     ],
   },
   {

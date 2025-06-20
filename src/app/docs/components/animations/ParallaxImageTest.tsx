@@ -15,28 +15,14 @@ export default function ParallaxImageTest() {
     restDelta: 0.5,
   });
   return (
-    <div
-      ref={ref}
-      style={{
-        height: "100vh",
-        overflow: "hidden",
-        position: "relative",
-        width: "100%",
-        maxWidth: "100vw",
-      }}
-    >
+    <div ref={ref} className="relative h-screen w-full max-w-full overflow-hidden">
       <motion.img
         src="/1.avif"
         alt="parallax"
         style={{
           y,
-          width: "100%",
-          height: "120vh",
-          objectFit: "cover",
-          display: "block",
-          position: "absolute",
-          top: 0,
         }}
+        className="absolute top-0 block h-[120vh] w-full object-cover"
       />
     </div>
   );

@@ -144,20 +144,14 @@ export default function MagneticCursor() {
     <motion.div
       ref={cursorRef}
       animate={controls}
+      className="pointer-events-none fixed left-0 top-0 z-[9999] mix-blend-difference transition-[width,height] duration-150"
       style={{
-        position: "fixed",
-        left: 0,
-        top: 0,
         x: springX,
         y: springY,
         width: isMagnetic && cursorBox ? cursorBox.width : CURSOR_SIZE,
         height: isMagnetic && cursorBox ? cursorBox.height : CURSOR_SIZE,
-        pointerEvents: "none",
-        zIndex: 9999,
         translateX: "-50%",
         translateY: "-50%",
-        mixBlendMode: "difference",
-        transition: "width 0.18s, height 0.18s",
       }}
     >
       <svg
@@ -168,7 +162,7 @@ export default function MagneticCursor() {
         }`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ display: "block", transition: "all 0.18s" }}
+        className="block transition-all duration-150"
       >
         {/* 네 귀퉁이만 있는 사각 테두리 */}
         <g stroke="#fff" strokeWidth={3}>

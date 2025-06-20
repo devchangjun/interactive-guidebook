@@ -43,23 +43,7 @@ export default function MagneticTargetBox({ children, className }: MagneticTarge
   return (
     <div
       ref={boxRef}
-      className={className}
-      style={{
-        border: "1.5px dashed #fff",
-        minWidth: 120,
-        minHeight: 48,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontWeight: 600,
-        fontSize: 28,
-        color: "#fff",
-        background: "transparent",
-        position: "relative",
-        cursor: "pointer",
-        userSelect: "none",
-        transition: "box-shadow 0.2s",
-      }}
+      className={`${className} relative flex min-h-[48px] min-w-[120px] cursor-pointer select-none items-center justify-center border border-dashed border-white bg-transparent text-2xl font-semibold text-white transition-shadow duration-200`}
     >
       {children}
     </div>

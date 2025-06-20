@@ -129,20 +129,12 @@ export default function MagneticCursor() {
     <motion.div
       ref={cursorRef}
       animate={controls}
+      className="pointer-events-none fixed left-0 top-0 z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference transition-[width,height] duration-180"
       style={{
-        position: "fixed",
-        left: 0,
-        top: 0,
         x: springX,
         y: springY,
         width: isMagnetic && cursorBox ? cursorBox.width : CURSOR_SIZE,
         height: isMagnetic && cursorBox ? cursorBox.height : CURSOR_SIZE,
-        pointerEvents: "none",
-        zIndex: 9999,
-        translateX: "-50%",
-        translateY: "-50%",
-        mixBlendMode: "difference",
-        transition: "width 0.18s, height 0.18s",
       }}
     >
       <svg
@@ -153,7 +145,7 @@ export default function MagneticCursor() {
         }\`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ display: "block", transition: "all 0.18s" }}
+        className="block transition-all duration-180"
       >
         {/* 네 귀퉁이만 있는 사각 테두리 */}
         <g stroke="#fff" strokeWidth={3}>
@@ -258,28 +250,35 @@ export default function MagneticTargetBox({ children, className }: MagneticTarge
   return (
     <div
       ref={boxRef}
-      className={className}
-      style={{
-        border: "1.5px dashed #fff",
-        padding: "32px 24px",
-        minWidth: 120,
-        minHeight: 48,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontWeight: 600,
-        fontSize: 28,
-        color: "#fff",
-        background: "transparent",
-        margin: 8,
-        position: "relative",
-        cursor: "pointer",
-        userSelect: "none",
-        transition: "box-shadow 0.2s",
-      }}
+      className={\`\${className} relative m-2 flex min-h-[48px] min-w-[120px] cursor-pointer select-none items-center justify-center border-2 border-dashed border-white bg-transparent p-6 text-2xl font-semibold text-white transition-shadow duration-200\`}
     >
       {children}
     </div>
+  );
+}
+`;
+
+export const magneticTargetBoxUsageCode = `
+import MagneticTargetBox from "@/components/common/framer-motion/cursor/MagneticTargetBox";
+import MagneticCursor from "@/components/common/framer-motion/cursor/MagneticCursor";
+
+export default function MagneticPage() {
+  return (
+    <>
+      <MagneticCursor />
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gray-900">
+        <h1 className="mb-8 text-4xl font-bold text-white">마그네틱 커서 테스트</h1>
+        <div className="flex flex-wrap items-center justify-center">
+          <MagneticTargetBox>버튼 1</MagneticTargetBox>
+          <MagneticTargetBox>
+            <span className="text-yellow-400">아이콘</span>
+          </MagneticTargetBox>
+          <MagneticTargetBox>
+            <img src="/3.avif" alt="thumbnail" className="h-24 w-40 rounded-md object-cover" />
+          </MagneticTargetBox>
+        </div>
+      </main>
+    </>
   );
 }
 `;

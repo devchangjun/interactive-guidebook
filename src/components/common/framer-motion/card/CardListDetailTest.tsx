@@ -29,7 +29,7 @@ export default function CardListDetailTest() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
-    <div style={{ padding: 32, minHeight: "100vh" }}>
+    <div className="min-h-screen p-8">
       <AnimatePresence mode="wait">
         {selectedId === null ? (
           // 카드 리스트 뷰
@@ -38,18 +38,13 @@ export default function CardListDetailTest() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{
-              display: "flex",
-              gap: 24,
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
+            className="flex flex-wrap justify-center gap-6"
           >
             {items.map((item) => (
-              <TiltCard key={item.id} style={{ width: 240, margin: 0, cursor: "pointer" }}>
+              <TiltCard key={item.id} className="m-0 w-60 cursor-pointer">
                 <motion.div
                   layoutId={`card-${item.id}`}
-                  style={{ borderRadius: 16, overflow: "hidden", padding: 0, background: "transparent" }}
+                  className="overflow-hidden rounded-2xl bg-transparent p-0"
                   onClick={() => setSelectedId(item.id)}
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
@@ -62,21 +57,14 @@ export default function CardListDetailTest() {
           </motion.div>
         ) : (
           // 상세 뷰
-          <TiltCard style={{ maxWidth: 480, margin: "60px auto" }}>
+          <TiltCard className="mx-auto my-16 max-w-md">
             <motion.div
               key="detail"
               layoutId={`card-${selectedId}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              style={{
-                borderRadius: 24,
-                background: "#fff",
-                boxShadow: "0 4px 32px rgba(0,0,0,0.12)",
-                overflow: "hidden",
-                position: "relative",
-                paddingBottom: 32,
-              }}
+              className="relative overflow-hidden rounded-3xl bg-white pb-8 shadow-lg"
             >
               <ParallaxImage
                 src={items.find((i) => i.id === selectedId)?.image}
@@ -90,17 +78,7 @@ export default function CardListDetailTest() {
               <ParallaxDescription>{items.find((i) => i.id === selectedId)?.description}</ParallaxDescription>
               <button
                 onClick={() => setSelectedId(null)}
-                style={{
-                  position: "absolute",
-                  top: 16,
-                  right: 16,
-                  background: "#eee",
-                  border: "none",
-                  borderRadius: 8,
-                  padding: "8px 12px",
-                  cursor: "pointer",
-                  fontWeight: 600,
-                }}
+                className="absolute right-4 top-4 cursor-pointer rounded-lg border-none bg-gray-200 px-3 py-2 font-semibold"
               >
                 닫기
               </button>
@@ -126,27 +104,22 @@ function ParallaxImage({
 }) {
   const { x, y } = useParallax(2.5); // 이미지에 가장 깊은 parallax
   return (
-    <motion.img src={src} alt={alt} layoutId={layoutId} style={{ width: "100%", height, objectFit: "cover", x, y }} />
+    <motion.img src={src} alt={alt} layoutId={layoutId} style={{ x, y, height }} className="w-full object-cover" />
   );
 }
 function ParallaxTitle({ children, layoutId }: { children: React.ReactNode; layoutId?: string }) {
   const { x, y } = useParallax(1.2);
   return (
-    <motion.h3
-      layoutId={layoutId}
-      style={{
-        margin: "16px 24px 8px 24px",
-        fontSize: 24,
-        fontWeight: 700,
-        x,
-        y,
-      }}
-    >
+    <motion.h3 layoutId={layoutId} style={{ x, y }} className="mx-6 mb-2 my-4 text-2xl font-bold">
       {children}
     </motion.h3>
   );
 }
 function ParallaxDescription({ children }: { children: React.ReactNode }) {
   const { x, y } = useParallax(0.7);
-  return <motion.p style={{ margin: "0 24px", color: "#555", x, y }}>{children}</motion.p>;
+  return (
+    <motion.p style={{ x, y }} className="mx-6 text-gray-600">
+      {children}
+    </motion.p>
+  );
 }

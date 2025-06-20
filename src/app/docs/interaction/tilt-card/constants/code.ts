@@ -77,14 +77,11 @@ export default function TiltCard({ children, className, style, maxTilt = 18, par
         onMouseLeave={isMobile ? undefined : handleMouseLeave}
       >
         <motion.div
+          className="will-change-transform rounded-2xl bg-white transition-shadow duration-200"
           style={{
             rotateX: tiltX,
             rotateY: tiltY,
-            willChange: "transform",
-            transition: "box-shadow 0.2s",
             boxShadow: isMobile ? "0 2px 16px rgba(0,0,0,0.08)" : "0 8px 32px rgba(0,0,0,0.16)",
-            borderRadius: 16,
-            background: "#fff",
           }}
         >
           {children}

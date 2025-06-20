@@ -1,0 +1,7 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# React 컴포넌트 이름은 ParscalCase로 작성합니다. (.tsx, .jsx)
+# 타입이 필요한 컴포넌트는 interface로 props를 정의합니다.

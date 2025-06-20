@@ -18,27 +18,20 @@ export default function ZoomScrollBg() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <div ref={ref} className="relative h-screen w-screen overflow-hidden">
       {/* 배경 이미지 */}
       <motion.img
         src="/1.avif"
         alt="Zoom Background"
+        className="absolute inset-0 z-0 h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 0,
           scale,
-          transition: "scale 0.5s cubic-bezier(0.22, 1, 0.36, 1)", // 부드러운 트랜지션
         }}
       />
       {/* 자식 콘텐츠가 있다면 여기에 추가 */}
-      <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%" }}>
+      <div className="relative z-10 h-full w-full">
         {/* 예시 텍스트 */}
-        <div style={{ color: "white", fontSize: 36, fontWeight: 700, textAlign: "center", marginTop: 80, textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
+        <div className="mt-20 text-center text-4xl font-bold text-white shadow-lg">
           스크롤을 내려보세요!<br />배경이 부드럽게 확대됩니다.
         </div>
       </div>

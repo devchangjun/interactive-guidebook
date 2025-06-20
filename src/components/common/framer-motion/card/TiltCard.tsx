@@ -68,12 +68,8 @@ export default function TiltCard({ children, className, style, maxTilt = 18, par
     <ParallaxContext.Provider value={{ tiltX, tiltY, parallaxFactor }}>
       <motion.div
         ref={ref}
-        className={className}
-        style={{
-          perspective: 1000,
-          transformStyle: "preserve-3d",
-          ...style,
-        }}
+        className={`${className} perspective-[1000px] preserve-3d`}
+        style={style}
         animate={isMobile ? { rotateX: 0, rotateY: 0 } : undefined}
         onMouseMove={isMobile ? undefined : handleMouseMove}
         onMouseLeave={isMobile ? undefined : handleMouseLeave}
@@ -82,12 +78,10 @@ export default function TiltCard({ children, className, style, maxTilt = 18, par
           style={{
             rotateX: tiltX,
             rotateY: tiltY,
-            willChange: "transform",
-            transition: "box-shadow 0.2s",
-            boxShadow: isMobile ? "0 2px 16px rgba(0,0,0,0.08)" : "0 8px 32px rgba(0,0,0,0.16)",
-            borderRadius: 16,
-            background: "#fff",
           }}
+          className={`will-change-transform rounded-2xl bg-white transition-shadow duration-200 ${
+            isMobile ? "shadow-md" : "shadow-2xl"
+          }`}
         >
           {children}
         </motion.div>
