@@ -3,7 +3,6 @@
 import StickyShrinkSection from "@/components/common/framer-motion/StickyShrinkSection";
 import Title from "@/app/docs/components/Title";
 import { Fragment } from "react";
-import LenisScroll from "@/components/common/lenis/LenisScroll";
 
 const sections = [
   {
@@ -43,32 +42,29 @@ const sections = [
 
 export default function StickyShrinkSectionPage() {
   return (
-    <>
-      <LenisScroll />
-      <main>
-        <div className="p-8">
-          <Title>Sticky Shrink Section</Title>
-          <p className="mt-4 text-lg text-neutral-400">
-            스크롤하면서 콘텐츠가 자연스럽게 축소되는 효과를 주는 컴포넌트입니다. 다양한 옵션을 통해 애니메이션을
-            커스터마이징할 수 있습니다.
-          </p>
-        </div>
+    <main>
+      <div className="p-8">
+        <Title>Sticky Shrink Section</Title>
+        <p className="mt-4 text-lg text-neutral-400">
+          스크롤하면서 콘텐츠가 자연스럽게 축소되는 효과를 주는 컴포넌트입니다. 다양한 옵션을 통해 애니메이션을
+          커스터마이징할 수 있습니다.
+        </p>
+      </div>
 
-        <div className="h-screen bg-neutral-800 text-white flex items-center justify-center">
-          <h1 className="text-4xl font-bold animate-pulse">아래로 스크롤하세요</h1>
-        </div>
-        {sections.map((section, index) => (
-          <Fragment key={index}>
-            <div className="py-20 text-center">
-              <h2 className="text-2xl font-bold">{section.title}</h2>
-            </div>
-            {section.component}
-          </Fragment>
-        ))}
-        <div className="h-screen bg-neutral-800 text-white flex items-center justify-center">
-          <h1 className="text-4xl font-bold">테스트 종료</h1>
-        </div>
-      </main>
-    </>
+      <div className="h-screen bg-neutral-800 text-white flex items-center justify-center">
+        <h1 className="text-4xl font-bold animate-pulse">아래로 스크롤하세요</h1>
+      </div>
+      {sections.map((section, index) => (
+        <Fragment key={index}>
+          <div className="py-20 text-center">
+            <h2 className="text-2xl font-bold">{section.title}</h2>
+          </div>
+          {section.component}
+        </Fragment>
+      ))}
+      <div className="h-screen bg-neutral-800 text-white flex items-center justify-center">
+        <h1 className="text-4xl font-bold">테스트 종료</h1>
+      </div>
+    </main>
   );
 }
