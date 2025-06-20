@@ -53,7 +53,7 @@ function MagneticLetter({ char, strength }: { char: string; strength: number }) 
         x: springX,
         y: springY,
       }}
-      className="inline-block cursor-pointer select-none text-3xl font-bold text-[#007aff] transition-colors duration-200"
+      className="inline-block cursor-pointer select-none font-bold text-[#007aff] transition-colors duration-200"
     >
       {char === " " ? "\u00A0" : char}
     </motion.span>

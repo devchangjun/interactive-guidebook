@@ -54,25 +54,29 @@ export default function AnimatedTextListPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-gray-900 text-yellow-500 rounded-lg p-4 text-sm whitespace-pre-line">
-          {`텍스트에 마우스를 올리면 텍스트가 밑에서 위로 올라가며, 동시에 커서 근처에 이미지가 따라다니는 효과를 만들고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className=" text-yellow-500 p-4 text-sm whitespace-pre-line">
+            {`텍스트에 마우스를 올리면 텍스트가 밑에서 위로 올라가며, 동시에 커서 근처에 이미지가 따라다니는 효과를 만들고 싶어.
 framer-motion으로 자연스러운 애니메이션과 skew 효과도 추가해줘.
 리스트별로 커서 이미지가 다르게 나오면 더 좋아!`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. ⚡코드 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">코드 예시</h2>
-        <div className="relative mb-2">
+        <div className="relative mb-2 overflow-hidden rounded-lg">
           <CopyButton code={animatedTextListCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {animatedTextListCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {animatedTextListCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

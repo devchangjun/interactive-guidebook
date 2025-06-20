@@ -30,7 +30,7 @@ export default function ScrollMarqueePage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-medium text-white">데모</h2>
-        <ResultBox className="relative h-[800px] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg">
+        <ResultBox className="relative h-[60vh] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg">
           <ScrollMarqueeText
             texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
             baseSpeed={50}
@@ -71,7 +71,7 @@ export default function ScrollMarqueePage() {
 
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-medium text-white">응용 예제</h2>
-        <ResultBox className="relative h-[800px] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg">
+        <ResultBox className="relative h-[60vh] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg overflow-hidden">
           <div>
             <div className="relative rotate-5 transform bg-red-500">
               <ScrollMarqueeText
@@ -99,24 +99,28 @@ export default function ScrollMarqueePage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-medium text-white">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="whitespace-pre-line rounded-lg bg-gray-900 p-4 text-base text-yellow-400">
-          {`스크롤 시 속도가 빨라지는 무한 반복 텍스트 애니메이션을 만들어줘.
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="whitespace-pre-line p-4 text-base text-yellow-400">
+            {`스크롤 시 속도가 빨라지는 무한 반복 텍스트 애니메이션을 만들어줘.
 텍스트는 좌에서 우로 계속 이동하고, 사용자가 스크롤하면 이동 속도가 빨라졌다가
 스크롤이 멈추면 천천히 원래 속도로 돌아오게 해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-medium text-white">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={scrollMarqueeCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {scrollMarqueeCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {scrollMarqueeCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

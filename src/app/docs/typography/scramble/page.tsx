@@ -180,7 +180,13 @@ export default function ScrambleTextPage() {
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-medium">데모</h2>
         <ResultBox>
-          <ScrambleText className="text-4xl" text="스크램블 효과 예시입니다!" speed={100} delay={100} loop={true} />
+          <ScrambleText
+            className="text-2xl md:text-4xl"
+            text="스크램블 효과 예시입니다!"
+            speed={100}
+            delay={100}
+            loop={true}
+          />
         </ResultBox>
         <div className="mt-2 text-sm text-gray-500">
           gsap 없이 <code>setTimeout</code>만으로도 구현 가능하지만, gsap의 delayedCall을 쓰면 타이밍 제어가 더 쉽고
@@ -224,25 +230,29 @@ export default function ScrambleTextPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-medium">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="rounded-lg bg-gray-900 p-4 text-sm text-yellow-400">
-          {`마우스를 올리면 텍스트가 빠르게 변하다가 원래 단어로 바뀌는 스크램블 효과를 만들어줘. 
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="p-4 text-sm text-yellow-400">
+            {`마우스를 올리면 텍스트가 빠르게 변하다가 원래 단어로 바뀌는 스크램블 효과를 만들어줘. 
 'Frontend Developer'라는 텍스트에 적용하고 싶어. 
 gsap를 써도 되고, 순수 자바스크립트로 구현해도 좋아. 코드는 간결하게 부탁해.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. ⚡코드 예시 */}
       <section>
         <h2 className="mb-4 text-2xl font-medium">⚡코드 예시</h2>
-        <div className="relative mb-2">
+        <div className="relative mb-2 overflow-hidden rounded-lg">
           <CopyButton code={scrambleTextCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {scrambleTextCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {scrambleTextCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
 

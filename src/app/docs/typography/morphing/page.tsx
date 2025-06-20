@@ -11,8 +11,8 @@ const morphingTextCode = `import MorphingText from '@/components/common/framer-m
   texts={["디자인 없이도", "차별화된 웹을", "누구나 쉽게"]}
   morphTime={1}
   cooldownTime={0.5}
-  fontSize="8vw"
-  color="#222"
+  color="#003b9a"
+  className="text-4xl sm:text-6xl md:text-8xl font-bold w-full text-center"
 />
 `;
 
@@ -32,7 +32,7 @@ export default function MorphingTextPage() {
             morphTime={1}
             cooldownTime={0.5}
             color="#003b9a"
-            className="text-8xl font-bold w-full mb-24 mt-4 text-center flex justify-center items-center"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold w-full mb-24 mt-4 text-center flex justify-center items-center"
           />
         </ResultBox>
         <div className="text-sm text-[#888] mt-2">
@@ -67,23 +67,27 @@ export default function MorphingTextPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-[#18181b] text-[#FFD600] rounded-lg p-4 text-sm whitespace-pre-line">
-          {`여러 문장이 자연스럽게 변환(morphing)되는 텍스트 효과를 만들고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
+            {`여러 문장이 자연스럽게 변환(morphing)되는 텍스트 효과를 만들고 싶어.
 SVG 필터나 blur를 활용해서 부드럽게 바뀌는 느낌이면 좋겠어.
 문장은 '디자인 없이도', '차별화된 웹을', '누구나 쉽게' 이런 식으로 반복되게 해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={morphingTextCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {morphingTextCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {morphingTextCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

@@ -17,7 +17,7 @@ export default function MagneticLettersPage() {
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <MagneticLetters text="MAGNETIC TEXT" />
+          <MagneticLetters text="MAGNETIC TEXT" className="text-4xl md:text-5xl" />
         </ResultBox>
 
         <div className="text-sm text-[#888] mt-2">
@@ -52,25 +52,29 @@ export default function MagneticLettersPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-[#18181b] text-[#FFD600] rounded-lg p-4 text-sm whitespace-pre-line">
-          {`글자의 각 문자에 마우스 커서가 가까워지면 자석처럼 끌리는 효과를 주고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
+            {`글자의 각 문자에 마우스 커서가 가까워지면 자석처럼 끌리는 효과를 주고 싶어.
 framer-motion을 활용해서 자연스럽고 반응형으로 만들어줘.
 커서가 멀어지면 원래 위치로 돌아가도록 하고, 글자마다 독립적으로 움직이게 해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. 🧑‍💻 코드 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={magneticLettersCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {magneticLettersCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {magneticLettersCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

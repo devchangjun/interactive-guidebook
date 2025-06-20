@@ -16,17 +16,17 @@ export default function RevealTextDocsPage() {
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">데모</h2>
         <ResultBox className="mb-4">
-          <div className="text-2xl font-medium mb-4">
+          <div className="text-xl font-medium mb-4 md:text-2xl">
             <RevealText text="Reveal 애니메이션 예시입니다." direction="up" />
           </div>
         </ResultBox>
         <ResultBox className="mb-4">
-          <div className="text-2xl mb-4">
+          <div className="text-xl mb-4 md:text-2xl">
             <RevealText text="단어 단위로 등장합니다!" byWord direction="left" delay={0.2} stagger={0.12} />
           </div>
         </ResultBox>
         <ResultBox className="mb-4">
-          <div className="text-2xl text-[#1976d2]">
+          <div className="text-xl text-[#1976d2] md:text-2xl">
             <RevealText text="오른쪽에서 한 글자씩 등장!" direction="right" delay={0.4} duration={0.7} />
           </div>
         </ResultBox>
@@ -66,23 +66,27 @@ export default function RevealTextDocsPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-[#18181b] text-[#FFD600] rounded-lg p-4 text-sm whitespace-pre-line">
-          {`텍스트가 한 글자 또는 한 단어씩 자연스럽게 등장하는 Reveal 애니메이션을 만들고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
+            {`텍스트가 한 글자 또는 한 단어씩 자연스럽게 등장하는 Reveal 애니메이션을 만들고 싶어.
 방향, 딜레이, 단어/글자 단위 등 커스텀 옵션도 지원해줘.
 framer-motion을 활용해서 구현해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={revealTextCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {revealTextCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {revealTextCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

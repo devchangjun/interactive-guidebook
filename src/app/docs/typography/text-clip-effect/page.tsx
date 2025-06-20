@@ -59,8 +59,9 @@ export default function TextClipEffectPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="text-white text-base font-normal ml-4 mb-4 bg-gray-900 p-4 rounded-lg whitespace-pre-line text-yellow-500">
-          {`- gsap의 ScrollTrigger를 사용해줘.
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="text-white text-base font-normal ml-4 mb-4 p-4 whitespace-pre-line text-yellow-500">
+            {`- gsap의 ScrollTrigger를 사용해줘.
 - 텍스트는 h1 태그로, 메인 텍스트와 서브 텍스트(작은 설명)가 함께 들어가야 해.
 - 배경 그라데이션은 Tailwind CSS의 arbitrary value 문법([background-clip:text], [background-size:0%])을 활용해서 텍스트에만 적용해줘.
 - 스크롤이 시작되면 배경이 0%에서 100%까지 채워지도록 gsap 애니메이션을 적용해줘.
@@ -72,21 +73,24 @@ export default function TextClipEffectPage() {
 - gsap의 ScrollTrigger 옵션(start, end, scrub 등)은 실제로 자연스러운 구간으로 설정해줘.
 - 예시 텍스트: main=\"Clip Effect!\", sub=\"스크롤로 배경이 채워집니다\"
 - 전체 코드를 컴포넌트 형태로 작성해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. ⚡코드 예시 */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={textClipEffectCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {textClipEffectCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {textClipEffectCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

@@ -61,12 +61,14 @@ export default function MagneticCursorPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">🖥️ 바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-gray-900 text-yellow-500 rounded-lg p-4 text-sm whitespace-pre-line">
-          {`마우스 커서가 특정 박스나 버튼 위에 올라가면 커서가 자연스럽게 그 요소를 감싸는 마그네틱 효과를 만들고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="p-4 text-sm text-yellow-500 whitespace-pre-line">
+            {`마우스 커서가 특정 박스나 버튼 위에 올라가면 커서가 자연스럽게 그 요소를 감싸는 마그네틱 효과를 만들고 싶어.
 기본 커서는 네 귀퉁이만 있는 사각형 테두리와 중앙 원으로 구성되고, 천천히 회전하면서 움직여.
 박스 위에 올라가면 회전은 멈추고 박스 크기에 맞춰 커서가 확대되면서 자연스럽게 박스를 감싸주는 느낌으로 만들어줘.
 framer-motion을 사용해도 좋아.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. 💡 구현 시 주의사항 */}
@@ -97,27 +99,31 @@ framer-motion을 사용해도 좋아.`}
         <h2 className="text-xl font-medium mb-2">코드 예시</h2>
 
         <h3 className="text-base font-medium mb-2">MagneticCursor.tsx</h3>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={magneticCursorCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {magneticCursorCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {magneticCursorCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
 
         <h3 className="text-base font-medium mb-2">MagneticTargetBox.tsx</h3>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={magneticTargetBoxCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {magneticTargetBoxCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {magneticTargetBoxCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

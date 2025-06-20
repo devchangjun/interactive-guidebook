@@ -17,7 +17,7 @@ export default function TypographyAnimationPage() {
       <section className="mb-8">
         <h2 className="text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <TypingText text="Hi Vibe Coding!" speed={50} className="text-4xl" cursorChar="|" />
+          <TypingText text="Hi Vibe Coding!" speed={50} className="text-2xl md:text-4xl" cursorChar="|" />
         </ResultBox>
 
         <div className="text-sm text-gray-500 mt-2">
@@ -54,23 +54,27 @@ export default function TypographyAnimationPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-[#18181b] text-[#FFD600] rounded-lg p-4 text-sm whitespace-pre-line">
-          {`텍스트가 타이핑되듯 하나씩 등장하고, 일정 시간 후 사라졌다가 다른 문장이 반복되는 효과를 구현하고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
+            {`텍스트가 타이핑되듯 하나씩 등장하고, 일정 시간 후 사라졌다가 다른 문장이 반복되는 효과를 구현하고 싶어.
 문장은 '디자인 없이도', '차별화된 웹을', '누구나 쉽게' 이런 식으로 바뀌게 해줘.
 커서가 깜빡이도록 하고, 프레이머 모션이나 타이핑 라이브러리를 써도 괜찮아.`}
-        </pre>
+          </pre>
+        </div>
       </section>
       <section className="mb-8">
         <h2 className="text-2xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={typographyAnimationCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {typographyAnimationCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {typographyAnimationCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

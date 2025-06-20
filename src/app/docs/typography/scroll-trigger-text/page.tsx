@@ -49,25 +49,29 @@ export default function ScrollTriggerTextPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-[#18181b] text-[#FFD600] rounded-lg p-4 text-sm whitespace-pre-line">
-          {`스크롤 위치에 따라 텍스트가 나타났다 사라지는 인터랙션을 만들어줘.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
+            {`스크롤 위치에 따라 텍스트가 나타났다 사라지는 인터랙션을 만들어줘.
 framer-motion의 useScroll과 useTransform을 사용해서 opacity, scale을 조절해줘.
 스크롤 중간 지점에서 텍스트가 가장 선명하고 크게 보이도록 해줘.
 반응형으로 동작하게 해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
       {/* 6. ⚡코드 예시 */}
       <section className="mb-8">
         <h2 className="text-white text-2xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={scrollTriggerTextCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {scrollTriggerTextCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {scrollTriggerTextCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

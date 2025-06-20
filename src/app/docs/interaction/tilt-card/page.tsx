@@ -18,9 +18,9 @@ export default function TiltCardPage() {
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">데모</h2>
         <ResultBox>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             <TiltCard>
-              <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
+              <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
                 <Image
                   src="/1.avif"
                   alt="tech image"
@@ -37,7 +37,7 @@ export default function TiltCardPage() {
               </div>
             </TiltCard>
             <TiltCard>
-              <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
+              <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
                 <Image
                   src="/1.avif"
                   alt="tech image"
@@ -54,7 +54,7 @@ export default function TiltCardPage() {
               </div>
             </TiltCard>
             <TiltCard>
-              <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
+              <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
                 <Image
                   src="/1.avif"
                   alt="tech image"
@@ -107,25 +107,29 @@ export default function TiltCardPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-gray-900 text-yellow-500 rounded-lg p-4 text-sm whitespace-pre-line">
-          {`마우스를 올렸을 때 카드가 3D로 기울어지고, 내부 텍스트나 이미지가 깊이에 따라 다르게 움직이는 효과를 구현하고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="p-4 text-sm text-yellow-500 whitespace-pre-line">
+            {`마우스를 올렸을 때 카드가 3D로 기울어지고, 내부 텍스트나 이미지가 깊이에 따라 다르게 움직이는 효과를 구현하고 싶어.
 모바일에서는 이 효과를 꺼주고, 내부 요소는 useParallax 같은 훅으로 제어 가능하면 좋겠어.
 Framer Motion으로 부드럽게 애니메이션 처리하고 싶어.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. 🧑‍💻 코드 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">코드 예시</h2>
-        <div className="relative mb-2">
+        <div className="relative mb-2 overflow-hidden rounded-lg">
           <CopyButton code={tiltCardCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {tiltCardCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {tiltCardCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

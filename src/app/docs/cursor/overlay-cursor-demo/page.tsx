@@ -18,7 +18,7 @@ export default function OverlayCursorDemoPage() {
         <h2 className="text-xl font-medium mb-2">데모</h2>
         <ResultBox>
           <OverlayCursorProvider>
-            <div className="w-full max-w-480 h-100 mx-auto bg-white rounded-lg shadow-md flex items-center justify-center text-2xl font-bold text-pink-500">
+            <div className="w-full max-w-[480px] h-40 mx-auto bg-white rounded-lg shadow-md flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold text-pink-500 text-center px-4">
               이 영역에 마우스를 올려보세요!
             </div>
           </OverlayCursorProvider>
@@ -54,25 +54,29 @@ export default function OverlayCursorDemoPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-gray-900 text-yellow-500 rounded-lg p-4 text-sm whitespace-pre-line">
-          {`특정 영역에 마우스를 올리면 커서가 부드럽게 변형되는 오버레이 커서 인터랙션을 구현하고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="p-4 text-sm text-yellow-500 whitespace-pre-line">
+            {`특정 영역에 마우스를 올리면 커서가 부드럽게 변형되는 오버레이 커서 인터랙션을 구현하고 싶어.
 GSAP이나 framer-motion, SVG를 활용해도 좋아.
 커서의 색상, 크기, 투명도, 그림자 등을 커스텀할 수 있게 해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
 
       {/* 6. ⚡ 코드 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">코드 예시</h2>
-        <div className="relative mb-2">
+        <div className="relative mb-2 overflow-hidden rounded-lg">
           <CopyButton code={overlayCursorDemoCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {overlayCursorDemoCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {overlayCursorDemoCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import menuTree from "./menuTree";
 
@@ -10,7 +10,24 @@ export default function DocsSidebar() {
   // 모바일 아코디언 상태: 카테고리별 펼침 여부
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   // 반응형 체크
-  const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    // 컴포넌트 마운트 시 한번 실행
+    checkIsMobile();
+
+    // resize 이벤트에 대한 리스너 등록
+    window.addEventListener("resize", checkIsMobile);
+
+    // 컴포넌트 언마운트 시 리스너 제거
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
 
   // 모바일에서 카테고리 클릭 시 펼침/접힘 토글
   const handleAccordion = (idx: number) => {
@@ -18,7 +35,7 @@ export default function DocsSidebar() {
   };
 
   return (
-    <nav aria-label="인터랙션 가이드북" className="w-full max-w-[300px] px-4">
+    <nav aria-label="인터랙션 가이드북" className="w-full h-full pt-16 md:pt-0">
       <div className="sticky top-16">
         <h2 className="text-sm font-semibold mb-4 text-[#fff]">프롬프트 인터랙션 가이드북</h2>
         <ul className="flex flex-col space-y-1">

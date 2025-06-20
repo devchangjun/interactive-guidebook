@@ -7,7 +7,7 @@ import Title from "../../components/Title";
 
 const glitchTextCode = `import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
 
-<GlitchText text="GLITCH EFFECT" fontSize={64} color="#fff" />`;
+<GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-5xl" />`;
 
 export default function GlitchTextPage() {
   return (
@@ -20,7 +20,7 @@ export default function GlitchTextPage() {
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">데모</h2>
         <ResultBox>
-          <GlitchText text="GLITCH EFFECT" fontSize={56} color="#fff" />
+          <GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-5xl" />
         </ResultBox>
         <div className="text-sm text-gray-400 mt-2">
           <code>framer-motion</code>을 활용해 랜덤 clip-path와 색상으로 글리치 효과를 구현합니다.
@@ -53,23 +53,27 @@ export default function GlitchTextPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">🧑바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-[#18181b] text-[#FFD600] rounded-lg p-4 text-sm whitespace-pre-line">
-          {`텍스트에 디지털 오류(Glitch) 느낌의 애니메이션을 주고 싶어.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
+            {`텍스트에 디지털 오류(Glitch) 느낌의 애니메이션을 주고 싶어.
 색상, 위치, clip-path 등을 랜덤하게 바꿔서 미래지향적이고 임팩트 있게 만들어줘.
 framer-motion이나 CSS로 구현해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-4">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={glitchTextCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {glitchTextCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {glitchTextCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

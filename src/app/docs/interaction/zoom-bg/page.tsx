@@ -49,25 +49,29 @@ export default function ZoomScrollBgPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="text-base text-yellow-500 whitespace-pre-line bg-[#18181b] rounded-lg p-4">
-          {`스크롤을 내리면 배경 이미지가 부드럽게 확대(zoom in)되고, 올리면 다시 축소(zoom out)되는 컴포넌트를 만들어줘.
+        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
+          <pre className="p-4 text-base text-yellow-500 whitespace-pre-line">
+            {`스크롤을 내리면 배경 이미지가 부드럽게 확대(zoom in)되고, 올리면 다시 축소(zoom out)되는 컴포넌트를 만들어줘.
 framer-motion의 useScroll, useTransform, useSpring을 활용해서 자연스럽게 트랜지션이 적용되게 해줘.
 배경 이미지는 전체 화면을 덮도록 하고, 반응형 웹도 고려해줘.
 샘플 이미지는 /images/image.png로해줘.`}
-        </pre>
+          </pre>
+        </div>
       </section>
       {/* 6. ⚡코드 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">코드 예시</h2>
-        <div className="relative mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-lg">
           <CopyButton code={zoomScrollBgCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {zoomScrollBgCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {zoomScrollBgCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>

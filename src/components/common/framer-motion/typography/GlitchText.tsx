@@ -6,7 +6,6 @@ interface GlitchTextProps {
   text: string;
   className?: string;
   color?: string;
-  fontSize?: number | string;
   style?: React.CSSProperties;
 }
 
@@ -24,7 +23,7 @@ function getRandomClip() {
   return `inset(${top}px 0 ${100 - bottom}px 0)`;
 }
 
-const GlitchText: React.FC<GlitchTextProps> = ({ text, className = "", color = "#fff", fontSize = 48, style = {} }) => {
+const GlitchText: React.FC<GlitchTextProps> = ({ text, className = "", color = "#fff", style = {} }) => {
   const controls1 = useAnimation();
   const controls2 = useAnimation();
 
@@ -58,7 +57,6 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, className = "", color = "
       className={`${className} relative inline-block font-bold`}
       style={{
         color,
-        fontSize,
         ...style,
       }}
       aria-label={text}

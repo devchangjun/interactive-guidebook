@@ -48,22 +48,26 @@ export default function ParallaxPage() {
       {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">바이브 코딩용 프롬프트 예시</h2>
-        <pre className="bg-gray-900 text-yellow-500 rounded-lg p-4 text-sm whitespace-pre-line">
-          {`스크롤을 내리면 배경 이미지가 부드럽게 위로 이동하는 패럴랙스 효과의 컴포넌트를 만들어줘.\nframer-motion의 useScroll, useTransform, useSpring을 활용해서 자연스럽게 트랜지션이 적용되게 해줘.\n배경 이미지는 전체 화면을 덮도록 하고, 반응형 웹도 고려해줘.\n샘플 이미지는 /images/image.png로 해줘.`}
-        </pre>
+        <div className="overflow-x-auto rounded-lg bg-gray-900">
+          <pre className="p-4 text-sm text-yellow-500 whitespace-pre-line">
+            {`스크롤을 내리면 배경 이미지가 부드럽게 위로 이동하는 패럴랙스 효과의 컴포넌트를 만들어줘.\nframer-motion의 useScroll, useTransform, useSpring을 활용해서 자연스럽게 트랜지션이 적용되게 해줘.\n배경 이미지는 전체 화면을 덮도록 하고, 반응형 웹도 고려해줘.\n샘플 이미지는 /images/image.png로 해줘.`}
+          </pre>
+        </div>
       </section>
       {/* 6. ⚡코드 예시 */}
       <section className="mb-8">
         <h2 className="text-xl font-medium mb-2">코드 예시</h2>
-        <div className="relative mb-2">
+        <div className="relative mb-2 overflow-hidden rounded-lg">
           <CopyButton code={parallaxImageTestCode} />
-          <SyntaxHighlighter
-            language="tsx"
-            style={oneDark}
-            customStyle={{ borderRadius: 8, fontSize: 14, paddingTop: 32 }}
-          >
-            {parallaxImageTestCode}
-          </SyntaxHighlighter>
+          <div className="overflow-x-auto">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              customStyle={{ borderRadius: 0, fontSize: 14, paddingTop: 32, margin: 0 }}
+            >
+              {parallaxImageTestCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
       </section>
     </div>
