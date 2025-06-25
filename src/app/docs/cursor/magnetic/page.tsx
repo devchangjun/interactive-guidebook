@@ -2,6 +2,8 @@ import { ResultBox } from "@/components/common/ResultBox";
 import MagneticTargetBox from "@/components/common/framer-motion/cursor/MagneticTargetBox";
 import MagneticCursor from "@/components/common/framer-motion/cursor/MagneticCursor";
 import Title from "../../components/Title";
+import TiltCard from "@/components/common/effects/TiltCard";
+import Image from "next/image";
 
 export default function MagneticCursorPage() {
   return (
@@ -15,9 +17,63 @@ export default function MagneticCursorPage() {
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
         <ResultBox>
           <div className="flex gap-4 flex-wrap p-4 justify-center">
-            <MagneticTargetBox className="md:text-3xl">Hover Me!</MagneticTargetBox>
-            <MagneticTargetBox className="md:text-3xl">Interactive</MagneticTargetBox>
-            <MagneticTargetBox className="md:text-3xl">Magnetic Box</MagneticTargetBox>
+            <MagneticTargetBox className="md:text-3xl">
+              <TiltCard>
+                <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
+                  <Image
+                    src="/1.avif"
+                    alt="tech image"
+                    width={400}
+                    height={200}
+                    className="w-full h-60 object-cover"
+                    priority
+                    unoptimized
+                  />
+                  <div className="p-4">
+                    <h3 className="text-white text-lg md:text-xl mb-2">프로필 1</h3>
+                    <p className="text-gray-400 text-sm md:text-base">상세 설명 텍스트 1</p>
+                  </div>
+                </div>
+              </TiltCard>
+            </MagneticTargetBox>
+            <MagneticTargetBox className="md:text-3xl">
+              <TiltCard>
+                <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
+                  <Image
+                    src="/1.avif"
+                    alt="tech image"
+                    width={400}
+                    height={200}
+                    className="w-full h-60 object-cover"
+                    priority
+                    unoptimized
+                  />
+                  <div className="p-4">
+                    <h3 className="text-white text-lg md:text-xl mb-2">프로필 1</h3>
+                    <p className="text-gray-400 text-sm md:text-base">상세 설명 텍스트 1</p>
+                  </div>
+                </div>
+              </TiltCard>
+            </MagneticTargetBox>
+            <MagneticTargetBox className="md:text-3xl">
+              <TiltCard>
+                <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
+                  <Image
+                    src="/1.avif"
+                    alt="tech image"
+                    width={400}
+                    height={200}
+                    className="w-full h-60 object-cover"
+                    priority
+                    unoptimized
+                  />
+                  <div className="p-4">
+                    <h3 className="text-white text-lg md:text-xl mb-2">프로필 1</h3>
+                    <p className="text-gray-400 text-sm md:text-base">상세 설명 텍스트 1</p>
+                  </div>
+                </div>
+              </TiltCard>
+            </MagneticTargetBox>
           </div>
           <MagneticCursor />
         </ResultBox>

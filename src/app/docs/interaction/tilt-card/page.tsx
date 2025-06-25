@@ -1,5 +1,5 @@
 import { ResultBox } from "@/components/common/ResultBox";
-import TiltCard from "@/components/common/framer-motion/card/TiltCard";
+import TiltCard from "@/components/common/effects/TiltCard";
 import Image from "next/image";
 import Title from "../../components/Title";
 
