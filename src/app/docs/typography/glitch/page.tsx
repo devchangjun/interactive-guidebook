@@ -1,5 +1,5 @@
 import DemoContainer from "@/components/common/DemoContainer";
-import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
+import GlitchText from "@/components/common/framer-motion/typography/glitch-text/GlitchText";
 import Title from "../../components/Title";
 
 export default function GlitchTextPage() {
@@ -12,9 +12,55 @@ export default function GlitchTextPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <DemoContainer>
-          <GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-6xl" />
-        </DemoContainer>
+
+        {/* 자동 재생 데모 */}
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-2">자동 재생</h3>
+          <DemoContainer>
+            <GlitchText
+              className="text-4xl md:text-6xl"
+              enableOnHover={false}
+              speed={0.5}
+              refreshDelay={800}
+              glitchColors={["#ff0040", "#00ffff", "#ff0080", "#0040ff"]}
+            >
+              GLITCH EFFECT
+            </GlitchText>
+          </DemoContainer>
+        </div>
+
+        {/* 호버 데모 */}
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-2">호버 시 실행 (마우스 올려보세요)</h3>
+          <DemoContainer>
+            <GlitchText
+              className="text-4xl md:text-6xl"
+              enableOnHover={true}
+              speed={0.3}
+              refreshDelay={100}
+              glitchColors={["#ffff00", "#ff00ff", "#00ffff", "#ff8000"]}
+            >
+              HOVER ME
+            </GlitchText>
+          </DemoContainer>
+        </div>
+
+        {/* 빠른 글리치 데모 */}
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-2">빠른 글리치</h3>
+          <DemoContainer>
+            <GlitchText
+              className="text-2xl md:text-4xl"
+              enableOnHover={false}
+              speed={0.2}
+              refreshDelay={200}
+              glitchColors={["#ff3232", "#3232ff", "#ff32ff", "#32ffff"]}
+            >
+              FAST GLITCH
+            </GlitchText>
+          </DemoContainer>
+        </div>
+
         <div className="text-sm text-gray-400 mt-2">
           <code>framer-motion</code>을 활용해 랜덤 clip-path와 색상으로 글리치 효과를 구현합니다.
         </div>
