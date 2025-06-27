@@ -1,6 +1,6 @@
 "use client";
 import ScrollTriggerText from "@/components/common/framer-motion/typography/ScrollTriggerText";
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import Title from "../../components/Title";
 
 export default function ScrollTriggerTextPage() {
@@ -12,7 +12,7 @@ export default function ScrollTriggerTextPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-white text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <ScrollTriggerText
             text="스크롤에 따라 텍스트 색상이 변합니다."
             fromColor="#888"
@@ -21,7 +21,7 @@ export default function ScrollTriggerTextPage() {
             className="font-bold"
             fontSize="clamp(2.5rem, 8vw, 8rem)"
           />
-        </ResultBox>
+        </DemoContainer>
         <div className="text-gray-500 text-base font-normal mt-2">
           <b>framer-motion</b>을 활용해 스크롤 위치에 따라 텍스트가 나타나고 사라지는 인터랙션입니다.
         </div>

@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import RevealText from "@/components/common/framer-motion/typography/RevealText";
 import Title from "../../components/Title";
 
@@ -11,21 +11,21 @@ export default function RevealTextDocsPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox className="mb-4">
+        <DemoContainer className="mb-4">
           <div className="text-3xl md:text-4xl font-medium">
             <RevealText text="Reveal 애니메이션 예시입니다." direction="up" />
           </div>
-        </ResultBox>
-        <ResultBox className="mb-4">
+        </DemoContainer>
+        <DemoContainer className="mb-4">
           <div className="text-3xl md:text-4xl">
             <RevealText text="단어 단위로 등장합니다!" byWord direction="left" delay={0.2} stagger={0.12} />
           </div>
-        </ResultBox>
-        <ResultBox className="mb-4">
+        </DemoContainer>
+        <DemoContainer className="mb-4">
           <div className="text-3xl md:text-4xl text-[#1976d2]">
             <RevealText text="오른쪽에서 한 글자씩 등장!" direction="right" delay={0.4} duration={0.7} />
           </div>
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-[#888] mt-2">
           <code>framer-motion</code>을 활용해 직접 구현할 수 있습니다.
         </div>

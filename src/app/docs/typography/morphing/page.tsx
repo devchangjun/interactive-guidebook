@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import MorphingText from "@/components/common/framer-motion/typography/MorphingText";
 import Title from "../../components/Title";
 
@@ -12,7 +12,7 @@ export default function MorphingTextPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox className="h-48">
+        <DemoContainer className="h-48">
           <MorphingText
             texts={["디자인 없이도", "차별화된 웹을", "누구나 쉽게"]}
             morphTime={1}
@@ -20,7 +20,7 @@ export default function MorphingTextPage() {
             color="#003b9a"
             className="text-4xl sm:text-6xl md:text-7xl font-bold"
           />
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-[#888] mt-2">
           SVG 필터와 blur 효과를 활용해 자연스럽게 텍스트가 변환되는 인터랙션입니다.
         </div>

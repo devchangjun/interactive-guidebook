@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import TiltCard from "@/components/common/effects/TiltCard";
 import Image from "next/image";
 import Title from "../../components/Title";
@@ -13,7 +13,7 @@ export default function TiltCardPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <div className="flex flex-wrap justify-center gap-6">
             <TiltCard>
               <div className="w-full max-w-xs h-full rounded-lg overflow-hidden bg-gray-900 flex flex-col">
@@ -67,7 +67,7 @@ export default function TiltCardPage() {
               </div>
             </TiltCard>
           </div>
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-gray-400 mt-2">
           내부 요소는 <code>useParallax(depth)</code>로 개별적으로 깊이 효과를 줄 수 있습니다.
         </div>

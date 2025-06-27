@@ -8,14 +8,14 @@ import React, { useState } from "react";
  * - children으로 데모 컴포넌트를 전달하세요.
  * - 반응형 및 접근성을 고려했습니다.
  */
-export interface ResultBoxProps {
+export interface DemoContainerProps {
   children: React.ReactNode;
   onReset?: () => void;
   style?: React.CSSProperties;
   className?: string;
 }
 
-export const ResultBox: React.FC<ResultBoxProps> = ({ children, onReset, style, className = "" }) => {
+const DemoContainer: React.FC<DemoContainerProps> = ({ children, onReset, style, className = "" }) => {
   // 리셋 버튼 클릭 시 애니메이션 리셋을 위해 내부 key를 변경합니다.
   const [resetKey, setResetKey] = useState(0);
 
@@ -49,3 +49,5 @@ export const ResultBox: React.FC<ResultBoxProps> = ({ children, onReset, style, 
     </div>
   );
 };
+
+export default DemoContainer;

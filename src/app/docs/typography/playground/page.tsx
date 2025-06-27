@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import MorphingText from "@/components/common/framer-motion/typography/MorphingText";
 import TextClipEffect from "@/components/common/framer-motion/typography/TextClipEffect";
 import Title from "../../components/Title";
@@ -13,11 +13,11 @@ export default function TypographyAnimationPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox className="h-48">
+        <DemoContainer className="h-48">
           <MorphingText texts={["Hello world!", "hello 2", "javascript"]} className="text-4xl md:text-6xl font-bold" />
-        </ResultBox>
+        </DemoContainer>
 
-        <ResultBox>
+        <DemoContainer>
           <TextClipEffect
             className="text-4xl md:text-6xl font-bold"
             items={[
@@ -26,7 +26,7 @@ export default function TypographyAnimationPage() {
               { main: "typescript", sub: "typescript" },
             ]}
           />
-        </ResultBox>
+        </DemoContainer>
 
         <div className="mt-2 text-sm text-gray-500">다양한 타이포그래피 애니메이션을 테스트해보세요.</div>
       </section>

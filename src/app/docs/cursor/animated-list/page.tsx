@@ -1,6 +1,6 @@
 "use client";
 import AnimatedTextListWithCursor from "@/components/common/framer-motion/AnimatedTextListWithCursor";
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import Title from "../../components/Title";
 
 export default function AnimatedTextListPage() {
@@ -13,9 +13,9 @@ export default function AnimatedTextListPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <AnimatedTextListWithCursor />
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-gray-400 mt-2">
           <b>framer-motion</b>을 활용해 리스트 hover 시 컬러/애니메이션, 마우스 이동에 따라 skew 효과, 커스텀 커서
           이미지를 구현합니다.

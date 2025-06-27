@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import ScrollMarqueeText from "@/components/common/framer-motion/typography/ScrollMarqueeText";
 import Title from "../../components/Title";
 
@@ -12,14 +12,14 @@ export default function ScrollMarqueePage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="mb-4 text-xl md:text-2xl font-medium text-white">데모</h2>
-        <ResultBox className="relative h-[60vh] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg">
+        <DemoContainer className="relative h-[60vh] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg">
           <ScrollMarqueeText
             texts={["Let's Dive Into This Tutorial", "Take It Easy!", "Don't Worry Let's Code", "Happy Coding"]}
             baseSpeed={50}
             fontSize="clamp(2.5rem, 5vw, 5rem)"
             color="#fff"
           />
-        </ResultBox>
+        </DemoContainer>
         <div className="mb-4 ml-4 text-base font-normal text-gray-400">
           <b>배경 이미지와 예쁜 폰트(Montserrat, Noto Sans KR) 적용 예시입니다.</b>
           <br />
@@ -53,7 +53,7 @@ export default function ScrollMarqueePage() {
 
       <section className="mb-8">
         <h2 className="mb-4 text-xl md:text-2xl font-medium text-white">응용 예제</h2>
-        <ResultBox className="relative h-[60vh] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg overflow-hidden">
+        <DemoContainer className="relative h-[60vh] border-none bg-gradient-to-b from-gray-900 to-gray-800 bg-cover bg-center no-repeat shadow-lg overflow-hidden">
           <div>
             <div className="relative rotate-5 transform bg-red-500">
               <ScrollMarqueeText
@@ -75,7 +75,7 @@ export default function ScrollMarqueePage() {
               />
             </div>
           </div>
-        </ResultBox>
+        </DemoContainer>
       </section>
     </div>
   );

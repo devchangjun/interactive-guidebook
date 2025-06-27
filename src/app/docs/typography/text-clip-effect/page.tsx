@@ -1,5 +1,5 @@
 "use client";
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
 import Title from "../../components/Title";
 
@@ -13,7 +13,7 @@ export default function TextClipEffectPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-white text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox className="mb-4 p-8 md:p-16">
+        <DemoContainer className="mb-4 p-8 md:p-16">
           <div className="flex flex-col gap-8 font-bold">
             {[
               { main: "Hello", sub: "Hello" },
@@ -23,7 +23,7 @@ export default function TextClipEffectPage() {
               <TextClipEffectItem key={item.main} {...item} className="text-5xl md:text-8xl" />
             ))}
           </div>
-        </ResultBox>
+        </DemoContainer>
         <div className="text-gray-400 text-base font-normal mt-2">
           <b>gsap</b>과 <b>ScrollTrigger</b>를 활용해 스크롤 위치에 따라 텍스트 배경이 채워지는 인터랙션입니다.
         </div>

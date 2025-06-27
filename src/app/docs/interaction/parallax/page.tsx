@@ -1,6 +1,6 @@
 "use client";
 import ParallaxImage from "@/components/common/framer-motion/ParallaxImage";
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import Title from "../../components/Title";
 
 export default function ParallaxPage() {
@@ -12,9 +12,9 @@ export default function ParallaxPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <ParallaxImage />
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-gray-400 mt-2">
           <b>framer-motion</b>을 활용해 스크롤에 따라 배경 이미지가 부드럽게 패럴랙스 이동하는 인터랙션입니다.
         </div>

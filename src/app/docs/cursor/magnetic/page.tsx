@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import MagneticTargetBox from "@/components/common/framer-motion/cursor/MagneticTargetBox";
 import MagneticCursor from "@/components/common/framer-motion/cursor/MagneticCursor";
 import Title from "../../components/Title";
@@ -15,7 +15,7 @@ export default function MagneticCursorPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <div className="flex gap-4 flex-wrap p-4 justify-center">
             <MagneticTargetBox className="md:text-3xl">
               <TiltCard>
@@ -76,7 +76,7 @@ export default function MagneticCursorPage() {
             </MagneticTargetBox>
           </div>
           <MagneticCursor />
-        </ResultBox>
+        </DemoContainer>
 
         <div className="text-sm text-gray-400 mt-2">
           마우스를 박스 위로 가져가면 커서가 자연스럽게 박스를 감싸는 효과가 적용됩니다.

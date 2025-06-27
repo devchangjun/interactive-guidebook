@@ -1,5 +1,5 @@
 "use client";
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import ScrambleText from "@/components/common/framer-motion/typography/TextScramble";
 import Title from "../../components/Title";
 
@@ -11,7 +11,7 @@ export default function ScrambleTextPage() {
 
       <section className="w-full mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <ScrambleText
             className="text-3xl md:text-5xl"
             text="스크램블 효과 예시입니다!"
@@ -19,7 +19,7 @@ export default function ScrambleTextPage() {
             delay={100}
             loop={true}
           />
-        </ResultBox>
+        </DemoContainer>
         <div className="mt-2 text-sm text-gray-500">
           gsap 없이 <code>setTimeout</code>만으로도 구현 가능하지만, gsap의 delayedCall을 쓰면 타이밍 제어가 더 쉽고
           부드럽게 연출할 수 있어요.

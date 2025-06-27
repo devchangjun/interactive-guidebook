@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import OverlayCursorProvider from "@/components/common/framer-motion/cursor/OverlayCursor";
 import Title from "../../components/Title";
 
@@ -12,13 +12,13 @@ export default function OverlayCursorDemoPage() {
       {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <OverlayCursorProvider>
             <div className="w-full max-w-[480px] h-40 mx-auto bg-white rounded-lg shadow-md flex items-center justify-center text-2xl md:text-4xl font-bold text-pink-500 text-center px-4">
               이 영역에 마우스를 올려보세요!
             </div>
           </OverlayCursorProvider>
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-gray-400 mt-2">
           마우스 커서가 영역 위에서 부드럽게 변형되는 인터랙션을 구현할 수 있습니다.
         </div>

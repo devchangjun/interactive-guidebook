@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import { MagneticLetters } from "@/components/common/framer-motion/typography/MagneticLetters";
 import Title from "../../components/Title";
 
@@ -12,9 +12,9 @@ export default function MagneticLettersPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <MagneticLetters text="MAGNETIC TEXT" className="text-4xl md:text-6xl" />
-        </ResultBox>
+        </DemoContainer>
 
         <div className="text-sm text-[#888] mt-2">
           각 글자가 마우스 위치에 따라 자석처럼 반응하며 이동합니다. 가까울수록 더 많이 끌려와요.

@@ -1,4 +1,4 @@
-import { ResultBox } from "@/components/common/ResultBox";
+import DemoContainer from "@/components/common/DemoContainer";
 import GlitchText from "@/components/common/framer-motion/typography/GlitchText";
 import Title from "../../components/Title";
 
@@ -12,9 +12,9 @@ export default function GlitchTextPage() {
       {/* 4. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-        <ResultBox>
+        <DemoContainer>
           <GlitchText text="GLITCH EFFECT" color="#fff" className="text-4xl md:text-6xl" />
-        </ResultBox>
+        </DemoContainer>
         <div className="text-sm text-gray-400 mt-2">
           <code>framer-motion</code>을 활용해 랜덤 clip-path와 색상으로 글리치 효과를 구현합니다.
         </div>
