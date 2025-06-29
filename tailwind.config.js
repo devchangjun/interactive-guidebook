@@ -9,8 +9,23 @@ module.exports = {
         muted: "#e0e7ef", // 연한 파랑/회색
       },
       fontFamily: {
-        sans: ["Pretendard", "ui-sans-serif", "system-ui"],
-        title: ["Montserrat", "ui-sans-serif", "system-ui"],
+        sans: [
+          "Pretendard",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "system-ui",
+          "Roboto",
+          "Helvetica Neue",
+          "Segoe UI",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "Malgun Gothic",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "sans-serif",
+        ],
+        title: ["Pretendard", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
       },
       borderRadius: {
         xl: "1.25rem",

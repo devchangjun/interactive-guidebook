@@ -15,7 +15,7 @@ export interface DemoContainerProps {
   className?: string;
 }
 
-const DemoContainer: React.FC<DemoContainerProps> = ({ children, onReset, style, className = "" }) => {
+const DemoContainer = ({ children, onReset, style, className = "" }: DemoContainerProps) => {
   // 리셋 버튼 클릭 시 애니메이션 리셋을 위해 내부 key를 변경합니다.
   const [resetKey, setResetKey] = useState(0);
 
