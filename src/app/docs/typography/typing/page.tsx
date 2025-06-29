@@ -48,13 +48,11 @@ export default function TypographyAnimationPage() {
   return (
     <div>
       {/* 제목 */}
-      <Title>텍스트 타이핑 애니메이션</Title>
+      <Title>타이핑 애니메이션</Title>
       <hr className="my-4 border-0 border-t border-gray-200" />
 
       {/* Interactive Playground */}
       <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-6">Interactive Playground</h2>
-
         {/* 데모 영역 */}
         <DemoContainer>
           <div className="min-h-32 md:min-h-40 flex items-center justify-center">

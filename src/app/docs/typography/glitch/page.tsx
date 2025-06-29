@@ -1,102 +1,289 @@
+"use client";
+
+import { useState } from "react";
 import DemoContainer from "@/components/common/DemoContainer";
 import GlitchText from "@/components/common/framer-motion/typography/glitch-text/GlitchText";
 import Title from "../../components/Title";
 
 export default function GlitchTextPage() {
+  // 컨트롤 상태
+  const [text, setText] = useState("GLITCH EFFECT");
+  const [speed, setSpeed] = useState(0.5);
+  const [enableShadows, setEnableShadows] = useState(true);
+  const [enableOnHover, setEnableOnHover] = useState(false);
+  const [refreshDelay, setRefreshDelay] = useState(100);
+  const [variant, setVariant] = useState("h1");
+  const [glitchColor1, setGlitchColor1] = useState("#ff0040");
+  const [glitchColor2, setGlitchColor2] = useState("#00ffff");
+  const [glitchColor3, setGlitchColor3] = useState("#ff0080");
+  const [glitchColor4, setGlitchColor4] = useState("#0040ff");
+
+  // Typography variant 클래스
+  const getVariantClass = (variant: string) => {
+    switch (variant) {
+      case "h1":
+        return "text-3xl md:text-5xl lg:text-6xl font-bold";
+      case "h2":
+        return "text-2xl md:text-4xl lg:text-5xl font-semibold";
+      case "h3":
+        return "text-xl md:text-3xl lg:text-4xl font-medium";
+      case "h4":
+        return "text-lg md:text-2xl lg:text-3xl font-medium";
+      case "body":
+        return "text-base md:text-lg";
+      case "small":
+        return "text-sm md:text-base";
+      default:
+        return "text-xl md:text-3xl lg:text-4xl font-medium";
+    }
+  };
+
+  // 글리치 색상 배열
+  const glitchColors = [glitchColor1, glitchColor2, glitchColor3, glitchColor4];
+
   return (
     <div>
-      {/* 1. 🎯 인터랙션 제목 */}
-      <Title>글리치 텍스트 애니메이션 (Glitch Effect)</Title>
-      <hr className="my-4 border-t border-gray-200" />
+      {/* 제목 */}
+      <Title>글리치 텍스트 애니메이션</Title>
+      <hr className="my-4 border-0 border-t border-gray-200" />
 
-      {/* 4. 💻 코드 예시 + 실제 데모 */}
+      {/* Interactive Playground */}
       <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
-
-        {/* 자동 재생 데모 */}
-        <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">자동 재생</h3>
-          <DemoContainer>
+        {/* 데모 영역 */}
+        <DemoContainer>
+          <div className="min-h-32 md:min-h-40 flex items-center justify-center">
             <GlitchText
-              className="text-4xl md:text-6xl"
-              enableOnHover={false}
-              speed={0.5}
-              refreshDelay={800}
-              glitchColors={["#ff0040", "#00ffff", "#ff0080", "#0040ff"]}
+              key={`${text}-${speed}-${enableShadows}-${enableOnHover}-${refreshDelay}-${glitchColor1}-${glitchColor2}-${glitchColor3}-${glitchColor4}`}
+              className={getVariantClass(variant)}
+              speed={speed}
+              enableShadows={enableShadows}
+              enableOnHover={enableOnHover}
+              refreshDelay={refreshDelay}
+              glitchColors={glitchColors}
             >
-              GLITCH EFFECT
+              {text}
             </GlitchText>
-          </DemoContainer>
-        </div>
+          </div>
+        </DemoContainer>
 
-        {/* 호버 데모 */}
-        <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">호버 시 실행 (마우스 올려보세요)</h3>
-          <DemoContainer>
-            <GlitchText
-              className="text-4xl md:text-6xl"
-              enableOnHover={true}
-              speed={0.3}
-              refreshDelay={100}
-              glitchColors={["#ffff00", "#ff00ff", "#00ffff", "#ff8000"]}
-            >
-              HOVER ME
-            </GlitchText>
-          </DemoContainer>
-        </div>
+        {/* 컨트롤 패널 */}
+        <div
+          className="mt-6 p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #444 1.5px, transparent 1.5px), radial-gradient(circle, #222 1.5px, transparent 1.5px)",
+            backgroundSize: "20px 20px",
+            backgroundPosition: "0 0, 10px 10px",
+          }}
+        >
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* TEXT */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Text</label>
+              <p className="text-xs text-gray-400">글리치 효과가 적용될 텍스트</p>
+              <textarea
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-gray-600 rounded-md bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none placeholder-gray-400"
+                rows={2}
+                placeholder="글리치 효과를 적용할 텍스트를 입력하세요"
+              />
+            </div>
 
-        {/* 빠른 글리치 데모 */}
-        <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">빠른 글리치</h3>
-          <DemoContainer>
-            <GlitchText
-              className="text-2xl md:text-4xl"
-              enableOnHover={false}
-              speed={0.2}
-              refreshDelay={200}
-              glitchColors={["#ff3232", "#3232ff", "#ff32ff", "#32ffff"]}
-            >
-              FAST GLITCH
-            </GlitchText>
-          </DemoContainer>
-        </div>
+            {/* SPEED */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Speed</label>
+              <p className="text-xs text-gray-400">글리치 애니메이션 속도 (낮을수록 빠름)</p>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value={speed}
+                  onChange={(e) => setSpeed(Number(e.target.value))}
+                  className="flex-1 h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input
+                  type="number"
+                  value={speed}
+                  onChange={(e) => setSpeed(Number(e.target.value))}
+                  className="w-16 px-2 py-1 text-sm border border-gray-600 rounded text-center bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                />
+              </div>
+            </div>
 
-        <div className="text-sm text-gray-400 mt-2">
-          <code>framer-motion</code>을 활용해 랜덤 clip-path와 색상으로 글리치 효과를 구현합니다.
-        </div>
-      </section>
+            {/* REFRESH DELAY */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Refresh Delay</label>
+              <p className="text-xs text-gray-400">글리치 효과 간격 (ms)</p>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="range"
+                  min="50"
+                  max="1000"
+                  value={refreshDelay}
+                  onChange={(e) => setRefreshDelay(Number(e.target.value))}
+                  className="flex-1 h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input
+                  type="number"
+                  value={refreshDelay}
+                  onChange={(e) => setRefreshDelay(Number(e.target.value))}
+                  className="w-16 px-2 py-1 text-sm border border-gray-600 rounded text-center bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  min="50"
+                  max="1000"
+                />
+              </div>
+            </div>
 
-      {/* 2. ✅ 사용하면 좋은 예시 */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-base text-white list-disc list-inside">
-          <li>메인 헤드라인: 강렬한 인상을 주고 싶을 때</li>
-          <li>404/에러 페이지: 디지털 오류 느낌을 주고 싶을 때</li>
-          <li>테크/게임/해킹 컨셉: 미래지향적 분위기를 연출하고 싶을 때</li>
-        </ul>
-      </section>
+            {/* GLITCH COLOR 1 */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 1</label>
+              <p className="text-xs text-gray-400">첫 번째 글리치 색상</p>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="color"
+                  value={glitchColor1}
+                  onChange={(e) => setGlitchColor1(e.target.value)}
+                  className="w-12 h-8 border border-gray-600 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input
+                  type="text"
+                  value={glitchColor1}
+                  onChange={(e) => setGlitchColor1(e.target.value)}
+                  className="flex-1 px-3 py-1 text-sm border border-gray-600 rounded bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-400"
+                  placeholder="#ff0040"
+                />
+              </div>
+            </div>
 
-      {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol className="text-base text-white list-decimal list-inside">
-          <li>초기: 텍스트가 정상적으로 보임</li>
-          <li>글리치: 텍스트 일부가 랜덤하게 흔들리거나 색이 번짐</li>
-          <li>반복: 효과가 주기적으로 반복되어 디지털 오류 느낌을 연출</li>
-        </ol>
-        <div className="text-sm text-gray-400 mt-2">
-          💡 <b>clip-path, 색상, 위치</b>를 랜덤하게 바꿔주면 다양한 글리치 효과를 만들 수 있습니다.
-        </div>
-      </section>
+            {/* GLITCH COLOR 2 */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 2</label>
+              <p className="text-xs text-gray-400">두 번째 글리치 색상</p>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="color"
+                  value={glitchColor2}
+                  onChange={(e) => setGlitchColor2(e.target.value)}
+                  className="w-12 h-8 border border-gray-600 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input
+                  type="text"
+                  value={glitchColor2}
+                  onChange={(e) => setGlitchColor2(e.target.value)}
+                  className="flex-1 px-3 py-1 text-sm border border-gray-600 rounded bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-400"
+                  placeholder="#00ffff"
+                />
+              </div>
+            </div>
 
-      {/* 5. 🧑‍💻 바이브 코딩용 프롬프트 예시 */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">바이브 코딩용 프롬프트 예시</h2>
-        <div className="overflow-x-auto rounded-lg bg-[#18181b]">
-          <pre className="p-4 text-sm text-[#FFD600] whitespace-pre-line">
-            텍스트에 디지털 오류(Glitch) 느낌의 애니메이션을 주고 싶어. 색상, 위치, clip-path 등을 랜덤하게 바꿔서
-            미래지향적이고 임팩트 있게 만들어줘. framer-motion이나 CSS로 구현해줘.
-          </pre>
+            {/* GLITCH COLOR 3 */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 3</label>
+              <p className="text-xs text-gray-400">세 번째 글리치 색상</p>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="color"
+                  value={glitchColor3}
+                  onChange={(e) => setGlitchColor3(e.target.value)}
+                  className="w-12 h-8 border border-gray-600 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input
+                  type="text"
+                  value={glitchColor3}
+                  onChange={(e) => setGlitchColor3(e.target.value)}
+                  className="flex-1 px-3 py-1 text-sm border border-gray-600 rounded bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-400"
+                  placeholder="#ff0080"
+                />
+              </div>
+            </div>
+
+            {/* GLITCH COLOR 4 */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 4</label>
+              <p className="text-xs text-gray-400">네 번째 글리치 색상</p>
+              <div className="flex items-center space-x-3">
+                <input
+                  type="color"
+                  value={glitchColor4}
+                  onChange={(e) => setGlitchColor4(e.target.value)}
+                  className="w-12 h-8 border border-gray-600 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input
+                  type="text"
+                  value={glitchColor4}
+                  onChange={(e) => setGlitchColor4(e.target.value)}
+                  className="flex-1 px-3 py-1 text-sm border border-gray-600 rounded bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-400"
+                  placeholder="#0040ff"
+                />
+              </div>
+            </div>
+
+            {/* VARIANT */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Variant</label>
+              <p className="text-xs text-gray-400">Typography 변형</p>
+              <select
+                value={variant}
+                onChange={(e) => setVariant(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-gray-600 rounded bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+              >
+                <option value="h1" className="bg-gray-800 text-white">
+                  H1 - Heading 1
+                </option>
+                <option value="h2" className="bg-gray-800 text-white">
+                  H2 - Heading 2
+                </option>
+                <option value="h3" className="bg-gray-800 text-white">
+                  H3 - Heading 3
+                </option>
+                <option value="h4" className="bg-gray-800 text-white">
+                  H4 - Heading 4
+                </option>
+                <option value="body" className="bg-gray-800 text-white">
+                  Body - 본문
+                </option>
+                <option value="small" className="bg-gray-800 text-white">
+                  Small - 소형
+                </option>
+              </select>
+            </div>
+
+            {/* ENABLE SHADOWS */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Enable Shadows</label>
+              <p className="text-xs text-gray-400">글리치 그림자 효과 활성화</p>
+              <label className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={enableShadows}
+                  onChange={(e) => setEnableShadows(e.target.checked)}
+                  className="w-4 h-4 text-blue-400 bg-black/20 border-gray-600 rounded focus:ring-blue-400 focus:ring-2"
+                />
+                <span className="text-sm text-gray-200">그림자 효과 사용</span>
+              </label>
+            </div>
+
+            {/* ENABLE ON HOVER */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Enable On Hover</label>
+              <p className="text-xs text-gray-400">호버 시에만 글리치 효과 실행</p>
+              <label className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={enableOnHover}
+                  onChange={(e) => setEnableOnHover(e.target.checked)}
+                  className="w-4 h-4 text-blue-400 bg-black/20 border-gray-600 rounded focus:ring-blue-400 focus:ring-2"
+                />
+                <span className="text-sm text-gray-200">호버 시에만 실행</span>
+              </label>
+            </div>
+          </div>
         </div>
       </section>
     </div>

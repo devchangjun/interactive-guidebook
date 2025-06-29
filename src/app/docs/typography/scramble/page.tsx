@@ -6,7 +6,7 @@ import Title from "../../components/Title";
 
 export default function ScrambleTextPage() {
   // 컨트롤 상태
-  const [text, setText] = useState("스크램블 효과 예시입니다!");
+  const [text, setText] = useState("스크램블 효과");
   const [speed, setSpeed] = useState(50);
   const [delay, setDelay] = useState(100);
   const [loop, setLoop] = useState(true);
@@ -17,7 +17,7 @@ export default function ScrambleTextPage() {
   const [revealSpeed, setRevealSpeed] = useState(100);
   const [trigger, setTrigger] = useState<"auto" | "hover" | "manual">("auto");
   const [textColor, setTextColor] = useState("inherit");
-  const [variant, setVariant] = useState("h3");
+  const [variant, setVariant] = useState("h1");
 
   // Typography variant 클래스
   const getVariantClass = (variant: string) => {
@@ -41,13 +41,11 @@ export default function ScrambleTextPage() {
 
   return (
     <div>
-      <Title>스크램블 텍스트 애니메이션</Title>
+      <Title>스크램블 텍스트</Title>
       <hr className="my-4 border-t border-gray-700" />
 
       {/* Interactive Playground */}
       <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-6">Interactive Playground</h2>
-
         {/* 데모 영역 */}
         <DemoContainer>
           <div className="min-h-32 md:min-h-40 flex items-center justify-center">
