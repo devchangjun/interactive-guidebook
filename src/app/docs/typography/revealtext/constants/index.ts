@@ -1,11 +1,11 @@
 export const REVEAL_TEXT_DEFAULTS = {
-  text: "Reveal 애니메이션 예시입니다.",
+  text: "Hello Vibe Coding.",
   direction: "up" as const,
   delay: 0,
   duration: 0.5,
   stagger: 0.04,
   byWord: false,
-  fontSize: "text-3xl md:text-4xl",
+  fontSize: "text-5xl md:text-6xl",
   fontWeight: "font-medium",
   textColor: "inherit",
 };

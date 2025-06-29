@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import DemoContainer from "@/components/common/DemoContainer";
-import RevealText from "@/components/common/framer-motion/typography/RevealText";
+import RevealText from "@/components/common/framer-motion/typography/reveal-text/RevealText";
 import Title from "../../components/Title";
 import {
   REVEAL_TEXT_DEFAULTS,
@@ -26,12 +26,10 @@ export default function RevealTextDocsPage() {
 
   return (
     <div>
-      <Title>텍스트 Reveal 애니메이션</Title>
+      <Title>Reveal Text.</Title>
       <hr className="my-4 border-0 border-t border-[#eee]" />
 
-      {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
         <DemoContainer className="mb-4">
           <div className={`${fontSize} ${fontWeight} ${textColor}`}>
             <RevealText
@@ -45,11 +43,7 @@ export default function RevealTextDocsPage() {
             />
           </div>
         </DemoContainer>
-        <div className="text-sm text-[#888] mt-2">
-          <code>framer-motion</code>을 활용해 직접 구현할 수 있습니다.
-        </div>
 
-        {/* 컨트롤 패널 */}
         <div
           className="mt-6 p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800"
           style={{
@@ -63,7 +57,7 @@ export default function RevealTextDocsPage() {
             {/* TEXT */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Text</label>
-              <p className="text-xs text-gray-400">Reveal할 텍스트</p>
+              <p className="text-xs text-gray-400">텍스트를 입력하세요</p>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -267,36 +261,6 @@ export default function RevealTextDocsPage() {
               기본값으로 리셋
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* 3. ✅ 사용하면 좋은 예시 */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-base text-[#fff] list-disc list-inside">
-          <li>메인 헤드라인, 강조 문구</li>
-          <li>CTA 버튼 위 설명</li>
-          <li>제품/서비스 슬로건</li>
-          <li>페이지 섹션 타이틀/소개 문구</li>
-          <li>온보딩/튜토리얼 안내 메시지</li>
-          <li>로딩/전환 시 임팩트 주는 텍스트</li>
-          <li>브랜드 스토리텔링</li>
-        </ul>
-      </section>
-
-      {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol className="text-base text-[#fff] list-decimal list-inside mb-4">
-          <li>초기: 텍스트가 보이지 않거나 투명(또는 살짝 아래/옆에 위치)</li>
-          <li>등장: 한 글자 또는 한 단어씩 순차적으로 애니메이션 등장</li>
-          <li>완성: 전체 문장이 자연스럽게 완성되어 잠시 유지</li>
-          <li>반복/전환(선택): 다른 문장으로 교체하거나, 한 번만 등장</li>
-          <li>커스텀: direction, delay, byWord 등 옵션에 따라 다양한 연출 가능</li>
-        </ol>
-        <div className="text-sm text-[#888]">
-          💡 <strong>Direction</strong>은 등장 방향, <strong>Duration</strong>은 개별 애니메이션 시간,{" "}
-          <strong>Stagger</strong>는 순차 간격을 조절합니다.
         </div>
       </section>
     </div>

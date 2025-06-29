@@ -11,31 +11,60 @@ export type TextClipEffectItemProps = {
   sub: React.ReactNode;
   className?: string;
   clipColor?: string;
+  showMarkers?: boolean;
+  startPosition?: string;
+  endPosition?: string;
+  scrubEffect?: boolean;
 };
 
-export default function TextClipEffectItem({ main, sub, className, clipColor }: TextClipEffectItemProps) {
+export default function TextClipEffectItem({
+  main,
+  sub,
+  className,
+  clipColor = "#fff",
+  showMarkers = false,
+  startPosition = "center 80%",
+  endPosition = "center 20%",
+  scrubEffect = true,
+}: TextClipEffectItemProps) {
   const textRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (textRef.current) {
+      // 기존 ScrollTrigger 제거
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === textRef.current) {
+          trigger.kill();
+        }
+      });
+
       gsap.to(textRef.current, {
         backgroundSize: "100%",
         ease: "none",
         scrollTrigger: {
           trigger: textRef.current,
-          start: "center 80%",
-          end: "center 20%",
-          scrub: true,
-          markers: true,
+          start: startPosition,
+          end: endPosition,
+          scrub: scrubEffect,
+          markers: showMarkers,
         },
       });
     }
-  }, []);
+
+    return () => {
+      // 컴포넌트 언마운트 시 ScrollTrigger 정리
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === textRef.current) {
+          trigger.kill();
+        }
+      });
+    };
+  }, [showMarkers, startPosition, endPosition, scrubEffect]);
 
   return (
     <h1 ref={textRef} className={`${styles.text} ${className}`}>
       {main}
-      <span className={styles.span} style={{ backgroundColor: clipColor ? clipColor : "#fff" }}>
+      <span className={styles.span} style={{ backgroundColor: clipColor }}>
         {sub}
       </span>
     </h1>

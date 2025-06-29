@@ -3,7 +3,7 @@ export const TILT_CARD_DEFAULTS = {
   parallaxFactor: 0.25,
   cardWidth: 400,
   cardHeight: 300,
-  backgroundColor: "bg-white",
+  backgroundColor: "bg-gradient-to-br from-green-400 to-blue-600",
   cardPadding: "p-8",
   borderRadius: "rounded-2xl",
   shadow: "shadow-2xl",

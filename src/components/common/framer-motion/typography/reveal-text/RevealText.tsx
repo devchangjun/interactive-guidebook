@@ -67,19 +67,21 @@ const RevealText: React.FC<RevealTextProps> = ({
   return (
     <span className={`${className} inline-block overflow-hidden`} style={style} aria-label={text} role="text">
       {units.map((unit, i) => (
-        <motion.span
-          key={i}
-          initial={getInitial()}
-          animate={{ x: 0, y: 0, opacity: 1 }}
-          transition={{
-            delay: delay + i * stagger,
-            duration,
-            ease: "easeOut",
-          }}
-          className={`inline-block ${byWord ? "whitespace-pre" : ""}`}
-        >
-          {unit === " " && byWord ? "\u00A0" : unit}
-        </motion.span>
+        <React.Fragment key={i}>
+          <motion.span
+            initial={getInitial()}
+            animate={{ x: 0, y: 0, opacity: 1 }}
+            transition={{
+              delay: delay + i * stagger,
+              duration,
+              ease: "easeOut",
+            }}
+            className="inline-block"
+          >
+            {unit === " " ? "\u00A0" : unit}
+          </motion.span>
+          {byWord && i < units.length - 1 && <span className="inline-block">\u00A0</span>}
+        </React.Fragment>
       ))}
     </span>
   );

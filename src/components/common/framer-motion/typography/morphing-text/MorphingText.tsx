@@ -87,7 +87,6 @@ const MorphingText: React.FC<MorphingTextProps> = ({
       }
     }
     animate();
-    // eslint-disable-next-line
   }, [texts, morphTime, cooldownTime]);
 
   return (
@@ -95,7 +94,7 @@ const MorphingText: React.FC<MorphingTextProps> = ({
       style={{
         filter: "url(#threshold) blur(0.6px)",
       }}
-      className={`${className} relative`}
+      className={`${className} relative inline-block whitespace-nowrap`}
     >
       {/* SVG 필터 정의 */}
       <svg className="hidden">
@@ -107,18 +106,22 @@ const MorphingText: React.FC<MorphingTextProps> = ({
       </svg>
       <span
         ref={text1Ref}
-        className="absolute inset-0 font-sans font-black select-none"
+        className="absolute inset-0 font-sans select-none"
         style={{
           color,
         }}
       />
       <span
         ref={text2Ref}
-        className="absolute inset-0 font-sans font-black select-none"
+        className="absolute inset-0 font-sans select-none"
         style={{
           color,
         }}
       />
+      {/* 숨겨진 더미 텍스트로 컨테이너 크기 설정 */}
+      <span className="font-sans opacity-0 select-none" aria-hidden="true">
+        {texts[0] || ""}
+      </span>
     </div>
   );
 };

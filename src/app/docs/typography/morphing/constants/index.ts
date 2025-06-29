@@ -3,7 +3,7 @@ export const MORPHING_DEFAULTS = {
   morphTime: 1,
   cooldownTime: 0.5,
   color: "#003b9a",
-  fontSize: "text-4xl sm:text-6xl md:text-7xl",
+  fontSize: "text-6xl sm:text-8xl md:text-9xl",
   fontWeight: "font-bold",
 };
 

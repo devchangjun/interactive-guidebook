@@ -32,13 +32,10 @@ export default function TiltCardDocsPage() {
 
   return (
     <div>
-      {/* 1. 🎯 인터랙션 제목 */}
-      <Title>3D Tilt + Parallax 카드 인터랙션</Title>
+      <Title>Tilt Card.</Title>
       <hr className="my-4 border-t border-gray-700" />
 
-      {/* 2. 💻 코드 예시 + 실제 데모 */}
       <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
         <DemoContainer className="mb-4 flex justify-center">
           <TiltCard
             maxTilt={maxTilt}
@@ -56,9 +53,6 @@ export default function TiltCardDocsPage() {
             </div>
           </TiltCard>
         </DemoContainer>
-        <div className="text-sm text-[#888] mt-2">
-          마우스를 카드 위에 올려서 3D 기울기 효과를 확인해보세요. (모바일에서는 비활성화됩니다)
-        </div>
 
         {/* 컨트롤 패널 */}
         <div
@@ -282,33 +276,6 @@ export default function TiltCardDocsPage() {
               기본값으로 리셋
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* 2. ✅ 사용하면 좋은 예시 */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-base text-[#fff] list-disc list-inside">
-          <li>포트폴리오 썸네일: 입체감과 시각적 매력 강조</li>
-          <li>CTA 카드: 마우스 호버로 시선 집중 유도</li>
-          <li>제품 소개 카드: 정보에 깊이와 레이어를 부여</li>
-        </ul>
-      </section>
-
-      {/* 3. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol className="text-base text-[#fff] list-decimal list-inside mb-4">
-          <li>초기: 정적인 카드가 배치됨</li>
-          <li>마우스 이동 시: 커서 위치에 따라 카드가 기울어짐</li>
-          <li>
-            내부 요소: <code>useParallax(depth)</code>로 각 요소가 다르게 움직임
-          </li>
-          <li>마우스 이탈 시: 카드 기울기 원위치</li>
-          <li>모바일: 효과 비활성화됨 (768px 이하)</li>
-        </ol>
-        <div className="text-sm text-gray-400 mt-2">
-          💡 내부 요소도 <b>깊이감</b>을 줄 수 있어 입체적인 경험을 줄 수 있습니다.
         </div>
       </section>
     </div>

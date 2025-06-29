@@ -44,7 +44,7 @@ export default function GlitchTextPage() {
   return (
     <div>
       {/* 제목 */}
-      <Title>글리치 텍스트 애니메이션</Title>
+      <Title>Glitch Text.</Title>
       <hr className="my-4 border-0 border-t border-gray-200" />
 
       {/* Interactive Playground */}

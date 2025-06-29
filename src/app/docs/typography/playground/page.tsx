@@ -1,5 +1,5 @@
 import DemoContainer from "@/components/common/DemoContainer";
-import MorphingText from "@/components/common/framer-motion/typography/MorphingText";
+import MorphingText from "@/components/common/framer-motion/typography/morphing-text/MorphingText";
 import TextClipEffect from "@/components/common/framer-motion/typography/TextClipEffect";
 import Title from "../../components/Title";
 
