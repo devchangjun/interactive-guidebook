@@ -38,15 +38,7 @@ export default function MagneticCursorDocsPage() {
         <h2 className="text-xl md:text-2xl font-medium mb-4">데모</h2>
         <DemoContainer className="mb-4">
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <MagneticTargetBox
-              className={`${boxColor} ${textColor} ${borderStyle} ${borderColor} ${fontSize} ${fontWeight}`}
-              style={{
-                width: `${boxWidth}px`,
-                height: `${boxHeight}px`,
-              }}
-            >
-              {boxText}
-            </MagneticTargetBox>
+            <MagneticTargetBox>{boxText}</MagneticTargetBox>
             <MagneticTargetBox className="bg-red-600 text-white border-dashed border-white">HOVER</MagneticTargetBox>
             <MagneticTargetBox className="bg-green-600 text-white border-solid border-yellow-400">
               INTERACT
@@ -255,35 +247,6 @@ export default function MagneticCursorDocsPage() {
               기본값으로 리셋
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* 3. ✅ 사용하면 좋은 예시 */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">사용하면 좋은 예시</h2>
-        <ul className="text-base text-[#fff] list-disc list-inside">
-          <li>CTA 버튼에 마그네틱 효과 적용</li>
-          <li>네비게이션 메뉴 아이템</li>
-          <li>포트폴리오/갤러리 썸네일</li>
-          <li>인터랙티브 카드/타일</li>
-          <li>소셜 미디어 아이콘</li>
-          <li>제품 구매 버튼</li>
-          <li>브랜드 로고나 중요 요소</li>
-        </ul>
-      </section>
-
-      {/* 4. 🧠 아이디어 구체화 (인터랙션 흐름 시나리오) */}
-      <section className="mb-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-4">아이디어 구체화 (인터랙션 흐름 시나리오)</h2>
-        <ol className="text-base text-[#fff] list-decimal list-inside mb-4">
-          <li>초기: 일반 커서 상태로 페이지 탐색</li>
-          <li>접근: 타겟 박스에 마우스가 근접하면 커서가 확대되기 시작</li>
-          <li>마그네틱: 타겟 영역 진입 시 커서가 자석처럼 끌려옴</li>
-          <li>상호작용: 박스 내부에서 커서가 마그네틱 효과로 부드럽게 따라다님</li>
-          <li>이탈: 박스에서 벗어나면 커서가 원래 상태로 복귀</li>
-        </ol>
-        <div className="text-sm text-[#888]">
-          💡 <strong>Magnetic Cursor</strong>는 사용자의 시선을 집중시키고 인터랙션을 유도하는 강력한 UI 패턴입니다.
         </div>
       </section>
     </div>
