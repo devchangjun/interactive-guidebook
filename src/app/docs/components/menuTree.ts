@@ -98,6 +98,12 @@ const menuTree = [
         description: "세로 스크롤로 가로 카드가 슬라이드되는 효과",
         path: "/docs/interaction/scroll-portfolio-cards",
       },
+      {
+        id: "sticky-stack",
+        name: "스티키 스택 섹션",
+        description: "스크롤 시 섹션들이 상단에 고정되며 스택되는 효과",
+        path: "/docs/interaction/sticky-stack",
+      },
     ],
   },
   {

@@ -5,6 +5,8 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import menuTree from "./menuTree";
 import Image from "next/image";
+import RippleButton from "@/components/common/RippleButton";
+import { cn } from "@/utils/cn";
 
 export default function DocsSidebar() {
   const pathname = usePathname();
@@ -48,47 +50,49 @@ export default function DocsSidebar() {
             const expanded = isMobile ? openIdx === idx : true;
             return (
               <li key={category.category} className="mb-4">
-                <button
-                  type="button"
-                  aria-expanded={expanded}
-                  aria-controls={`category-panel-${idx}`}
+                <RippleButton
                   onClick={() => isMobile && handleAccordion(idx)}
-                  className={`
-                    w-full text-left text-lg font-bold mb-1 py-1
-                    text-[#fff] transition-colors
-                    flex items-center justify-between
-                    ${isMobile ? "cursor-pointer" : "cursor-default"}
-                  `}
+                  className={cn(
+                    "w-full text-left text-lg font-bold mb-1 py-1",
+                    "text-[#fff] transition-colors",
+                    "flex items-center justify-between",
+                    isMobile ? "cursor-pointer" : "cursor-default"
+                  )}
+                  rippleColor="rgba(255, 255, 255, 0.4)"
+                  disabled={!isMobile}
                 >
-                  {category.category}
-                  {isMobile && <span className="text-xs text-[#fff]">{expanded ? "▲" : "▼"}</span>}
-                </button>
+                  <span
+                    role="button"
+                    aria-expanded={expanded}
+                    aria-controls={`category-panel-${idx}`}
+                    className="w-full flex items-center justify-between"
+                  >
+                    {category.category}
+                    {isMobile && <span className="text-xs text-[#fff]">{expanded ? "▲" : "▼"}</span>}
+                  </span>
+                </RippleButton>
                 <ul
                   id={`category-panel-${idx}`}
-                  className={`
-                    space-y-0.5 pl-3 border-l border-[#eaeaea]
-                    ${expanded ? "block" : "hidden"}
-                  `}
+                  className={cn("space-y-0.5 pl-3 border-l border-[#eaeaea]", expanded ? "block" : "hidden")}
                 >
                   {category.items.map((item) => {
                     // 현재 경로와 메뉴 경로가 일치하면 active
                     const active = pathname === item.path;
                     return (
                       <li key={item.id}>
-                        <Link
-                          href={item.path}
-                          className={`
-                            block py-1 px-2 text-md font-medium
-                            transition-colors
-                            ${
+                        <Link href={item.path} className="block" aria-current={active ? "page" : undefined}>
+                          <RippleButton
+                            as="div"
+                            className={cn(
+                              "py-1 px-2 text-md font-medium transition-colors",
                               active
                                 ? "text-black font-medium bg-[#fafafa]"
                                 : "text-[#fff] hover:text-black hover:bg-[#fafafa]"
-                            }
-                          `}
-                          aria-current={active ? "page" : undefined}
-                        >
-                          <div>{item.name}</div>
+                            )}
+                            rippleColor={active ? "rgba(59, 130, 246, 0.4)" : "rgba(255, 255, 255, 0.3)"}
+                          >
+                            <div>{item.name}</div>
+                          </RippleButton>
                         </Link>
                       </li>
                     );
