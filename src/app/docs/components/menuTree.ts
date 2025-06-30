@@ -58,6 +58,12 @@ const menuTree = [
         path: "/docs/typography/text-clip-effect",
       },
       {
+        id: "text-3d",
+        name: "3D 텍스트",
+        description: "깊이감 있는 그림자와 회전 효과의 3D 텍스트",
+        path: "/docs/typography/text-3d",
+      },
+      {
         id: "playground",
         name: "플레이그라운드",
         description: "플레이그라운드",
