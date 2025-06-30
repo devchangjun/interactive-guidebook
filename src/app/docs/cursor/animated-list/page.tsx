@@ -69,8 +69,8 @@ export default function AnimatedTextListPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* CITY ITEMS */}
             <div className="space-y-4 md:col-span-2 lg:col-span-3">
-              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">City Items</label>
-              <p className="text-xs text-gray-400">각 도시 항목 설정</p>
+              <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">List Items</label>
+              <p className="text-xs text-gray-400">리스트 설정</p>
               {cities.map((city, index) => (
                 <div
                   key={index}

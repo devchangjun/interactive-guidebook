@@ -6,19 +6,21 @@ import Title from "@/app/docs/components/Title";
 export default function StickyShrinkSectionPage() {
   return (
     <main>
-      {/* 인트로 섹션 */}
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col justify-center items-center text-white p-8">
-        <Title>Sticky Shrink Section</Title>
-        <hr className="my-8 border-t border-gray-700 w-64" />
-        <p className="text-center text-lg md:text-xl text-neutral-300 max-w-2xl leading-relaxed mb-8">
-          스크롤하면서 콘텐츠가 자연스럽게 축소되고 투명해지는 효과를 경험해보세요.
-        </p>
-        <div className="animate-bounce">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+      <Title>Sticky Shrink Section.</Title>
+      <hr className="my-4 border-0 border-t border-gray-700" />
+
+      <section>
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col justify-center items-center text-white p-8">
+          <p className="text-center text-lg md:text-xl text-neutral-300 max-w-2xl leading-relaxed mb-8">
+            스크롤하면서 콘텐츠가 자연스럽게 축소되고 투명해지는 효과를 경험해보세요.
+          </p>
+          <div className="animate-bounce">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* 첫 번째 섹션 - 그라디언트 배경 */}
       <StickyShrinkSection

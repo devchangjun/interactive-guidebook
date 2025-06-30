@@ -2,48 +2,98 @@
 
 ## Background and Motivation
 
-The user wants to make all documentation pages under `/src/app/docs` fully responsive, ensuring they display correctly on mobile devices. Currently, the pages might not be optimized for smaller screen sizes, leading to a poor user experience.
+사용자가 n개의 포트폴리오 카드 스크롤 인터랙션을 요청했습니다.
+
+- 섹션이 스크롤되면 n개의 포트폴리오 카드는 가로로 배치되어 있고 스크롤 시 하나씩 넘어오게 하기
+- 포트폴리오가 끝나면 다음 섹션으로 세로 스크롤 되게 구현
+- docs 페이지 생성
 
 ## Key Challenges and Analysis
 
-- **Main Layout & Sidebar:** The primary challenge is adapting the main layout (`docs/layout.tsx`) and the sidebar (`docs/components/DocsSidebar.tsx`). The sidebar will likely need to be hidden behind a hamburger menu on mobile.
-- **Content Overflow:** Code blocks and component previews on individual documentation pages might overflow or break the layout on small screens.
-- **Component Responsiveness:** The interactive components themselves (e.g., animations, cursor effects) need to be tested and potentially adjusted to work well on mobile, which might not have hover events.
-- **Consistency:** Ensuring a consistent and user-friendly responsive design across all documentation pages.
+- **스크롤 인터랙션**: 세로 스크롤을 가로 카드 슬라이드 변환으로 매핑하는 기술적 구현
+- **부드러운 전환**: framer-motion의 useScroll과 useTransform을 활용한 자연스러운 애니메이션
+- **반응형 디자인**: 모바일, 태블릿, 데스크톱에서 모두 잘 작동하는 레이아웃
+- **docs 페이지 구조**: 기존 프로젝트의 docs 스타일과 일치하는 페이지 구성
 
 ## High-level Task Breakdown
 
-The plan is to tackle this iteratively, starting from the global layout and moving to individual pages.
+1. **포트폴리오 카드 데이터 확장**:
 
-1.  **Make Docs Layout Responsive**:
+   - **Task**: `src/data/sampleCards.ts`에서 더 많은 샘플 데이터 추가
+   - **Implementation**: 5개의 포트폴리오 카드 데이터로 확장
+   - **Success Criteria**: ✅ 완료됨
 
-    - **Task**: Modify `src/app/docs/layout.tsx` and `src/app/docs/components/DocsSidebar.tsx`.
-    - **Implementation**:
-      - Add a hamburger menu button that is visible only on mobile.
-      - The sidebar should be hidden by default on mobile and slide in when the hamburger menu is clicked.
-      - The main content area should take up the full width on mobile when the sidebar is hidden.
-    - **Success Criteria**: The sidebar is replaced by a hamburger menu on screens smaller than `md` (768px). Clicking the button toggles the sidebar's visibility. The layout looks good on mobile, tablet, and desktop.
+2. **ScrollPortfolioCards 컴포넌트 구현**:
 
-2.  **Verify and Fix Individual Doc Pages**:
-    - **Task**: Go through each category in the `docs` folder (`cursor`, `interaction`, `typography`) and check the `page.tsx` file within each sub-directory.
-    - **Implementation**:
-      - Check for layout issues, especially with `pre` and `code` tags for code snippets, and the containers for the component demos.
-      - Apply responsive tailwind classes to fix any overflow or alignment issues.
-      - Ensure component demos are usable and look good on mobile.
-    - **Success Criteria**: All documentation pages are readable and usable on mobile without horizontal scrolling (except for code blocks, which should scroll horizontally if needed).
+   - **Task**: `src/components/common/framer-motion/ScrollPortfolioCards.tsx` 생성
+   - **Implementation**:
+     - framer-motion의 useScroll, useTransform 활용
+     - 세로 스크롤을 가로 카드 슬라이드로 변환
+     - 카드별 진행도 인디케이터 추가
+     - 반응형 디자인 적용
+   - **Success Criteria**: ✅ 완료됨
+
+3. **docs 페이지 생성**:
+
+   - **Task**: `src/app/docs/interaction/scroll-portfolio-cards/` 폴더 및 페이지 생성
+   - **Implementation**:
+     - constants/index.ts에서 컴포넌트 정보 정의
+     - page.tsx에서 데모 및 문서화 페이지 작성
+     - 기존 docs 스타일과 일치하도록 구성
+   - **Success Criteria**: ✅ 완료됨
+
+4. **메뉴 트리 업데이트**:
+   - **Task**: `src/app/docs/components/menuTree.ts`에 새 페이지 추가
+   - **Implementation**: Interaction 카테고리에 "스크롤 포트폴리오 카드" 항목 추가
+   - **Success Criteria**: ✅ 완료됨
 
 ## Project Status Board
 
-- [x] Make Docs Layout Responsive
-- [x] Verify and Fix Individual Doc Pages
-  - [x] `cursor` pages
-  - [x] `interaction` pages
-  - [x] `typography` pages
+- [x] 포트폴리오 카드 데이터 확장
+- [x] ScrollPortfolioCards 컴포넌트 구현
+- [x] docs 페이지 생성 (constants + page.tsx)
+- [x] 메뉴 트리에 새 페이지 추가
+- [x] 개발 서버 실행 및 테스트 준비
+
+## Current Status / Progress Tracking
+
+**현재 상태**: 구현 완료, 테스트 중
+
+- ✅ ScrollPortfolioCards 컴포넌트 구현 완료
+- ✅ docs 페이지 구현 완료
+- ✅ 메뉴 통합 완료
+- 🔄 개발 서버 실행 중 (`npm run dev`)
 
 ## Executor's Feedback or Assistance Requests
 
-_No feedback or requests at this time._
+**구현 완료된 기능들:**
+
+1. **ScrollPortfolioCards 컴포넌트**:
+
+   - 세로 스크롤 → 가로 카드 슬라이드 변환
+   - 5개 포트폴리오 카드 지원
+   - 현재 카드 진행도 인디케이터
+   - 마지막 카드 이후 다음 섹션으로 자연스러운 전환
+   - 반응형 디자인 (모바일/태블릿/데스크톱)
+
+2. **docs 페이지**:
+   - `/docs/interaction/scroll-portfolio-cards` 경로
+   - 컴포넌트 설명, 주요 기능, 사용법, Props 문서화
+   - 실제 동작하는 데모 포함
+
+**기술적 해결사항:**
+
+- framer-motion의 useTransform에서 올바른 값 전달 방식 적용
+- 기존 프로젝트의 docs 스타일과 일치하는 UI 구성
+
+**테스트 필요사항:**
+
+- 실제 브라우저에서 스크롤 인터랙션 동작 확인
+- 모바일/태블릿에서의 반응형 동작 확인
+- 다음 섹션으로의 전환이 자연스러운지 확인
 
 ## Lessons
 
-_No lessons learned yet._
+- **framer-motion useTransform 사용법**: MotionValue를 style에 직접 전달할 때는 문자열 배열 형태로 값을 제공해야 함
+- **docs 페이지 구조**: 기존 프로젝트의 Title, DemoContainer 컴포넌트 스타일 일치시키기
+- **반응형 스크롤**: vh 단위와 sticky positioning을 조합한 스크롤 인터랙션 구현

@@ -4,6 +4,7 @@ import { useState } from "react";
 import DemoContainer from "@/components/common/DemoContainer";
 import GlitchText from "@/components/common/framer-motion/typography/glitch-text/GlitchText";
 import Title from "../../components/Title";
+import TextScramble from "@/components/common/framer-motion/typography/TextScramble";
 
 export default function GlitchTextPage() {
   // 컨트롤 상태
@@ -43,13 +44,11 @@ export default function GlitchTextPage() {
 
   return (
     <div>
-      {/* 제목 */}
-      <Title>Glitch Text.</Title>
+      <Title>
+        <TextScramble text="Glitch Text." speed={30} delay={0} loop={false} pauseTime={1000} revealSpeed={60} />
+      </Title>
       <hr className="my-4 border-0 border-t border-gray-200" />
-
-      {/* Interactive Playground */}
       <section className="mb-8">
-        {/* 데모 영역 */}
         <DemoContainer>
           <div className="min-h-32 md:min-h-40 flex items-center justify-center">
             <GlitchText
@@ -66,7 +65,6 @@ export default function GlitchTextPage() {
           </div>
         </DemoContainer>
 
-        {/* 컨트롤 패널 */}
         <div
           className="mt-6 p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800"
           style={{
@@ -77,7 +75,6 @@ export default function GlitchTextPage() {
           }}
         >
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* TEXT */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Text</label>
               <p className="text-xs text-gray-400">글리치 효과가 적용될 텍스트</p>
@@ -90,7 +87,6 @@ export default function GlitchTextPage() {
               />
             </div>
 
-            {/* SPEED */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Speed</label>
               <p className="text-xs text-gray-400">글리치 애니메이션 속도 (낮을수록 빠름)</p>
@@ -116,7 +112,6 @@ export default function GlitchTextPage() {
               </div>
             </div>
 
-            {/* REFRESH DELAY */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Refresh Delay</label>
               <p className="text-xs text-gray-400">글리치 효과 간격 (ms)</p>
@@ -140,7 +135,6 @@ export default function GlitchTextPage() {
               </div>
             </div>
 
-            {/* GLITCH COLOR 1 */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 1</label>
               <p className="text-xs text-gray-400">첫 번째 글리치 색상</p>
@@ -161,7 +155,6 @@ export default function GlitchTextPage() {
               </div>
             </div>
 
-            {/* GLITCH COLOR 2 */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 2</label>
               <p className="text-xs text-gray-400">두 번째 글리치 색상</p>
@@ -182,7 +175,6 @@ export default function GlitchTextPage() {
               </div>
             </div>
 
-            {/* GLITCH COLOR 3 */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 3</label>
               <p className="text-xs text-gray-400">세 번째 글리치 색상</p>
@@ -203,7 +195,6 @@ export default function GlitchTextPage() {
               </div>
             </div>
 
-            {/* GLITCH COLOR 4 */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Glitch Color 4</label>
               <p className="text-xs text-gray-400">네 번째 글리치 색상</p>
@@ -224,7 +215,6 @@ export default function GlitchTextPage() {
               </div>
             </div>
 
-            {/* VARIANT */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Variant</label>
               <p className="text-xs text-gray-400">Typography 변형</p>
@@ -254,7 +244,6 @@ export default function GlitchTextPage() {
               </select>
             </div>
 
-            {/* ENABLE SHADOWS */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Enable Shadows</label>
               <p className="text-xs text-gray-400">글리치 그림자 효과 활성화</p>
@@ -269,7 +258,6 @@ export default function GlitchTextPage() {
               </label>
             </div>
 
-            {/* ENABLE ON HOVER */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Enable On Hover</label>
               <p className="text-xs text-gray-400">호버 시에만 글리치 효과 실행</p>

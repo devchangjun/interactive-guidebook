@@ -50,7 +50,6 @@ export default function ScrambleTextPage() {
         <DemoContainer>
           <div className="min-h-32 md:min-h-40 flex items-center justify-center">
             <TextScramble
-              key={`${text}-${speed}-${delay}-${loop}-${pauseTime}-${characters}-${revealSpeed}-${trigger}`}
               text={text}
               speed={speed}
               delay={delay}
