@@ -110,6 +110,12 @@ const menuTree = [
         description: "스크롤 시 섹션들이 상단에 고정되며 스택되는 효과",
         path: "/docs/interaction/sticky-stack",
       },
+      {
+        id: "dynamic-island",
+        name: "다이나믹 아일랜드",
+        description: "iOS Dynamic Island 스타일의 확장 가능한 인터랙티브 컴포넌트",
+        path: "/docs/interaction/dynamic-island",
+      },
     ],
   },
   {
