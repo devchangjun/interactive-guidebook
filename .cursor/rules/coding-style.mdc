@@ -11,6 +11,7 @@ alwaysApply: true
 - tailwind css를 사용한다.
 - tailwind css v4를 사용한다.
 - 인터랙션 개발을 할 때 gsap와 framer-motion, svg를 적극적으로 활용한다.
+- 스티키 섹션이 적용되었으면 절대 부모 속성에 overflow-hidden을 넣지 않는다.
 
 
 ## Next.js

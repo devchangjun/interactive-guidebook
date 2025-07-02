@@ -1,18 +1,22 @@
 export const SCROLL_PORTFOLIO_CARDS_INFO = {
-  title: "Pinned Scroll Section.",
-  description: "스크롤이 고정되어 있는 섹션에서 포트폴리오 카드가 하나씩 넘어가는 인터랙션 컴포넌트입니다.",
+  title: "가로 스크롤 섹션",
+  description:
+    "세로 스크롤에 따라 포트폴리오 카드들이 가로로 스크롤되는 인터랙션 컴포넌트입니다. 스티키 섹션에서 부드러운 가로 이동 효과를 제공합니다.",
 
-  usage: `import { ScrollPortfolioCards } from '@/components/common/framer-motion/ScrollPortfolioCards';
+  usage: `import HorizontalScrollPortfolioCards from '@/components/common/framer-motion/HorizontalScrollPortfolioCards';
 import { sampleCards } from '@/data/sampleCards';
 
 export default function Portfolio() {
   return (
-    <div className="bg-gradient-to-br from-purple-900 to-blue-900">
-      <ScrollPortfolioCards cards={sampleCards} />
+    <div>
+      <HorizontalScrollPortfolioCards 
+        cards={sampleCards}
+        className="bg-gradient-to-br from-indigo-50 via-white to-cyan-50"
+      />
       
       {/* 다음 섹션 */}
-      <section className="h-screen flex items-center justify-center bg-white">
-        <h2 className="text-4xl font-bold">다음 섹션</h2>
+      <section className="h-screen flex items-center justify-center bg-purple-600">
+        <h2 className="text-4xl font-bold text-white">다음 섹션</h2>
       </section>
     </div>
   );

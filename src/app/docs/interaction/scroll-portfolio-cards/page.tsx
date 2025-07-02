@@ -1,81 +1,42 @@
 "use client";
 
-import React from "react";
-import { ScrollPortfolioCards } from "@/components/common/framer-motion/ScrollPortfolioCards";
-import { sampleCards } from "@/data/sampleCards";
+import HorizontalScrollPortfolioCards from "@/components/common/framer-motion/HorizontalScrollPortfolioCards";
+import Title from "@/app/docs/components/Title";
 import { SCROLL_PORTFOLIO_CARDS_INFO } from "./constants";
-import Title from "../../components/Title";
+import { sampleCards } from "@/data/sampleCards";
 
 export default function ScrollPortfolioCardsPage() {
   return (
-    <div>
-      <Title>Pinned Scroll Section.</Title>
-      <hr className="my-4 border-t border-gray-700" />
-
-      <section className="mb-8">
-        <p className="text-lg text-gray-300 mb-6">{SCROLL_PORTFOLIO_CARDS_INFO.description}</p>
-      </section>
-
-      {/* 데모 */}
-      <section className="mb-8">
-        <div className="bg-gradient-to-br from-purple-900 to-blue-900">
-          <ScrollPortfolioCards cards={sampleCards} />
-          {/* 다음 섹션 예시 */}
-          <section className="h-screen flex items-center justify-center bg-white">
-            <div className="text-center">
-              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">다음 섹션</h2>
-              <p className="text-lg text-gray-600">포트폴리오가 끝나면 자연스럽게 다음 섹션으로 전환됩니다.</p>
-            </div>
-          </section>
+    <div className="min-h-screen">
+      <Title>{SCROLL_PORTFOLIO_CARDS_INFO.title}</Title>
+      <hr className="my-4" />
+      {/* 제목 및 설명 섹션 */}
+      <section className="h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-700">
+        <div className="text-center text-white px-4">
+          <Title>{SCROLL_PORTFOLIO_CARDS_INFO.title}</Title>
+          <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            {SCROLL_PORTFOLIO_CARDS_INFO.description}
+          </p>
+          <div className="text-sm text-slate-400">스크롤하여 가로 스크롤 포트폴리오를 체험해보세요</div>
         </div>
       </section>
 
-      {/* Props */}
-      <section className="mb-8">
-        <h3 className="text-xl font-semibold text-white mb-4">Props</h3>
-        <div className="overflow-x-auto">
-          <table className="min-w-full border border-gray-600 bg-gray-800">
-            <thead className="bg-gray-700">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">이름</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">타입</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">필수</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">설명</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-600">
-              {SCROLL_PORTFOLIO_CARDS_INFO.props.map((prop, index) => (
-                <tr key={index}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{prop.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                    <code className="bg-gray-700 px-2 py-1 rounded text-xs">{prop.type}</code>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
-                    <span
-                      className={`px-2 py-1 text-xs rounded-full ${
-                        prop.required ? "bg-red-500 text-white" : "bg-gray-600 text-gray-300"
-                      }`}
-                    >
-                      {prop.required ? "필수" : "선택"}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-300">{prop.description}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* 가로 스크롤 포트폴리오 카드 섹션 - DemoContainer 밖으로 이동 */}
+      <HorizontalScrollPortfolioCards cards={sampleCards} className="" />
+
+      {/* 다음 섹션 */}
+      <section className="h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-600">
+        <div className="text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">다음 섹션</h2>
+          <p className="text-xl md:text-2xl opacity-90">포트폴리오 카드 스크롤이 완료되면 이 섹션으로 이동됩니다.</p>
         </div>
       </section>
 
-      {/* 의존성 */}
-      <section className="mb-8">
-        <h3 className="text-xl font-semibold text-white mb-4">의존성</h3>
-        <div className="flex flex-wrap gap-2">
-          {SCROLL_PORTFOLIO_CARDS_INFO.dependencies.map((dep, index) => (
-            <code key={index} className="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">
-              {dep}
-            </code>
-          ))}
+      {/* 추가 섹션 */}
+      <section className="h-screen flex items-center justify-center bg-gradient-to-br from-emerald-600 to-teal-600">
+        <div className="text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">컴포넌트 완료</h2>
+          <p className="text-xl md:text-2xl opacity-90">가로 스크롤 인터랙션이 완료되었습니다!</p>
         </div>
       </section>
     </div>
