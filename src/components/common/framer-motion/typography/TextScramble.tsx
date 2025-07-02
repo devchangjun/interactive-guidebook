@@ -113,6 +113,7 @@ const TextScramble = ({
         }
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text, speed, delay, loop, pauseTime, characters, revealSpeed, trigger]);
 
   // text가 변경되면 애니메이션 재시작
@@ -134,6 +135,7 @@ const TextScramble = ({
     return () => {
       clearTimeout(startTimeout);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text]);
 
   // hover 모드일 때 초기 텍스트를 표시

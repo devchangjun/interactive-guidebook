@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import menuTree from "./menuTree";
 import Image from "next/image";
-import RippleButton from "@/components/common/RippleButton";
+import { Button } from "@mui/material";
 import { cn } from "@/utils/cn";
 
 export default function DocsSidebar() {
@@ -50,27 +50,37 @@ export default function DocsSidebar() {
             const expanded = isMobile ? openIdx === idx : true;
             return (
               <li key={category.category} className="mb-4">
-                <RippleButton
+                <Button
                   onClick={() => isMobile && handleAccordion(idx)}
-                  className={cn(
-                    "w-full text-left text-lg font-bold mb-1 py-1",
-                    "text-[#fff] transition-colors",
-                    "flex items-center justify-between",
-                    isMobile ? "cursor-pointer" : "cursor-default"
-                  )}
-                  rippleColor="rgba(255, 255, 255, 0.4)"
                   disabled={!isMobile}
+                  variant="text"
+                  disableRipple={!isMobile}
+                  sx={{
+                    width: "100%",
+                    textAlign: "left",
+                    fontSize: "1.125rem",
+                    fontWeight: "bold",
+                    marginBottom: "0.25rem",
+                    paddingY: "0.25rem",
+                    color: "#fff",
+                    textTransform: "none",
+                    justifyContent: "space-between",
+                    cursor: isMobile ? "pointer" : "default",
+                    "&:hover": {
+                      backgroundColor: isMobile ? "rgba(255, 255, 255, 0.1)" : "transparent",
+                    },
+                    "&.Mui-disabled": {
+                      color: "#fff",
+                    },
+                  }}
+                  aria-expanded={expanded}
+                  aria-controls={`category-panel-${idx}`}
                 >
-                  <span
-                    role="button"
-                    aria-expanded={expanded}
-                    aria-controls={`category-panel-${idx}`}
-                    className="w-full flex items-center justify-between"
-                  >
+                  <span className="w-full flex items-center justify-between">
                     {category.category}
                     {isMobile && <span className="text-xs text-[#fff]">{expanded ? "▲" : "▼"}</span>}
                   </span>
-                </RippleButton>
+                </Button>
                 <ul
                   id={`category-panel-${idx}`}
                   className={cn("space-y-0.5 pl-3 border-l border-[#eaeaea]", expanded ? "block" : "hidden")}
@@ -81,18 +91,27 @@ export default function DocsSidebar() {
                     return (
                       <li key={item.id}>
                         <Link href={item.path} className="block" aria-current={active ? "page" : undefined}>
-                          <RippleButton
-                            as="div"
-                            className={cn(
-                              "py-1 px-2 text-md font-medium transition-colors",
-                              active
-                                ? "text-black font-medium bg-[#fafafa]"
-                                : "text-[#fff] hover:text-black hover:bg-[#fafafa]"
-                            )}
-                            rippleColor={active ? "rgba(59, 130, 246, 0.4)" : "rgba(255, 255, 255, 0.3)"}
+                          <Button
+                            variant="text"
+                            component="div"
+                            sx={{
+                              width: "100%",
+                              paddingY: "0.25rem",
+                              paddingX: "0.5rem",
+                              fontSize: "1rem",
+                              fontWeight: "medium",
+                              textTransform: "none",
+                              justifyContent: "flex-start",
+                              color: active ? "#000" : "#fff",
+                              backgroundColor: active ? "#fafafa" : "transparent",
+                              "&:hover": {
+                                color: "#000",
+                                backgroundColor: "#fafafa",
+                              },
+                            }}
                           >
                             <div>{item.name}</div>
-                          </RippleButton>
+                          </Button>
                         </Link>
                       </li>
                     );

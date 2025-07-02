@@ -33,7 +33,7 @@ export default function DocsPageLayout({ children }: { children: React.ReactNode
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 z-40 h-screen w-[260px] flex-col gap-2 bg-[#18181b] p-8 pr-4 text-white
+          fixed top-0 left-0 z-40 h-[200vh] w-[260px] flex-col gap-2 bg-[#18181b] p-8 pr-4 text-white
           transform transition-transform duration-300 ease-in-out
           ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
           md:relative md:flex md:translate-x-0 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, MouseEvent } from "react";
+import React, { useState, MouseEvent } from "react";
 
 interface RippleButtonProps {
   children: React.ReactNode;
@@ -29,12 +29,12 @@ export default function RippleButton({
   as = "button",
 }: RippleButtonProps) {
   const [ripples, setRipples] = useState<RippleData[]>([]);
-  const rippleRef = useRef<HTMLElement>(null);
+  const [rippleElement, setRippleElement] = useState<HTMLElement | null>(null);
 
   const createRipple = (event: MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
-    if (!rippleRef.current) return;
+    if (!rippleElement) return;
 
-    const rect = rippleRef.current.getBoundingClientRect();
+    const rect = rippleElement.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height) * 2; // 더 큰 ripple 크기
     const x = event.clientX - rect.left - size / 2;
     const y = event.clientY - rect.top - size / 2;
@@ -73,7 +73,7 @@ export default function RippleButton({
 
   return (
     <Component
-      ref={rippleRef}
+      ref={setRippleElement}
       onClick={handleClick}
       className={baseClasses}
       disabled={as === "button" ? disabled : undefined}
