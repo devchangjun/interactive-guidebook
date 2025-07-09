@@ -64,6 +64,12 @@ const menuTree = [
         path: "/docs/typography/text-3d",
       },
       {
+        id: "paint-fill-text",
+        name: "물감 채우기 텍스트",
+        description: "물감 채우기 텍스트",
+        path: "/docs/typography/paint-fill-text",
+      },
+      {
         id: "playground",
         name: "플레이그라운드",
         description: "플레이그라운드",

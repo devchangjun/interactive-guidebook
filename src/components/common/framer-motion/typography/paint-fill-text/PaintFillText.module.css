@@ -1,0 +1,24 @@
+/* 외곽선 텍스트 - 깔끔하게 */
+.strokeOutline {
+  /* 발광 효과 제거 */
+}
+
+/* 물감 채우기 효과 - 핵심! */
+.paintFill {
+  background: linear-gradient(to bottom, var(--paint-color) 0%, var(--paint-color) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  clip-path: inset(100% 0 0 0);
+  animation: paint-fill var(--paint-duration) ease-out var(--paint-delay) forwards;
+}
+
+/* 물감 채우기 애니메이션 */
+@keyframes paint-fill {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0% 0 0 0);
+  }
+}
