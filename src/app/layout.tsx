@@ -19,12 +19,11 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "인터랙티브 바이브 코딩 가이드북",
-    description: "인터랙션 가이드북입니다.",
-    url: "https://your-domain.com/",
-    siteName: "인터랙션 가이드북",
+    description: "인터랙션 바이브코딩 가이드북입니다.",
+    siteName: "바이브 인터랙션 가이드북",
     images: [
       {
-        url: "https://your-domain.com/og-image.png",
+        url: "/main.png",
         width: 1200,
         height: 630,
         alt: "인터랙티브 바이브 코딩 가이드북",
@@ -36,10 +35,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "인터랙티브 바이브 코딩 가이드북",
-    description: "인터랙션 가이드북입니다.",
-    images: ["https://your-domain.com/og-image.png"],
+    description: "인터랙션 바이브코딩 가이드북입니다.",
+    images: ["/main.png"],
   },
-  metadataBase: new URL("https://your-domain.com/"),
   alternates: {
     canonical: "/",
   },
