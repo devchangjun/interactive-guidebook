@@ -25,25 +25,72 @@ export default function ParallaxPage() {
   const [objectFit, setObjectFit] = useState(PARALLAX_DEFAULTS.objectFit);
 
   // 탭 상태
-  const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
+  const [activeTab, setActiveTab] = useState<"preview" | "usage" | "code">("preview");
 
   // 코드 복사 핸들러
   const handleCopyCode = () => {
-    const code = `import ParallaxImage from '@/components/common/framer-motion/ParallaxImage';
+    const code = `"use client";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 
-export default function ParallaxExample() {
+interface ParallaxImageProps {
+  imageUrl?: string;
+  parallaxRange?: number;
+  stiffness?: number;
+  damping?: number;
+  mass?: number;
+  restDelta?: number;
+  containerHeight?: string;
+  imageHeight?: string;
+  objectFit?: string;
+}
+
+/**
+ * ParallaxImage 컴포넌트
+ * - 스크롤에 따라 이미지가 위로 천천히 이동하는 패럴럭스 효과를 보여줍니다.
+ * - 반응형 웹을 고려하여 이미지가 부모 영역에 맞게 조정됩니다.
+ */
+export default function ParallaxImage({
+  imageUrl = "/1.avif",
+  parallaxRange = 300,
+  stiffness = 60,
+  damping = 20,
+  mass = 1,
+  restDelta = 0.5,
+  containerHeight = "h-screen",
+  imageHeight = "h-[120vh]",
+  objectFit = "object-cover",
+}: ParallaxImageProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  // ref 영역의 스크롤 진행도를 가져옵니다.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"], // 시작점과 끝점을 명확하게 지정
+  });
+
+  // 1. 스크롤에 따라 y값을 만듭니다.
+  // y값을 0에서 -parallaxRange로 설정하여 이미지가 박스 안에서만 위로 자연스럽게 이동하게 만듭니다.
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, -parallaxRange]);
+
+  // 2. useSpring으로 감싸서, 변화가 있을 때 자연스럽게 트랜지션이 일어나도록 합니다.
+  const y = useSpring(rawY, {
+    stiffness, // 낮을수록 더 천천히 멈춤
+    damping, // 낮을수록 더 오래 흔들림
+    mass,
+    restDelta, // 멈추는 민감도
+  });
+
   return (
-    <ParallaxImage
-      imageUrl="/hero-image.jpg"
-      parallaxRange={300}
-      stiffness={60}
-      damping={20}
-      mass={1}
-      restDelta={0.5}
-      containerHeight="h-screen"
-      imageHeight="h-[120vh]"
-      objectFit="object-cover"
-    />
+    <div ref={ref} className={\`relative \${containerHeight} w-full max-w-full overflow-hidden\`}>
+      <motion.img
+        src={imageUrl}
+        alt="parallax"
+        className={\`absolute top-0 block \${imageHeight} w-full \${objectFit}\`}
+        style={{
+          y,
+        }}
+      />
+    </div>
   );
 }`;
     navigator.clipboard.writeText(code);
@@ -54,6 +101,98 @@ export default function ParallaxExample() {
     // 전체 코드를 보여주는 모달이나 페이지로 이동
     console.log("Show full snippet");
   };
+
+  // Usage 예제 코드
+  const usageExample = `import ParallaxImage from "@/components/common/framer-motion/ParallaxImage";
+
+// 기본 사용법
+<ParallaxImage />
+
+// 커스텀 설정
+<ParallaxImage
+  imageUrl="/path/to/image.jpg"
+  parallaxRange={400}
+  stiffness={80}
+  damping={15}
+  mass={1.2}
+  restDelta={0.3}
+  containerHeight="h-[600px]"
+  imageHeight="h-[800px]"
+  objectFit="object-cover"
+/>
+
+// 간단한 설정
+<ParallaxImage
+  imageUrl="/hero-image.jpg"
+  parallaxRange={200}
+  containerHeight="h-screen"
+/>`;
+
+  // 실제 ParallaxImage 컴포넌트 소스 코드
+  const parallaxImageCode = `"use client";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
+
+interface ParallaxImageProps {
+  imageUrl?: string;
+  parallaxRange?: number;
+  stiffness?: number;
+  damping?: number;
+  mass?: number;
+  restDelta?: number;
+  containerHeight?: string;
+  imageHeight?: string;
+  objectFit?: string;
+}
+
+/**
+ * ParallaxImage 컴포넌트
+ * - 스크롤에 따라 이미지가 위로 천천히 이동하는 패럴럭스 효과를 보여줍니다.
+ * - 반응형 웹을 고려하여 이미지가 부모 영역에 맞게 조정됩니다.
+ */
+export default function ParallaxImage({
+  imageUrl = "/1.avif",
+  parallaxRange = 300,
+  stiffness = 60,
+  damping = 20,
+  mass = 1,
+  restDelta = 0.5,
+  containerHeight = "h-screen",
+  imageHeight = "h-[120vh]",
+  objectFit = "object-cover",
+}: ParallaxImageProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  // ref 영역의 스크롤 진행도를 가져옵니다.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"], // 시작점과 끝점을 명확하게 지정
+  });
+
+  // 1. 스크롤에 따라 y값을 만듭니다.
+  // y값을 0에서 -parallaxRange로 설정하여 이미지가 박스 안에서만 위로 자연스럽게 이동하게 만듭니다.
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, -parallaxRange]);
+
+  // 2. useSpring으로 감싸서, 변화가 있을 때 자연스럽게 트랜지션이 일어나도록 합니다.
+  const y = useSpring(rawY, {
+    stiffness, // 낮을수록 더 천천히 멈춤
+    damping, // 낮을수록 더 오래 흔들림
+    mass,
+    restDelta, // 멈추는 민감도
+  });
+
+  return (
+    <div ref={ref} className={\`relative \${containerHeight} w-full max-w-full overflow-hidden\`}>
+      <motion.img
+        src={imageUrl}
+        alt="parallax"
+        className={\`absolute top-0 block \${imageHeight} w-full \${objectFit}\`}
+        style={{
+          y,
+        }}
+      />
+    </div>
+  );
+}`;
 
   // 컨트롤 패널 컴포넌트
   const controlPanel = (
@@ -372,28 +511,9 @@ export default function ParallaxExample() {
             objectFit={objectFit}
           />
         }
-        codeContent={
-          <pre className="text-sm text-gray-300">
-            {`import ParallaxImage from '@/components/common/framer-motion/ParallaxImage';
-
-export default function ParallaxExample() {
-  return (
-    <ParallaxImage
-      imageUrl="/hero-image.jpg"
-      parallaxRange={300}
-      stiffness={60}
-      damping={20}
-      mass={1}
-      restDelta={0.5}
-      containerHeight="h-screen"
-      imageHeight="h-[120vh]"
-      objectFit="object-cover"
-    />
-  );
-}`}
-          </pre>
-        }
-        codeLanguage="JS"
+        usageContent={usageExample}
+        codeContent={parallaxImageCode}
+        codeLanguage="typescript"
         onCopyCode={handleCopyCode}
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}

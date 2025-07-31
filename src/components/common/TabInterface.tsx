@@ -1,12 +1,15 @@
 "use client";
 
 import { ReactNode } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface TabInterfaceProps {
-  activeTab: "preview" | "code";
-  onTabChange: (tab: "preview" | "code") => void;
+  activeTab: "preview" | "usage" | "code";
+  onTabChange: (tab: "preview" | "usage" | "code") => void;
   previewContent: ReactNode;
-  codeContent: ReactNode;
+  usageContent: string;
+  codeContent: string;
   codeLanguage?: string;
   onCopyCode?: () => void;
   onSeeFullSnippet?: () => void;
@@ -46,6 +49,20 @@ function PreviewIcon() {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+      />
+    </svg>
+  );
+}
+
+// Usage 아이콘 컴포넌트
+function UsageIcon() {
+  return (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
       />
     </svg>
   );
@@ -114,15 +131,64 @@ function PreviewTab({ previewContent, controlPanel }: PreviewTabProps) {
   );
 }
 
+// Usage 탭 컴포넌트
+interface UsageTabProps {
+  usageContent: string;
+  codeLanguage?: string;
+  onCopyCode?: () => void;
+}
+
+function UsageTab({ usageContent, codeLanguage = "typescript", onCopyCode }: UsageTabProps) {
+  return (
+    <div className="bg-gray-900 rounded-xl border border-gray-700 p-6">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-semibold text-white">Usage</h3>
+        <div className="flex items-center space-x-2">
+          <select
+            className="px-3 py-1 text-sm bg-gray-800 border border-gray-600 rounded text-white"
+            defaultValue={codeLanguage}
+          >
+            <option value="typescript">TypeScript</option>
+            <option value="javascript">JavaScript</option>
+            <option value="jsx">JSX</option>
+            <option value="tsx">TSX</option>
+          </select>
+          <button className="p-2 rounded bg-gray-800 hover:bg-gray-700 transition-colors" onClick={onCopyCode}>
+            <CopyIcon />
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-gray-800 rounded-lg overflow-hidden">
+        <SyntaxHighlighter
+          language={codeLanguage}
+          style={vscDarkPlus}
+          customStyle={{
+            margin: 0,
+            padding: "1rem",
+            fontSize: "0.875rem",
+            lineHeight: "1.5",
+            backgroundColor: "transparent",
+          }}
+          showLineNumbers={true}
+          wrapLines={true}
+        >
+          {usageContent}
+        </SyntaxHighlighter>
+      </div>
+    </div>
+  );
+}
+
 // Code 탭 컴포넌트
 interface CodeTabProps {
-  codeContent: ReactNode;
+  codeContent: string;
   codeLanguage?: string;
   onCopyCode?: () => void;
   onSeeFullSnippet?: () => void;
 }
 
-function CodeTab({ codeContent, codeLanguage = "JS", onCopyCode, onSeeFullSnippet }: CodeTabProps) {
+function CodeTab({ codeContent, codeLanguage = "typescript", onCopyCode, onSeeFullSnippet }: CodeTabProps) {
   return (
     <div className="bg-gray-900 rounded-xl border border-gray-700 p-6">
       <div className="flex items-center justify-between mb-4">
@@ -132,8 +198,10 @@ function CodeTab({ codeContent, codeLanguage = "JS", onCopyCode, onSeeFullSnippe
             className="px-3 py-1 text-sm bg-gray-800 border border-gray-600 rounded text-white"
             defaultValue={codeLanguage}
           >
-            <option value="JS">JS</option>
-            <option value="TS">TS</option>
+            <option value="typescript">TypeScript</option>
+            <option value="javascript">JavaScript</option>
+            <option value="jsx">JSX</option>
+            <option value="tsx">TSX</option>
           </select>
           <button className="p-2 rounded bg-gray-800 hover:bg-gray-700 transition-colors" onClick={onCopyCode}>
             <CopyIcon />
@@ -141,7 +209,23 @@ function CodeTab({ codeContent, codeLanguage = "JS", onCopyCode, onSeeFullSnippe
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-lg p-4 overflow-x-auto">{codeContent}</div>
+      <div className="bg-gray-800 rounded-lg overflow-hidden">
+        <SyntaxHighlighter
+          language={codeLanguage}
+          style={vscDarkPlus}
+          customStyle={{
+            margin: 0,
+            padding: "1rem",
+            fontSize: "0.875rem",
+            lineHeight: "1.5",
+            backgroundColor: "transparent",
+          }}
+          showLineNumbers={true}
+          wrapLines={true}
+        >
+          {codeContent}
+        </SyntaxHighlighter>
+      </div>
 
       <div className="mt-4 flex justify-end">
         <button
@@ -159,8 +243,9 @@ export default function TabInterface({
   activeTab,
   onTabChange,
   previewContent,
+  usageContent,
   codeContent,
-  codeLanguage = "JS",
+  codeLanguage = "typescript",
   onCopyCode,
   onSeeFullSnippet,
   controlPanel,
@@ -176,6 +261,13 @@ export default function TabInterface({
         />
 
         <TabButton
+          isActive={activeTab === "usage"}
+          onClick={() => onTabChange("usage")}
+          icon={<UsageIcon />}
+          label="Usage"
+        />
+
+        <TabButton
           isActive={activeTab === "code"}
           onClick={() => onTabChange("code")}
           icon={<CodeIcon />}
@@ -185,6 +277,11 @@ export default function TabInterface({
 
       {/* Preview 탭 내용 */}
       {activeTab === "preview" && <PreviewTab previewContent={previewContent} controlPanel={controlPanel} />}
+
+      {/* Usage 탭 내용 */}
+      {activeTab === "usage" && (
+        <UsageTab usageContent={usageContent} codeLanguage={codeLanguage} onCopyCode={onCopyCode} />
+      )}
 
       {/* Code 탭 내용 */}
       {activeTab === "code" && (
