@@ -34,11 +34,11 @@ function TabButton({ isActive, onClick, icon, label }: TabButtonProps) {
       onClick={onClick}
       startIcon={icon}
       sx={{
-        backgroundColor: isActive ? "#2563eb" : "transparent",
+        backgroundColor: isActive ? "#1f2937" : "transparent",
         color: "white",
         borderColor: "white",
         "&:hover": {
-          backgroundColor: isActive ? "#1d4ed8" : "rgba(255, 255, 255, 0.1)",
+          backgroundColor: isActive ? "#111827" : "rgba(255, 255, 255, 0.1)",
           borderColor: "white",
         },
         textTransform: "none",
@@ -46,8 +46,12 @@ function TabButton({ isActive, onClick, icon, label }: TabButtonProps) {
         padding: "8px 16px",
         borderRadius: "6px",
         borderWidth: "1px",
+        marginRight: "16px",
         "&.MuiButton-outlined": {
           borderColor: "white",
+        },
+        "&:last-child": {
+          marginRight: 0,
         },
       }}
     >
@@ -94,7 +98,7 @@ function PreviewTab({ previewContent, controlPanel }: PreviewTabProps) {
   return (
     <div className="space-y-6">
       {/* 데모 컨테이너 */}
-      <div className="bg-gray-900 rounded-xl border border-gray-700 p-8 relative">
+      <div className="rounded-xl border border-gray-700 p-8 relative">
         {/* 새로고침 버튼 */}
         <button className="absolute top-4 right-4 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
           <RefreshIcon />
@@ -105,7 +109,7 @@ function PreviewTab({ previewContent, controlPanel }: PreviewTabProps) {
       </div>
 
       {/* 컨트롤 패널 */}
-      {controlPanel && <div className="bg-gray-900 rounded-xl border border-gray-700 p-6">{controlPanel}</div>}
+      {controlPanel && <div className="rounded-xl border border-gray-700 p-6">{controlPanel}</div>}
     </div>
   );
 }
@@ -119,7 +123,7 @@ interface UsageTabProps {
 
 function UsageTab({ usageContent, codeLanguage = "typescript", onCopyCode }: UsageTabProps) {
   return (
-    <div className="bg-gray-900 rounded-xl border border-gray-700 p-6">
+    <div className="rounded-xl border border-gray-700 p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-white">Usage</h3>
         <div className="flex items-center space-x-2">
@@ -169,7 +173,7 @@ interface CodeTabProps {
 
 function CodeTab({ codeContent, codeLanguage = "typescript", onCopyCode, onSeeFullSnippet }: CodeTabProps) {
   return (
-    <div className="bg-gray-900 rounded-xl border border-gray-700 p-6">
+    <div className="rounded-xl border border-gray-700 p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-white">Code</h3>
         <div className="flex items-center space-x-2">
@@ -231,7 +235,7 @@ export default function TabInterface({
 }: TabInterfaceProps) {
   return (
     <section className="mb-8">
-      <div className="flex items-center space-x-4 mb-6">
+      <div className="flex items-center mb-6">
         <TabButton
           isActive={activeTab === "preview"}
           onClick={() => onTabChange("preview")}

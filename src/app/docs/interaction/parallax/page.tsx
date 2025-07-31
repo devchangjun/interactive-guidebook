@@ -198,15 +198,7 @@ export default function ParallaxImage({
   const controlPanel = (
     <div>
       <h3 className="text-lg font-semibold text-white mb-4">컨트롤 패널</h3>
-      <div
-        className="p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #444 1.5px, transparent 1.5px), radial-gradient(circle, #222 1.5px, transparent 1.5px)",
-          backgroundSize: "20px 20px",
-          backgroundPosition: "0 0, 10px 10px",
-        }}
-      >
+      <div className="p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* IMAGE URL */}
           <div className="space-y-2">
@@ -434,6 +426,11 @@ export default function ParallaxImage({
     <div>
       <Title>Parallax Image.</Title>
       <hr className="my-4 border-t border-gray-700" />
+
+      {/* 컴포넌트 설명 */}
+      <p className="text-gray-200 text-lg mb-8">
+        스크롤에 따라 배경 이미지가 시차를 두고 움직이는 패럴럭스 효과를 적용합니다.
+      </p>
 
       {/* 아이디어 구체화 섹션 - 새로운 디자인 */}
       <section className="mb-8">
