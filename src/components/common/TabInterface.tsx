@@ -3,6 +3,8 @@
 import { ReactNode } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Button } from "@mui/material";
+import { Visibility, Code, Description } from "@mui/icons-material";
 
 interface TabInterfaceProps {
   activeTab: "preview" | "usage" | "code";
@@ -27,53 +29,30 @@ interface TabButtonProps {
 
 function TabButton({ isActive, onClick, icon, label }: TabButtonProps) {
   return (
-    <button
+    <Button
+      variant="outlined"
       onClick={onClick}
-      className={`flex items-center space-x-2 px-4 py-2 rounded-md border transition-colors ${
-        isActive ? "bg-primary border-white text-white" : "bg-black border-white text-white hover:bg-gray-800"
-      }`}
+      startIcon={icon}
+      sx={{
+        backgroundColor: isActive ? "#2563eb" : "transparent",
+        color: "white",
+        borderColor: "white",
+        "&:hover": {
+          backgroundColor: isActive ? "#1d4ed8" : "rgba(255, 255, 255, 0.1)",
+          borderColor: "white",
+        },
+        textTransform: "none",
+        fontWeight: 500,
+        padding: "8px 16px",
+        borderRadius: "6px",
+        borderWidth: "1px",
+        "&.MuiButton-outlined": {
+          borderColor: "white",
+        },
+      }}
     >
-      {icon}
-      <span>{label}</span>
-    </button>
-  );
-}
-
-// Preview 아이콘 컴포넌트
-function PreviewIcon() {
-  return (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-      />
-    </svg>
-  );
-}
-
-// Usage 아이콘 컴포넌트
-function UsageIcon() {
-  return (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-      />
-    </svg>
-  );
-}
-
-// Code 아이콘 컴포넌트
-function CodeIcon() {
-  return (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-    </svg>
+      {label}
+    </Button>
   );
 }
 
@@ -256,23 +235,18 @@ export default function TabInterface({
         <TabButton
           isActive={activeTab === "preview"}
           onClick={() => onTabChange("preview")}
-          icon={<PreviewIcon />}
+          icon={<Visibility />}
           label="Preview"
         />
 
         <TabButton
           isActive={activeTab === "usage"}
           onClick={() => onTabChange("usage")}
-          icon={<UsageIcon />}
+          icon={<Description />}
           label="Usage"
         />
 
-        <TabButton
-          isActive={activeTab === "code"}
-          onClick={() => onTabChange("code")}
-          icon={<CodeIcon />}
-          label="Code"
-        />
+        <TabButton isActive={activeTab === "code"} onClick={() => onTabChange("code")} icon={<Code />} label="Code" />
       </div>
 
       {/* Preview 탭 내용 */}
