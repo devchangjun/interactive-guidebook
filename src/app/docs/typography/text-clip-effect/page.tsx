@@ -2,6 +2,7 @@
 import { useState } from "react";
 import DemoContainer from "@/components/common/DemoContainer";
 import TextClipEffectItem from "@/components/common/framer-motion/typography/TextClipEffectItem";
+import ControlPanelWrapper from "@/components/common/ControlPanelWrapper";
 import Title from "../../components/Title";
 import {
   TEXT_CLIP_EFFECT_DEFAULTS,
@@ -61,15 +62,7 @@ export default function TextClipEffectPage() {
         </DemoContainer>
 
         {/* 컨트롤 패널 */}
-        <div
-          className="mt-6 p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #444 1.5px, transparent 1.5px), radial-gradient(circle, #222 1.5px, transparent 1.5px)",
-            backgroundSize: "20px 20px",
-            backgroundPosition: "0 0, 10px 10px",
-          }}
-        >
+        <ControlPanelWrapper>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* TEXT ITEMS */}
             <div className="space-y-2 md:col-span-2 lg:col-span-3">
@@ -229,7 +222,7 @@ export default function TextClipEffectPage() {
               기본값으로 리셋
             </button>
           </div>
-        </div>
+        </ControlPanelWrapper>
       </section>
     </div>
   );

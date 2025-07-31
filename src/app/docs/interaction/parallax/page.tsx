@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ParallaxImage from "@/components/common/framer-motion/ParallaxImage";
 import TabInterface from "@/components/common/TabInterface";
+import ControlPanelWrapper from "@/components/common/ControlPanelWrapper";
 import Title from "../../components/Title";
 import {
   PARALLAX_DEFAULTS,
@@ -198,7 +199,7 @@ export default function ParallaxImage({
   const controlPanel = (
     <div>
       <h3 className="text-lg font-semibold text-white mb-4">컨트롤 패널</h3>
-      <div className="p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800">
+      <ControlPanelWrapper>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* IMAGE URL */}
           <div className="space-y-2">
@@ -418,7 +419,7 @@ export default function ParallaxImage({
             기본값으로 리셋
           </button>
         </div>
-      </div>
+      </ControlPanelWrapper>
     </div>
   );
 
