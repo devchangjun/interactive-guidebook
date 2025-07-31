@@ -30,13 +30,14 @@ export default function DocsPageLayout({ children }: { children: React.ReactNode
           />
         </svg>
       </button>
-      {/* Sidebar */}
+
+      {/* Sidebar - Fixed on left */}
       <aside
         className={`
-          fixed top-0 left-0 z-40 h-[200vh] w-[260px] flex-col gap-2 bg-[#18181b] p-8 pr-4 text-white
-          transform transition-transform duration-300 ease-in-out
+          fixed top-0 left-0 z-40 h-screen w-[260px] bg-[#18181b] p-8 pr-4 text-white
+          transform transition-transform duration-300 ease-in-out overflow-y-auto scrollbar-hide
           ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          md:relative md:flex md:translate-x-0 
+          md:translate-x-0 
         `}
       >
         <DocsSidebar />
@@ -52,7 +53,9 @@ export default function DocsPageLayout({ children }: { children: React.ReactNode
       )}
 
       {/* 우측 상세 컨텐츠 */}
-      <main className="mx-auto flex-1 max-w-[900px] px-4 py-24">{children}</main>
+      <main className="flex-1 ml-0 md:ml-[260px] px-4 py-24">
+        <div className="mx-auto max-w-[900px]">{children}</div>
+      </main>
     </div>
   );
 }
