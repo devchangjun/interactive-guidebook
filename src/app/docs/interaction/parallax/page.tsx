@@ -4,6 +4,8 @@ import { useState } from "react";
 import ParallaxImage from "@/components/common/framer-motion/ParallaxImage";
 import TabInterface from "@/components/common/TabInterface";
 import ControlPanelWrapper from "@/components/common/ControlPanelWrapper";
+import IdeaConcretizationSection from "@/components/common/IdeaConcretizationSection";
+import BasicPromptSection from "@/components/common/BasicPromptSection";
 import Title from "../../components/Title";
 import {
   PARALLAX_DEFAULTS,
@@ -434,63 +436,14 @@ export default function ParallaxImage({
       </p>
 
       {/* 아이디어 구체화 섹션 - 새로운 디자인 */}
-      <section className="mb-8">
-        <div className="flex items-start space-x-4">
-          {/* 번호 아이콘 */}
-          <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full border border-white flex items-center justify-center">
-            <span className="text-white font-bold text-sm">1</span>
-          </div>
-
-          {/* 내용 */}
-          <div className="flex-1">
-            <h2 className="text-xl font-bold text-white mb-4">아이디어 구체화</h2>
-
-            <div className="space-y-3 pl-4 border-l border-gray-600">
-              <div className="flex items-start space-x-3">
-                <span className="text-gray-400 text-sm font-medium min-w-[60px]">언제:</span>
-                <span className="text-gray-300 text-sm">스크롤 이벤트가 발생할 때</span>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <span className="text-gray-400 text-sm font-medium min-w-[60px]">무엇을:</span>
-                <span className="text-gray-300 text-sm">배경 이미지를</span>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <span className="text-gray-400 text-sm font-medium min-w-[60px]">어떻게:</span>
-                <span className="text-gray-300 text-sm">
-                  스크롤 방향과 반대로 시차를 두고 움직이는 애니메이션으로 표현
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <IdeaConcretizationSection
+        when="스크롤 이벤트가 발생할 때"
+        what="배경 이미지를"
+        how="스크롤 방향과 반대로 시차를 두고 움직이는 애니메이션으로 표현"
+      />
 
       {/* 기본 프롬프트 섹션 */}
-      <section className="mb-8">
-        <div className="flex items-start space-x-4">
-          {/* 번호 아이콘 */}
-          <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full border border-white flex items-center justify-center">
-            <span className="text-white font-bold text-sm">2</span>
-          </div>
-
-          {/* 내용 */}
-          <div className="flex-1">
-            <h2 className="text-xl font-bold text-white mb-4">기본 프롬프트</h2>
-
-            <div className="pl-4 border-l border-gray-600">
-              <p className="text-gray-300 text-sm leading-relaxed">
-                ParallaxImage 컴포넌트를 만들어주세요. 이 컴포넌트는 스크롤 시 배경 이미지가 시차를 두고 움직이는
-                패럴럭스 효과를 보여줍니다. imageUrl prop으로 배경 이미지 경로를, parallaxRange prop으로 이동 범위를,
-                stiffness와 damping prop으로 애니메이션 물리 속성을 설정할 수 있게 해주세요. containerHeight와
-                imageHeight prop으로 컨테이너와 이미지 높이를, objectFit prop으로 이미지 맞춤 방식을 지정할 수 있게
-                해주세요.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <BasicPromptSection prompt="ParallaxImage 컴포넌트를 만들어주세요. 이 컴포넌트는 스크롤 시 배경 이미지가 시차를 두고 움직이는 패럴럭스 효과를 보여줍니다. imageUrl prop으로 배경 이미지 경로를, parallaxRange prop으로 이동 범위를, stiffness와 damping prop으로 애니메이션 물리 속성을 설정할 수 있게 해주세요. containerHeight와 imageHeight prop으로 컨테이너와 이미지 높이를, objectFit prop으로 이미지 맞춤 방식을 지정할 수 있게 해주세요." />
 
       {/* 탭 인터페이스 */}
       <TabInterface
