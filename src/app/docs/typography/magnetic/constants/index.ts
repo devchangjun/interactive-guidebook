@@ -4,7 +4,7 @@ export const MAGNETIC_DEFAULTS = {
   threshold: 6,
   stiffness: 400,
   damping: 30,
-  textColor: "#007aff",
+  textColor: "#ffffff",
   fontSize: "text-4xl md:text-6xl",
   fontWeight: "font-bold",
   spacing: "gap-0.5",

@@ -1,0 +1,309 @@
+# 인터랙티브 컴포넌트 개발 가이드
+
+## 컴포넌트 구조
+
+### 1. 기본 컴포넌트 템플릿
+
+```tsx
+"use client";
+import { useState, useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+
+interface ComponentNameProps {
+  // props 정의
+  className?: string;
+}
+
+/**
+ * ComponentName 컴포넌트
+ * - 컴포넌트의 핵심 기능 설명
+ * - 주요 특징들
+ */
+export default function ComponentName({
+  // props 구조분해
+  className = "",
+}: ComponentNameProps) {
+  // 상태 관리
+  const [state, setState] = useState(initialValue);
+
+  // refs
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Framer Motion values
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { stiffness: 100, damping: 20 });
+
+  // effects
+  useEffect(() => {
+    // 사이드 이펙트
+  }, [dependencies]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      style={
+        {
+          // 스타일링
+        }
+      }
+    >
+      {/* 컴포넌트 내용 */}
+    </motion.div>
+  );
+}
+```
+
+### 2. 컨트롤 패널 구조
+
+```tsx
+// 컨트롤 상태
+const [param1, setParam1] = useState(defaultValue1);
+const [param2, setParam2] = useState(defaultValue2);
+
+// 컨트롤 패널 컴포넌트
+const controlPanel = (
+  <div>
+    <h3 className="text-lg font-semibold text-white mb-4">컨트롤 패널</h3>
+    <ControlPanelWrapper>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* 컨트롤 요소들 */}
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-gray-200 uppercase tracking-wide">Parameter Name</label>
+          <p className="text-xs text-gray-400">파라미터 설명</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={param1}
+            onChange={(e) => setParam1(Number(e.target.value))}
+            className="flex-1 h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+      </div>
+    </ControlPanelWrapper>
+  </div>
+);
+```
+
+## 기술 스택
+
+### 필수 라이브러리
+
+- **Framer Motion**: 애니메이션 및 인터랙션
+- **React**: 컴포넌트 기반 UI
+- **TypeScript**: 타입 안전성
+- **Tailwind CSS**: 스타일링
+- **MUI**: UI 컴포넌트 (Button, Icons)
+
+### 주요 Framer Motion 훅
+
+```tsx
+// 기본 motion values
+const x = useMotionValue(0);
+const y = useMotionValue(0);
+
+// 스프링 애니메이션
+const springX = useSpring(x, { stiffness: 100, damping: 20 });
+
+// 변환
+const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+// 스크롤
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["start start", "end start"],
+});
+```
+
+## 애니메이션 패턴
+
+### 1. 마우스 인터랙션
+
+```tsx
+const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+useEffect(() => {
+  const handleMouseMove = (e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
+
+  window.addEventListener("mousemove", handleMouseMove);
+  return () => window.removeEventListener("mousemove", handleMouseMove);
+}, []);
+```
+
+### 2. 스크롤 인터랙션
+
+```tsx
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["start start", "end start"],
+});
+
+const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+```
+
+### 3. 타이머 기반 애니메이션
+
+```tsx
+useEffect(() => {
+  if (currentIndex < text.length) {
+    const timer = setTimeout(() => {
+      setCurrentIndex(currentIndex + 1);
+    }, speed);
+    return () => clearTimeout(timer);
+  }
+}, [currentIndex, text, speed]);
+```
+
+## 스타일링 가이드
+
+### 색상 팔레트
+
+```css
+/* 기본 색상 */
+--primary: #2563eb;
+--background: #1a1a1a;
+--text-primary: #ffffff;
+--text-secondary: #9ca3af;
+--border: #374151;
+```
+
+### 그리드 패턴 배경
+
+```tsx
+style={{
+  backgroundImage:
+    "radial-gradient(circle, #444 1.5px, transparent 1.5px), radial-gradient(circle, #222 1.5px, transparent 1.5px)",
+  backgroundSize: "20px 20px",
+  backgroundPosition: "0 0, 10px 10px",
+}}
+```
+
+### 반응형 디자인
+
+```tsx
+// 모바일 - 태블릿 - PC 순으로 고려
+className = "text-2xl md:text-4xl lg:text-6xl";
+className = "p-4 md:p-6 lg:p-8";
+```
+
+## 성능 최적화
+
+### 1. 메모이제이션
+
+```tsx
+const memoizedValue = useMemo(() => {
+  return expensiveCalculation(deps);
+}, [deps]);
+
+const memoizedCallback = useCallback(() => {
+  // 콜백 함수
+}, [deps]);
+```
+
+### 2. 이벤트 리스너 최적화
+
+```tsx
+useEffect(() => {
+  const handleResize = debounce(() => {
+    // 리사이즈 핸들러
+  }, 100);
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+```
+
+### 3. 애니메이션 최적화
+
+```tsx
+// GPU 가속 사용
+<motion.div
+  style={{
+    transform: "translateZ(0)",
+  }}
+>
+  {/* 내용 */}
+</motion.div>
+```
+
+## 접근성 고려사항
+
+### 1. 키보드 네비게이션
+
+```tsx
+const handleKeyDown = (e: KeyboardEvent) => {
+  if (e.key === "Enter" || e.key === " ") {
+    // 액션 실행
+  }
+};
+```
+
+### 2. 스크린 리더 지원
+
+```tsx
+<div role="button" tabIndex={0} aria-label="애니메이션 버튼" onKeyDown={handleKeyDown}>
+  {/* 내용 */}
+</div>
+```
+
+## 테스트 가이드
+
+### 1. 단위 테스트
+
+```tsx
+import { render, screen, fireEvent } from "@testing-library/react";
+
+test("컴포넌트가 올바르게 렌더링됩니다", () => {
+  render(<ComponentName />);
+  expect(screen.getByText("예상 텍스트")).toBeInTheDocument();
+});
+```
+
+### 2. 인터랙션 테스트
+
+```tsx
+test("사용자 인터랙션이 올바르게 작동합니다", () => {
+  render(<ComponentName />);
+  const button = screen.getByRole("button");
+  fireEvent.click(button);
+  // 결과 검증
+});
+```
+
+## 배포 고려사항
+
+### 1. 번들 크기 최적화
+
+```tsx
+// 동적 임포트
+const HeavyComponent = lazy(() => import("./HeavyComponent"));
+
+// 조건부 렌더링
+{
+  shouldShow && <HeavyComponent />;
+}
+```
+
+### 2. 환경별 설정
+
+```tsx
+const isDevelopment = process.env.NODE_ENV === "development";
+const isProduction = process.env.NODE_ENV === "production";
+```
+
+## 참조 파일들
+
+- [TabInterface](mdc:src/components/common/TabInterface.tsx)
+- [ControlPanelWrapper](mdc:src/components/common/ControlPanelWrapper.tsx)
+- [ParallaxImage](mdc:src/components/common/framer-motion/ParallaxImage.tsx)
+- [TypingText](mdc:src/components/common/framer-motion/typography/typing-text/TypingText.tsx)
+- [TextScramble](mdc:src/components/common/framer-motion/typography/TextScramble.tsx)
+- [MagneticLetters](mdc:src/components/common/framer-motion/typography/MagneticLetters.tsx)
+  description:
+  globs:
+  alwaysApply: false
+
+---

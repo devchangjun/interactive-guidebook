@@ -1,0 +1,190 @@
+# 인터랙티브 컴포넌트 문서화 가이드
+
+## 문서화 구조
+
+모든 인터랙티브 컴포넌트 문서는 다음 구조를 따라야 합니다:
+
+### 1. 제목과 서브 텍스트 (설명)
+
+```tsx
+<Title>Component Name.</Title>
+<hr className="my-4 border-t border-gray-700" />
+
+{/* 컴포넌트 설명 */}
+<p className="text-gray-200 text-lg mb-8">
+  컴포넌트의 핵심 기능을 한 문장으로 설명합니다.
+</p>
+```
+
+### 2. 아이디어 구체화 섹션
+
+[IdeaConcretizationSection](mdc:src/components/common/IdeaConcretizationSection.tsx) 컴포넌트를 사용합니다:
+
+```tsx
+<IdeaConcretizationSection when="언제 이 효과가 적용되는지" what="무엇을 대상으로 하는지" how="어떻게 구현되는지" />
+```
+
+### 3. 기본 프롬프트 섹션
+
+[BasicPromptSection](mdc:src/components/common/BasicPromptSection.tsx) 컴포넌트를 사용합니다:
+
+```tsx
+<BasicPromptSection prompt="컴포넌트 생성에 필요한 기본 프롬프트 내용" />
+```
+
+### 4. 탭 인터페이스
+
+[TabInterface](mdc:src/components/common/TabInterface.tsx) 컴포넌트를 사용하여 Preview, Usage, Code 탭을 구현합니다:
+
+```tsx
+<TabInterface
+  activeTab={activeTab}
+  onTabChange={setActiveTab}
+  previewContent={<ComponentDemo />}
+  usageContent={usageExample}
+  codeContent={componentSourceCode}
+  codeLanguage="typescript"
+  onCopyCode={handleCopyCode}
+  onSeeFullSnippet={handleSeeFullSnippet}
+  controlPanel={controlPanel}
+/>
+```
+
+## 필수 컴포넌트들
+
+### TabInterface 컴포넌트
+
+- Preview 탭: 실제 컴포넌트 데모와 컨트롤 패널
+- Usage 탭: 컴포넌트 사용법 예제 (syntax highlighting 포함)
+- Code 탭: 원본 소스 코드 (syntax highlighting 포함)
+
+### ControlPanelWrapper 컴포넌트
+
+- 컨트롤 패널의 공통 스타일링
+- 그리드 패턴 배경 적용
+- 재사용 가능한 래퍼 컴포넌트
+
+### IdeaConcretizationSection 컴포넌트
+
+- 아이디어 구체화 섹션의 공통 스타일
+- 언제, 무엇을, 어떻게에 대한 구조화된 설명
+
+### BasicPromptSection 컴포넌트
+
+- 기본 프롬프트 섹션의 공통 스타일
+- 컴포넌트 생성에 필요한 프롬프트 표시
+
+## 구현된 예시들
+
+### 1. ParallaxImage 컴포넌트
+
+- [parallax/page.tsx](mdc:src/app/docs/interaction/parallax/page.tsx)
+- 스크롤에 따라 배경 이미지가 시차를 두고 움직이는 패럴럭스 효과
+
+### 2. TypingText 컴포넌트
+
+- [typing/page.tsx](mdc:src/app/docs/typography/typing/page.tsx)
+- 텍스트가 타이핑되는 애니메이션 효과
+
+### 3. TextScramble 컴포넌트
+
+- [scramble/page.tsx](mdc:src/app/docs/typography/scramble/page.tsx)
+- 텍스트가 스크램블되는 애니메이션 효과
+
+### 4. MagneticLetters 컴포넌트
+
+- [magnetic/page.tsx](mdc:src/app/docs/typography/magnetic/page.tsx)
+- 마우스 커서에 반응하여 텍스트가 자석처럼 끌리는 효과
+
+## 스타일 가이드
+
+### 색상
+
+- 기본 텍스트 색상: `#ffffff` (흰색)
+- 제목: `text-gray-200 text-lg mb-8`
+- 구분선: `border-t border-gray-700`
+- 컨트롤 패널 제목: `text-lg font-semibold text-white mb-4`
+- 라벨: `text-sm font-medium text-gray-200 uppercase tracking-wide`
+- 설명: `text-xs text-gray-400`
+
+### 레이아웃
+
+- 컨트롤 패널: `grid gap-6 md:grid-cols-2 lg:grid-cols-3`
+- 탭 버튼: MUI Button 컴포넌트 사용
+- 구분선: `border-t border-gray-700`
+
+## 코드 예시 구조
+
+```tsx
+export default function ComponentPage() {
+  const [activeTab, setActiveTab] = useState<"preview" | "usage" | "code">("preview");
+
+  // 컨트롤 상태들...
+
+  // 코드 복사 핸들러
+  const handleCopyCode = () => {
+    const code = `// 컴포넌트 소스 코드`;
+    navigator.clipboard.writeText(code);
+  };
+
+  // Usage 예제 코드
+  const usageExample = `// 사용법 예제`;
+
+  // 실제 컴포넌트 소스 코드
+  const componentSourceCode = `// 전체 소스 코드`;
+
+  // 컨트롤 패널 컴포넌트
+  const controlPanel = (
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-4">컨트롤 패널</h3>
+      <ControlPanelWrapper>{/* 컨트롤 요소들 */}</ControlPanelWrapper>
+    </div>
+  );
+
+  return (
+    <div>
+      <Title>Component Name.</Title>
+      <hr className="my-4 border-t border-gray-700" />
+
+      {/* 컴포넌트 설명 */}
+      <p className="text-gray-200 text-lg mb-8">컴포넌트 설명...</p>
+
+      {/* 아이디어 구체화 */}
+      <IdeaConcretizationSection
+        when="언제 이 효과가 적용되는지"
+        what="무엇을 대상으로 하는지"
+        how="어떻게 구현되는지"
+      />
+
+      {/* 기본 프롬프트 */}
+      <BasicPromptSection prompt="컴포넌트 생성에 필요한 기본 프롬프트 내용" />
+
+      {/* 탭 인터페이스 */}
+      <TabInterface
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        previewContent={<ComponentDemo />}
+        usageContent={usageExample}
+        codeContent={componentSourceCode}
+        codeLanguage="typescript"
+        onCopyCode={handleCopyCode}
+        onSeeFullSnippet={handleSeeFullSnippet}
+        controlPanel={controlPanel}
+      />
+    </div>
+  );
+}
+```
+
+## 참조 파일들
+
+- [TabInterface](mdc:src/components/common/TabInterface.tsx)
+- [ControlPanelWrapper](mdc:src/components/common/ControlPanelWrapper.tsx)
+- [IdeaConcretizationSection](mdc:src/components/common/IdeaConcretizationSection.tsx)
+- [BasicPromptSection](mdc:src/components/common/BasicPromptSection.tsx)
+- [component-documentation-structure.mdc](mdc:.cursor/rules/component-documentation-structure.mdc)
+  description:
+  globs:
+  alwaysApply: false
+
+---
