@@ -1,0 +1,272 @@
+# 코드 품질 및 문서화 품질 관리 규칙
+
+## 📊 코드 품질 기준
+
+### 1. 컴포넌트 구조
+
+- **단일 책임 원칙**: 각 컴포넌트는 하나의 명확한 목적을 가져야 함
+- **Props 인터페이스**: 모든 props는 TypeScript 인터페이스로 정의
+- **기본값 설정**: 필수가 아닌 props는 기본값 제공
+- **에러 처리**: 사용자 입력에 대한 적절한 검증
+
+### 2. 성능 최적화
+
+```tsx
+// ✅ 좋은 예시
+const Component = React.memo(({ prop1, prop2 }: Props) => {
+  const memoizedValue = useMemo(() => expensiveCalculation(prop1), [prop1]);
+
+  return <div>{memoizedValue}</div>;
+});
+
+// ❌ 피해야 할 예시
+const Component = ({ prop1, prop2 }: Props) => {
+  const value = expensiveCalculation(prop1); // 매 렌더링마다 실행
+
+  return <div>{value}</div>;
+};
+```
+
+### 3. 접근성 (Accessibility)
+
+```tsx
+// ✅ 접근성 고려
+<button
+  aria-label="메뉴 열기"
+  aria-expanded={isOpen}
+  onClick={handleClick}
+>
+  <MenuIcon />
+</button>
+
+// ❌ 접근성 무시
+<div onClick={handleClick}>
+  <MenuIcon />
+</div>
+```
+
+## 📝 문서화 품질 기준
+
+### 1. 완성도 체크리스트
+
+- [ ] 컴포넌트 목적이 명확히 설명됨
+- [ ] 모든 props가 문서화됨
+- [ ] 기본 사용법 예시 제공
+- [ ] 고급 사용법 예시 제공
+- [ ] 실제 동작 데모 포함
+- [ ] 성능 고려사항 언급
+- [ ] 브라우저 호환성 정보
+- [ ] 관련 링크 제공
+
+### 2. 코드 예시 품질
+
+```tsx
+// ✅ 좋은 예시 - 주석과 설명 포함
+import { useState } from "react";
+import MyComponent from "@/components/MyComponent";
+
+export default function Example() {
+  // 상태 관리
+  const [isActive, setIsActive] = useState(false);
+
+  // 이벤트 핸들러
+  const handleToggle = () => {
+    setIsActive(!isActive);
+  };
+
+  return <MyComponent isActive={isActive} onToggle={handleToggle} className="custom-class" />;
+}
+
+// ❌ 나쁜 예시 - 설명 없음
+export default function Example() {
+  const [isActive, setIsActive] = useState(false);
+
+  return <MyComponent isActive={isActive} onToggle={() => setIsActive(!isActive)} />;
+}
+```
+
+### 3. 문서 구조 표준화
+
+```markdown
+# 컴포넌트명
+
+## 💡 아이디어 구체화
+
+### 목적
+
+### 핵심 기능
+
+### 기술적 접근
+
+### 사용 사례
+
+## 📝 코드 예시
+
+### 기본 사용법
+
+### Props 인터페이스
+
+### 고급 설정
+
+## 🎮 인터랙티브 데모
+
+[데모 컴포넌트]
+
+## ⚡ 성능 및 최적화
+
+### 성능 고려사항
+
+### 브라우저 호환성
+
+## 🔗 관련 링크
+```
+
+## 🔍 코드 리뷰 체크리스트
+
+### 기능성
+
+- [ ] 요구사항이 모두 구현되었는가?
+- [ ] 예외 상황이 적절히 처리되었는가?
+- [ ] 사용자 입력이 올바르게 검증되는가?
+
+### 성능
+
+- [ ] 불필요한 리렌더링이 발생하지 않는가?
+- [ ] 메모리 누수가 발생하지 않는가?
+- [ ] 큰 데이터셋에서도 성능이 양호한가?
+
+### 접근성
+
+- [ ] 키보드 네비게이션이 가능한가?
+- [ ] 스크린 리더가 올바르게 읽을 수 있는가?
+- [ ] 색상 대비가 충분한가?
+
+### 유지보수성
+
+- [ ] 코드가 읽기 쉬운가?
+- [ ] 함수와 변수명이 명확한가?
+- [ ] 주석이 적절히 작성되었는가?
+
+### 테스트
+
+- [ ] 단위 테스트가 작성되었는가?
+- [ ] 통합 테스트가 작성되었는가?
+- [ ] 테스트 커버리지가 충분한가?
+
+## 🚨 일반적인 실수와 해결책
+
+### 1. 메모리 누수
+
+```tsx
+// ❌ 문제가 있는 코드
+useEffect(() => {
+  const timer = setInterval(() => {
+    // 작업 수행
+  }, 1000);
+  // cleanup 함수 없음
+}, []);
+
+// ✅ 수정된 코드
+useEffect(() => {
+  const timer = setInterval(() => {
+    // 작업 수행
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
+```
+
+### 2. 불필요한 리렌더링
+
+```tsx
+// ❌ 문제가 있는 코드
+const Component = ({ data }: Props) => {
+  const processedData = data.map((item) => ({
+    ...item,
+    processed: true,
+  }));
+
+  return (
+    <div>
+      {processedData.map((item) => (
+        <Item key={item.id} {...item} />
+      ))}
+    </div>
+  );
+};
+
+// ✅ 수정된 코드
+const Component = ({ data }: Props) => {
+  const processedData = useMemo(
+    () =>
+      data.map((item) => ({
+        ...item,
+        processed: true,
+      })),
+    [data]
+  );
+
+  return (
+    <div>
+      {processedData.map((item) => (
+        <Item key={item.id} {...item} />
+      ))}
+    </div>
+  );
+};
+```
+
+### 3. 타입 안전성
+
+```tsx
+// ❌ 타입 안전하지 않은 코드
+const handleClick = (event) => {
+  console.log(event.target.value);
+};
+
+// ✅ 타입 안전한 코드
+const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  console.log(event.currentTarget.value);
+};
+```
+
+## 📈 품질 지표
+
+### 코드 품질 지표
+
+- **복잡도**: 함수당 평균 라인 수 < 20
+- **테스트 커버리지**: > 80%
+- **타입 안전성**: 모든 컴포넌트에 TypeScript 적용
+- **접근성**: WCAG 2.1 AA 준수
+
+### 문서화 품질 지표
+
+- **완성도**: 필수 섹션 100% 포함
+- **명확성**: 초보자도 이해 가능한 설명
+- **실용성**: 바로 사용 가능한 예시 제공
+- **최신성**: 최신 라이브러리 버전과 호환
+
+## 🎯 개선 계획
+
+### 단기 목표 (1-2주)
+
+- [ ] 기존 문서에 아이디어 구체화 섹션 추가
+- [ ] 모든 코드 예시에 주석 추가
+- [ ] 접근성 개선
+
+### 중기 목표 (1-2개월)
+
+- [ ] 모든 컴포넌트에 단위 테스트 작성
+- [ ] 성능 최적화 적용
+- [ ] 문서 템플릿 표준화
+
+### 장기 목표 (3-6개월)
+
+- [ ] 자동화된 품질 검사 도구 도입
+- [ ] 사용자 피드백 시스템 구축
+- [ ] 지속적인 개선 프로세스 확립
+      description:
+      globs:
+      alwaysApply: false
+
+---

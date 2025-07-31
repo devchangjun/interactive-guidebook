@@ -1,0 +1,268 @@
+# 인터랙티브 컴포넌트 문서화 템플릿
+
+## 📋 표준 문서 구조
+
+### 1. 헤더 섹션
+
+```tsx
+<Title>Component Name.</Title>
+<hr className="my-4 border-t border-gray-700" />
+```
+
+### 2. 아이디어 구체화 섹션 (필수)
+
+```tsx
+{
+  /* 아이디어 구체화 섹션 - 새로운 디자인 */
+}
+<section className="mb-8">
+  <div className="flex items-start space-x-4">
+    {/* 번호 아이콘 */}
+    <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full border border-white flex items-center justify-center">
+      <span className="text-white font-bold text-sm">1</span>
+    </div>
+
+    {/* 내용 */}
+    <div className="flex-1">
+      <h2 className="text-xl font-bold text-white mb-4">아이디어 구체화</h2>
+
+      <div className="space-y-3 pl-4 border-l border-gray-600">
+        <div className="flex items-start space-x-3">
+          <span className="text-gray-400 text-sm font-medium min-w-[60px]">언제:</span>
+          <span className="text-gray-300 text-sm">[이벤트 발생 조건]</span>
+        </div>
+
+        <div className="flex items-start space-x-3">
+          <span className="text-gray-400 text-sm font-medium min-w-[60px]">무엇을:</span>
+          <span className="text-gray-300 text-sm">[대상 요소]</span>
+        </div>
+
+        <div className="flex items-start space-x-3">
+          <span className="text-gray-400 text-sm font-medium min-w-[60px]">어떻게:</span>
+          <span className="text-gray-300 text-sm">[애니메이션 방식]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>;
+```
+
+### 3. 기본 프롬프트 섹션 (필수)
+
+```tsx
+{
+  /* 기본 프롬프트 섹션 */
+}
+<section className="mb-8">
+  <div className="flex items-start space-x-4">
+    {/* 번호 아이콘 */}
+    <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full border border-white flex items-center justify-center">
+      <span className="text-white font-bold text-sm">2</span>
+    </div>
+
+    {/* 내용 */}
+    <div className="flex-1">
+      <h2 className="text-xl font-bold text-white mb-4">기본 프롬프트</h2>
+
+      <div className="pl-4 border-l border-gray-600">
+        <p className="text-gray-300 text-sm leading-relaxed">
+          [컴포넌트명] 컴포넌트를 만들어주세요. 이 컴포넌트는 [주요 기능 설명]을 보여줍니다. [prop 설명]을 설정할 수
+          있게 해주세요.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>;
+```
+
+### 4. 코드 예시 섹션 (필수)
+
+```tsx
+{
+  /* 📝 코드 예시 섹션 */
+}
+<section className="mb-8 p-6 bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded-xl border border-green-500/30">
+  <h2 className="text-2xl font-bold text-green-400 mb-4">📝 코드 예시</h2>
+
+  <div className="space-y-6">
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-3">기본 사용법</h3>
+      <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+        <pre className="text-sm text-gray-300">
+          {`import ComponentName from '@/components/common/framer-motion/ComponentName';
+
+export default function BasicExample() {
+  return (
+    <ComponentName
+      prop1="value1"
+      prop2={42}
+    />
+  );
+}`}
+        </pre>
+      </div>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-3">Props 인터페이스</h3>
+      <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+        <pre className="text-sm text-gray-300">
+          {`interface ComponentNameProps {
+  prop1: string;
+  prop2?: number;
+  prop3?: boolean;
+  className?: string;
+}`}
+        </pre>
+      </div>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-3">고급 설정</h3>
+      <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+        <pre className="text-sm text-gray-300">
+          {`// 커스터마이징된 설정 예시
+<ComponentName
+  prop1="custom-value"
+  prop2={100}
+  prop3={true}
+  className="custom-class"
+/>`}
+        </pre>
+      </div>
+    </div>
+  </div>
+</section>;
+```
+
+### 5. 인터랙티브 데모 섹션 (필수)
+
+```tsx
+{
+  /* 🎮 인터랙티브 데모 섹션 */
+}
+<section className="mb-8">
+  <h2 className="text-2xl font-bold text-white mb-4">🎮 인터랙티브 데모</h2>
+  <DemoContainer>
+    <ComponentName
+    // 데모용 props
+    />
+  </DemoContainer>
+
+  {/* 컨트롤 패널 */}
+  <div className="mt-6 p-4 md:p-6 bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-neutral-800">
+    {/* 컨트롤 요소들 */}
+  </div>
+</section>;
+```
+
+### 6. 성능 및 최적화 섹션 (선택)
+
+```tsx
+{
+  /* ⚡ 성능 및 최적화 섹션 */
+}
+<section className="mb-8 p-6 bg-gradient-to-r from-yellow-900/20 to-orange-900/20 rounded-xl border border-yellow-500/30">
+  <h2 className="text-2xl font-bold text-yellow-400 mb-4">⚡ 성능 및 최적화</h2>
+
+  <div className="grid gap-6 md:grid-cols-2">
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-2">성능 고려사항</h3>
+      <ul className="text-gray-300 space-y-1 text-sm">
+        <li>• [성능 최적화 포인트 1]</li>
+        <li>• [성능 최적화 포인트 2]</li>
+        <li>• [성능 최적화 포인트 3]</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-2">브라우저 호환성</h3>
+      <ul className="text-gray-300 space-y-1 text-sm">
+        <li>• Chrome 90+</li>
+        <li>• Firefox 88+</li>
+        <li>• Safari 14+</li>
+        <li>• Edge 90+</li>
+      </ul>
+    </div>
+  </div>
+</section>;
+```
+
+### 7. 관련 링크 섹션 (선택)
+
+```tsx
+{
+  /* 🔗 관련 링크 섹션 */
+}
+<section className="mb-8 p-6 bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-xl border border-purple-500/30">
+  <h2 className="text-2xl font-bold text-purple-400 mb-4">🔗 관련 링크</h2>
+
+  <div className="space-y-3">
+    <a href="[라이브러리 문서]" className="block text-blue-400 hover:text-blue-300 transition-colors">
+      📚 [라이브러리명] 공식 문서
+    </a>
+    <a href="[관련 예시]" className="block text-blue-400 hover:text-blue-300 transition-colors">
+      💡 관련 예시 및 튜토리얼
+    </a>
+    <a href="[GitHub 저장소]" className="block text-blue-400 hover:text-blue-300 transition-colors">
+      🐙 GitHub 저장소
+    </a>
+  </div>
+</section>;
+```
+
+## 🎨 스타일 가이드
+
+### 색상 팔레트
+
+- **번호 아이콘**: `bg-blue-500` + `border-white`
+- **아이디어 구체화**: `text-white` (제목), `text-gray-300` (본문), `text-gray-400` (라벨)
+- **코드 예시**: `from-green-900/20 to-emerald-900/20` + `border-green-500/30`
+- **성능 최적화**: `from-yellow-900/20 to-orange-900/20` + `border-yellow-500/30`
+- **관련 링크**: `from-purple-900/20 to-pink-900/20` + `border-purple-500/30`
+
+### 코드블럭 스타일
+
+```tsx
+<div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+  <pre className="text-sm text-gray-300">{/* 코드 내용 */}</pre>
+</div>
+```
+
+### 이모지 사용 규칙
+
+- 📝 코드 예시
+- 🎮 인터랙티브 데모
+- ⚡ 성능 및 최적화
+- 🔗 관련 링크
+
+### 레이아웃 규칙
+
+- **수평 정렬**: `flex items-start space-x-4`
+- **세로 구분선**: `border-l border-gray-600`
+- **여백**: `pl-4` (왼쪽 패딩)
+- **번호 아이콘**: `w-8 h-8` (32px)
+
+### 타이포그래피
+
+- **제목**: `text-xl font-bold`
+- **라벨**: `text-sm font-medium min-w-[60px]`
+- **본문**: `text-sm leading-relaxed`
+
+## 📝 작성 체크리스트
+
+- [ ] 아이디어 구체화 섹션 포함
+- [ ] 기본 프롬프트 섹션 포함
+- [ ] 기본 사용법 코드블럭 포함
+- [ ] Props 인터페이스 정의
+- [ ] 고급 설정 예시 포함
+- [ ] 인터랙티브 데모 구현
+- [ ] 컨트롤 패널 제공
+- [ ] 성능 고려사항 언급 (필요시)
+- [ ] 브라우저 호환성 정보 (필요시)
+- [ ] 관련 링크 포함 (필요시)
+- [ ] 코드 예시가 실행 가능한지 확인
+- [ ] 모든 코드블럭에 적절한 언어 태그 사용
+- [ ] 주석과 설명이 충분한지 확인
+
+---
