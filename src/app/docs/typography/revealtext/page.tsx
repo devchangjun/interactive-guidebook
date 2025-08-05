@@ -470,16 +470,6 @@ export default RevealText;`;
         텍스트가 한 글자씩 또는 한 단어씩 자연스럽게 나타나는 등장 애니메이션 효과를 적용합니다.
       </p>
 
-      {/* 아이디어 구체화 섹션 */}
-      <IdeaConcretizationSection
-        when="컴포넌트가 마운트되거나 텍스트가 변경될 때"
-        what="텍스트의 각 글자나 단어를"
-        how="지정된 방향에서 순차적으로 나타나는 애니메이션으로 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="RevealText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 한 글자씩 또는 한 단어씩 자연스럽게 나타나는 등장 애니메이션을 보여줍니다. text prop으로 등장할 텍스트를, direction prop으로 애니메이션 방향(up, down, left, right)을, delay prop으로 시작 지연 시간을, duration prop으로 각 글자/단어 애니메이션 시간을, stagger prop으로 글자/단어 사이 간격을, byWord prop으로 글자 단위 또는 단어 단위 애니메이션을 설정할 수 있게 해주세요. className과 style prop으로 추가 스타일링을 지원해주세요. framer-motion의 motion.span을 활용하여 구현해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -504,6 +494,16 @@ export default RevealText;`;
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 */}
+      <IdeaConcretizationSection
+        when="컴포넌트가 마운트되거나 텍스트가 변경될 때"
+        what="텍스트의 각 글자나 단어를"
+        how="지정된 방향에서 순차적으로 나타나는 애니메이션으로 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="RevealText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 한 글자씩 또는 한 단어씩 자연스럽게 나타나는 등장 애니메이션을 보여줍니다. text prop으로 등장할 텍스트를, direction prop으로 애니메이션 방향(up, down, left, right)을, delay prop으로 시작 지연 시간을, duration prop으로 각 글자/단어 애니메이션 시간을, stagger prop으로 글자/단어 사이 간격을, byWord prop으로 글자 단위 또는 단어 단위 애니메이션을 설정할 수 있게 해주세요. className과 style prop으로 추가 스타일링을 지원해주세요. framer-motion의 motion.span을 활용하여 구현해주세요." />
     </div>
   );
 }

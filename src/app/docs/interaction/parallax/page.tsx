@@ -435,16 +435,6 @@ export default function ParallaxImage({
         스크롤에 따라 배경 이미지가 시차를 두고 움직이는 패럴럭스 효과를 적용합니다.
       </p>
 
-      {/* 아이디어 구체화 섹션 - 새로운 디자인 */}
-      <IdeaConcretizationSection
-        when="스크롤 이벤트가 발생할 때"
-        what="배경 이미지를"
-        how="스크롤 방향과 반대로 시차를 두고 움직이는 애니메이션으로 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="ParallaxImage 컴포넌트를 만들어주세요. 이 컴포넌트는 스크롤 시 배경 이미지가 시차를 두고 움직이는 패럴럭스 효과를 보여줍니다. imageUrl prop으로 배경 이미지 경로를, parallaxRange prop으로 이동 범위를, stiffness와 damping prop으로 애니메이션 물리 속성을 설정할 수 있게 해주세요. containerHeight와 imageHeight prop으로 컨테이너와 이미지 높이를, objectFit prop으로 이미지 맞춤 방식을 지정할 수 있게 해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -469,6 +459,16 @@ export default function ParallaxImage({
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 - 새로운 디자인 */}
+      <IdeaConcretizationSection
+        when="스크롤 이벤트가 발생할 때"
+        what="배경 이미지를"
+        how="스크롤 방향과 반대로 시차를 두고 움직이는 애니메이션으로 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="ParallaxImage 컴포넌트를 만들어주세요. 이 컴포넌트는 스크롤 시 배경 이미지가 시차를 두고 움직이는 패럴럭스 효과를 보여줍니다. imageUrl prop으로 배경 이미지 경로를, parallaxRange prop으로 이동 범위를, stiffness와 damping prop으로 애니메이션 물리 속성을 설정할 수 있게 해주세요. containerHeight와 imageHeight prop으로 컨테이너와 이미지 높이를, objectFit prop으로 이미지 맞춤 방식을 지정할 수 있게 해주세요." />
     </div>
   );
 }

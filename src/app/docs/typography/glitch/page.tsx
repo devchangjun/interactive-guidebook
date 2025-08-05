@@ -927,16 +927,6 @@ export default GlitchText;`;
         텍스트에 사이버펑크 스타일의 글리치 효과를 적용하여 디지털 왜곡 현상을 시뮬레이션합니다.
       </p>
 
-      {/* 아이디어 구체화 섹션 */}
-      <IdeaConcretizationSection
-        when="컴포넌트가 마운트되거나 호버 이벤트가 발생할 때"
-        what="텍스트를"
-        how="4개의 색상 레이어와 랜덤한 클리핑 패턴으로 글리치 효과를 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="GlitchText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트에 사이버펑크 스타일의 글리치 효과를 적용합니다. children prop으로 글리치 효과를 적용할 텍스트를, speed prop으로 애니메이션 속도를, enableShadows prop으로 그림자 효과 활성화를, enableOnHover prop으로 호버 시에만 실행 여부를, glitchColors prop으로 글리치 색상 배열을, refreshDelay prop으로 글리치 효과 간격을 설정할 수 있게 해주세요. 4개의 레이어로 구성된 복잡한 글리치 효과를 구현하고, 랜덤한 클리핑 패턴과 변형을 적용해주세요. framer-motion의 useAnimation을 활용하여 구현해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -963,6 +953,16 @@ export default GlitchText;`;
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 */}
+      <IdeaConcretizationSection
+        when="컴포넌트가 마운트되거나 호버 이벤트가 발생할 때"
+        what="텍스트를"
+        how="4개의 색상 레이어와 랜덤한 클리핑 패턴으로 글리치 효과를 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="GlitchText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트에 사이버펑크 스타일의 글리치 효과를 적용합니다. children prop으로 글리치 효과를 적용할 텍스트를, speed prop으로 애니메이션 속도를, enableShadows prop으로 그림자 효과 활성화를, enableOnHover prop으로 호버 시에만 실행 여부를, glitchColors prop으로 글리치 색상 배열을, refreshDelay prop으로 글리치 효과 간격을 설정할 수 있게 해주세요. 4개의 레이어로 구성된 복잡한 글리치 효과를 구현하고, 랜덤한 클리핑 패턴과 변형을 적용해주세요. framer-motion의 useAnimation을 활용하여 구현해주세요." />
     </div>
   );
 }

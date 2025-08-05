@@ -455,16 +455,6 @@ export default function TypingText({
       {/* 컴포넌트 설명 */}
       <p className="text-gray-200 text-lg mb-8">텍스트가 타이핑되는 애니메이션 효과를 적용합니다.</p>
 
-      {/* 아이디어 구체화 섹션 */}
-      <IdeaConcretizationSection
-        when="컴포넌트가 마운트되거나 텍스트가 변경될 때"
-        what="텍스트를"
-        how="한 글자씩 순차적으로 나타나는 타이핑 애니메이션으로 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="TypingText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 타이핑되는 애니메이션 효과를 보여줍니다. text prop으로 타이핑할 텍스트를, speed prop으로 타이핑 속도를, delay prop으로 시작 전 대기 시간을 설정할 수 있게 해주세요. className prop으로 스타일링을, cursorChar prop으로 커서 문자를, showCursor prop으로 커서 표시 여부를, loop prop으로 반복 재생을 설정할 수 있게 해주세요. cursorClassName과 textClassName prop으로 커서와 텍스트의 개별 스타일링을 지원해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -492,6 +482,16 @@ export default function TypingText({
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 */}
+      <IdeaConcretizationSection
+        when="컴포넌트가 마운트되거나 텍스트가 변경될 때"
+        what="텍스트를"
+        how="한 글자씩 순차적으로 나타나는 타이핑 애니메이션으로 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="TypingText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 타이핑되는 애니메이션 효과를 보여줍니다. text prop으로 타이핑할 텍스트를, speed prop으로 타이핑 속도를, delay prop으로 시작 전 대기 시간을 설정할 수 있게 해주세요. className prop으로 스타일링을, cursorChar prop으로 커서 문자를, showCursor prop으로 커서 표시 여부를, loop prop으로 반복 재생을 설정할 수 있게 해주세요. cursorClassName과 textClassName prop으로 커서와 텍스트의 개별 스타일링을 지원해주세요." />
     </div>
   );
 }

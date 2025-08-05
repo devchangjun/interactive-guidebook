@@ -500,16 +500,6 @@ export default MorphingText;`;
         텍스트가 자연스럽게 변형되면서 다른 텍스트로 모핑되는 애니메이션 효과를 적용합니다.
       </p>
 
-      {/* 아이디어 구체화 섹션 */}
-      <IdeaConcretizationSection
-        when="컴포넌트가 마운트되거나 텍스트 배열이 변경될 때"
-        what="텍스트 배열의 각 요소를"
-        how="blur와 threshold SVG 필터를 사용하여 자연스럽게 변형되는 모핑 애니메이션으로 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="MorphingText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 자연스럽게 변형되면서 다른 텍스트로 모핑되는 애니메이션을 보여줍니다. texts prop으로 모핑할 텍스트 배열을, morphTime prop으로 변형 애니메이션 시간을, cooldownTime prop으로 다음 변형까지 대기 시간을, color prop으로 텍스트 색상을 설정할 수 있게 해주세요. 두 개의 텍스트를 겹쳐서 blur와 threshold SVG 필터를 사용하여 모핑 효과를 구현해주세요. requestAnimationFrame을 활용하여 부드러운 애니메이션을 구현해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -533,6 +523,16 @@ export default MorphingText;`;
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 */}
+      <IdeaConcretizationSection
+        when="컴포넌트가 마운트되거나 텍스트 배열이 변경될 때"
+        what="텍스트 배열의 각 요소를"
+        how="blur와 threshold SVG 필터를 사용하여 자연스럽게 변형되는 모핑 애니메이션으로 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="MorphingText 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 자연스럽게 변형되면서 다른 텍스트로 모핑되는 애니메이션을 보여줍니다. texts prop으로 모핑할 텍스트 배열을, morphTime prop으로 변형 애니메이션 시간을, cooldownTime prop으로 다음 변형까지 대기 시간을, color prop으로 텍스트 색상을 설정할 수 있게 해주세요. 두 개의 텍스트를 겹쳐서 blur와 threshold SVG 필터를 사용하여 모핑 효과를 구현해주세요. requestAnimationFrame을 활용하여 부드러운 애니메이션을 구현해주세요." />
     </div>
   );
 }

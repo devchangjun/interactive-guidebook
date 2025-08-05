@@ -519,16 +519,6 @@ export default function TextScramble({
       {/* 컴포넌트 설명 */}
       <p className="text-gray-200 text-lg mb-8">텍스트가 스크램블되는 애니메이션 효과를 적용합니다.</p>
 
-      {/* 아이디어 구체화 섹션 */}
-      <IdeaConcretizationSection
-        when="컴포넌트가 마운트되거나 호버 이벤트가 발생할 때"
-        what="텍스트를"
-        how="랜덤 문자로 스크램블한 후 원래 텍스트로 순차적으로 복원하는 애니메이션으로 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="TextScramble 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 스크램블되는 애니메이션 효과를 보여줍니다. text prop으로 스크램블할 텍스트를, speed prop으로 스크램블 속도를, delay prop으로 시작 전 대기 시간을 설정할 수 있게 해주세요. loop prop으로 반복 재생을, pauseTime prop으로 반복 시 일시정지 시간을, characters prop으로 스크램블에 사용할 문자셋을, revealSpeed prop으로 각 문자가 복원되는 속도를 설정할 수 있게 해주세요. trigger prop으로 auto, hover, manual 트리거 방식을 지원해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -555,6 +545,16 @@ export default function TextScramble({
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 */}
+      <IdeaConcretizationSection
+        when="컴포넌트가 마운트되거나 호버 이벤트가 발생할 때"
+        what="텍스트를"
+        how="랜덤 문자로 스크램블한 후 원래 텍스트로 순차적으로 복원하는 애니메이션으로 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="TextScramble 컴포넌트를 만들어주세요. 이 컴포넌트는 텍스트가 스크램블되는 애니메이션 효과를 보여줍니다. text prop으로 스크램블할 텍스트를, speed prop으로 스크램블 속도를, delay prop으로 시작 전 대기 시간을 설정할 수 있게 해주세요. loop prop으로 반복 재생을, pauseTime prop으로 반복 시 일시정지 시간을, characters prop으로 스크램블에 사용할 문자셋을, revealSpeed prop으로 각 문자가 복원되는 속도를 설정할 수 있게 해주세요. trigger prop으로 auto, hover, manual 트리거 방식을 지원해주세요." />
     </div>
   );
 }

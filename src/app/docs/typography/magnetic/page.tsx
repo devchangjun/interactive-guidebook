@@ -555,16 +555,6 @@ function MagneticLetter({
       {/* 컴포넌트 설명 */}
       <p className="text-gray-200 text-lg mb-8">마우스 커서에 반응하여 텍스트가 자석처럼 끌리는 효과를 적용합니다.</p>
 
-      {/* 아이디어 구체화 섹션 */}
-      <IdeaConcretizationSection
-        when="마우스가 텍스트 영역에 접근할 때"
-        what="텍스트의 각 글자를"
-        how="마우스 커서 위치에 따라 자석처럼 끌리는 애니메이션으로 표현"
-      />
-
-      {/* 기본 프롬프트 섹션 */}
-      <BasicPromptSection prompt="MagneticLetters 컴포넌트를 만들어주세요. 이 컴포넌트는 마우스 커서에 반응하여 텍스트가 자석처럼 끌리는 효과를 보여줍니다. text prop으로 마그네틱 효과를 적용할 텍스트를, strength prop으로 자석 끌림 강도를, threshold prop으로 영향 범위 배수를, stiffness와 damping prop으로 스프링 물리 속성을 설정할 수 있게 해주세요. textColor prop으로 텍스트 색상을, className prop으로 추가 스타일링을 지원해주세요. 각 글자가 개별적으로 마우스 위치에 반응하도록 구현해주세요." />
-
       {/* 탭 인터페이스 */}
       <TabInterface
         activeTab={activeTab}
@@ -590,6 +580,16 @@ function MagneticLetter({
         onSeeFullSnippet={handleSeeFullSnippet}
         controlPanel={controlPanel}
       />
+
+      {/* 아이디어 구체화 섹션 */}
+      <IdeaConcretizationSection
+        when="마우스가 텍스트 영역에 접근할 때"
+        what="텍스트의 각 글자를"
+        how="마우스 커서 위치에 따라 자석처럼 끌리는 애니메이션으로 표현"
+      />
+
+      {/* 기본 프롬프트 섹션 */}
+      <BasicPromptSection prompt="MagneticLetters 컴포넌트를 만들어주세요. 이 컴포넌트는 마우스 커서에 반응하여 텍스트가 자석처럼 끌리는 효과를 보여줍니다. text prop으로 마그네틱 효과를 적용할 텍스트를, strength prop으로 자석 끌림 강도를, threshold prop으로 영향 범위 배수를, stiffness와 damping prop으로 스프링 물리 속성을 설정할 수 있게 해주세요. textColor prop으로 텍스트 색상을, className prop으로 추가 스타일링을 지원해주세요. 각 글자가 개별적으로 마우스 위치에 반응하도록 구현해주세요." />
     </div>
   );
 }
