@@ -12,13 +12,13 @@ export default function BasicPromptSection({ prompt }: BasicPromptSectionProps) 
     <section className="mb-8">
       <div className="flex items-start space-x-4">
         {/* 번호 아이콘 */}
-        <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full border border-white flex items-center justify-center">
+        <div className="flex-shrink-0 w-8 h-8 bg-[#181818] rounded-full border border-white flex items-center justify-center">
           <span className="text-white font-bold text-sm">2</span>
         </div>
 
         {/* 내용 */}
         <div className="flex-1">
-          <h2 className="text-xl font-bold text-white mb-4">기본 프롬프트</h2>
+          <h2 className="text-xl font-bold text-white mb-4">바이브 프롬프트</h2>
 
           <div className="pl-4 border-l border-gray-600">
             <p className="text-gray-300 text-sm leading-relaxed">{prompt}</p>
